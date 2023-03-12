@@ -1,4 +1,4 @@
-Lambda function used just for the lols to make stuff less complex
+Lambda function are used to make stuff less complex
 
 ```
 //fun name  //param  //ret type //param name
