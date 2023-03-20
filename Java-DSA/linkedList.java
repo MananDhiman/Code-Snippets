@@ -41,6 +41,19 @@ public class linkedList{
             System.out.println(itr.value);
 
         }
+
+        void printListRecursively(){        
+            printNode(this.head);
+        }
+        private void printNode(Node itr){
+            if(itr == null) return;
+            else if(itr.nextNode == null) {
+                System.out.printf("%d",itr.value);
+                return;
+            }
+            System.out.printf("%d --> ",itr.value);
+            printNode(itr.nextNode);
+        }
     }
 
     public static void main(String[] args){
@@ -54,5 +67,6 @@ public class linkedList{
         ll.addNode(54);
         ll.addNode(65);
         ll.printList();
+        ll.printListRecursively();
     }
 }
