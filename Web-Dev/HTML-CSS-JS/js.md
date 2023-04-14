@@ -1,5 +1,42 @@
-# DOM Manipulation
+# Syntax
+```javascript
+var //function scope
+const //immutable
+let //block scope
+
+== //loose equality. performs type conversion
+=== //strict equality. no type conversion
+const num = 0;
+const obj = new String("0");
+const str = "0";
+//on using ==, result will be true
+//on using ===, result will be false
+
+//array
+const arr = [10,20,40];
+arr.push(50); arr.pop();
+arr.reverse();
+
+//function
+//arguments as value
+//objects as reference
+function doSomething(a, b){
+    return a + b;
+}
+
+//arrow function
+let doSomething = (a,b) => {
+    return a+b
+}
+
+//minimised arrow function
+let doSomething = (a,b) => a+b
+```
+
+# DOM
 ## Important
+
+Modification
 ```javascript
 const body = document.body
 const div = document.createElement('div')
@@ -20,8 +57,6 @@ strong.innerText = "Hello World 3"
 div.append(strong)
 
 div.remove() //deletes element
-
-
 
 console.log(spanText.title || spanText.id) //use getAttribute as alternative
 
