@@ -46,10 +46,20 @@ public class BST{
     void levelOrderPrint(Node root){
         Queue<Node> q = new LinkedList<>();
         q.add(root);
+        q.add(null);
 
         while(!q.isEmpty()){
             Node currentNode = q.remove();
+
+            if(currentNode == null){
+                if(q.isEmpty()) return;
+                q.add(null);
+                System.out.println("===");
+                continue;
+            }
+
             System.out.println(currentNode.value);
+
             if(currentNode.left != null) q.add(currentNode.left);
             if(currentNode.right != null) q.add(currentNode.right);
         }
