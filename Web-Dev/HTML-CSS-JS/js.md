@@ -1,3 +1,19 @@
+# Concepts
+## Variable scope
+```javascript
+
+//let is standard scope
+<script src="script.js" type="module"> //isolates variables of each file
+
+//To export from Module
+const moduleVar = "Module"
+export const exportedVar = "Exported"
+
+//In other file
+import { exportedVar } from "./firstScript.js"
+
+```
+
 # Syntax
 ```javascript
 var //function scope
