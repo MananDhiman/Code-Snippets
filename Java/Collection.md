@@ -1,12 +1,17 @@
 # ArrayList
 ```java
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.*;
+
 ArrayList<String> list = new ArrayList<>();
 list.add("A");
 list.get(0);
-list.size();
+int size = list.size();
 
-list.set(0,"AA");
-list.remove();
+list.set(0,5) //replaces 0th element as 5
+list.add(3,1) //adds 1 at 3 index
+list.remove(3) //removes element at 3 index
 list.clear();
 ```
 
