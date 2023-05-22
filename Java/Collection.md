@@ -41,6 +41,14 @@ hash_map.containsValue("World"));
 hash_map.containsKey(5));
 ```
 
+### Iterate HashMap
+```java
+// using for-each loop for iteration over Map.entrySet()
+for (Map.Entry<String,Integer> entry : empIds.entrySet()) 
+	System.out.println("Key = " + empIds.getKey() + ", Value = " + empIds.getValue());
+}
+```
+
 # Queue
 ```java
 Queue<Integer> q = new LinkedList<>();
