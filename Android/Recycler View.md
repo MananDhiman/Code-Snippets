@@ -12,7 +12,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.jagratilaharadmin.R
 
-class PostsAdapters(private val postsList: List<Posts>, val context: Context): RecyclerView.Adapter<PostsAdapters.ViewHolder>() {
+class PostsAdapters(private val postsList: List<Posts>, /*val context: Context*/): RecyclerView.Adapter<PostsAdapters.ViewHolder>() {
     val variable: Variable = Variable()
     
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -58,4 +58,3 @@ val adapter = AttendanceAdapter(listAttendance,this)
 binding.recyclerView.adapter = adapter
 
 ```
-val listAttendance = attendanceDao.getAll() 
