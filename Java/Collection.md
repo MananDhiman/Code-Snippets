@@ -45,7 +45,7 @@ hash_map.containsKey(5));
 ```java
 // using for-each loop for iteration over Map.entrySet()
 for (Map.Entry<String,Integer> entry : empIds.entrySet()) 
-	System.out.println("Key = " + empIds.getKey() + ", Value = " + empIds.getValue());
+	System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
 }
 ```
 

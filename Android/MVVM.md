@@ -87,7 +87,7 @@ class MainViewModel: ViewModel(){
 	}
 }
 ```
-## AuthListener (interface)
+## AuthListener (Optional) (interface)
 ```kotlin
 interface AuthListener {   
     fun onSuccess()  
@@ -114,6 +114,27 @@ class MainActivity : AppCompatActivity(), AuthListener {
     }  
 }
 ```
+
+## Fragment (May contain residue from ViewBinding)
+```kotlin
+class NewContactFragment : Fragment() {
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val binding: FragmentNewContactBinding = DataBindingUtil
+            .inflate(layoutInflater, R.layout.fragment_new_contact, container, false)
+        val viewModel = ViewModelProvider(this)[AddContactViewModel::class.java]
+        binding.viewModel = viewModel
+
+        return binding.root
+    }
+}
+
+```
+
+
 ## ViewUtils
 ```kotlin
 fun Context.toast(message: String){  

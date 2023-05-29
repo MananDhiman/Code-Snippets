@@ -41,7 +41,9 @@ Student s2 = new Student(s1);
 ```java
 //type[] arrayName = new type[size];
 int[] marks = new int[3];
-int[] mars = {1,2,3};
+int[] marks = {1,2,3};
+Arrays.sort(marks);
+
 
 return new double[]{2.1,1.8};
 
