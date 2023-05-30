@@ -3,7 +3,7 @@ private lateinit var preferences: SharedPreferences
 private lateinit var myEdit: SharedPreferences.Editor
 
 onCreate(){
-		preferences = getSharedPreferences("AttendanceChecker", context.MODE_PRIVATE)  
+	preferences = getSharedPreferences("AttendanceChecker", context.MODE_PRIVATE)  
 	myEdit = preferences.edit()
 
 }

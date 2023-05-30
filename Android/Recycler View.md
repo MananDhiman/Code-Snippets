@@ -1,5 +1,5 @@
 Adapter
-```
+```kotlin
 package com.jagratilaharadmin.helper
 
 import android.content.Context
@@ -52,7 +52,7 @@ class PostsAdapters(private val postsList: List<Posts>, /*val context: Context*/
 ```
 
 Activity/Fragment
-```
+``` kotlin
 binding.recyclerView.layoutManager = LinearLayoutManager(context)
 val adapter = AttendanceAdapter(listAttendance,this)  
 binding.recyclerView.adapter = adapter

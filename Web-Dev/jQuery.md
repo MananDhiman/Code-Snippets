@@ -16,9 +16,11 @@ $(document).ready(function(){
 $('p').click(function(){
 	//element
 })
+
 $('#para').click(function(){
 	//id
 })
+
 $('.smallPara').click(function(){
 	//class
 })

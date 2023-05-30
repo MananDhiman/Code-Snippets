@@ -31,7 +31,7 @@ vardump($a,$b);
 ```
 
 # Array
-![[63d882859b3243abc5056e0b.jpg]]
+
 ## Function
 ```php
 function sum_numbers(int $a, int $b){

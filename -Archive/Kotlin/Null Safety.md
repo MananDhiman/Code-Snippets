@@ -1,4 +1,4 @@
-```
+```kotlin
 println(b?.length)
 println(a?.length)
 

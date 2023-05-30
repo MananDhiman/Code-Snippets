@@ -2,7 +2,6 @@
 
 ## build.gradle (app)
 ```gradle
-
 android {  
     dataBinding{  
         enable = true  
@@ -36,11 +35,10 @@ dependencies{
 
 ## gradle.properties
 ```gradle
-	android.databinding.enableV2=true
+android.databinding.enableV2=true
 ```
 ## activity_main.xml 
 ```xml
-
 <layout>
 	\?xml namespaces 3 lines\?
 	<data>  
@@ -69,7 +67,6 @@ dependencies{
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
-
 ```
 ## MainViewModel.kt
 ```kotlin
@@ -115,7 +112,7 @@ class MainActivity : AppCompatActivity(), AuthListener {
 }
 ```
 
-## Fragment (May contain residue from ViewBinding)
+## Fragment (My code may contain residue from ViewBinding)
 ```kotlin
 class NewContactFragment : Fragment() {
 
@@ -123,15 +120,16 @@ class NewContactFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         val binding: FragmentNewContactBinding = DataBindingUtil
             .inflate(layoutInflater, R.layout.fragment_new_contact, container, false)
+
         val viewModel = ViewModelProvider(this)[AddContactViewModel::class.java]
         binding.viewModel = viewModel
 
         return binding.root
     }
 }
-
 ```
 
 

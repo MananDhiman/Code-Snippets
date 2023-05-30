@@ -1,6 +1,6 @@
 Lambda function are used to make stuff less complex
 
-```
+```kotlin
 //fun name  //param  //ret type //param name
 val calcSquare: (Int) -> Int={number->
         number*number

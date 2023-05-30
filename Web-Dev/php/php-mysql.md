@@ -1,17 +1,17 @@
 # Connection
 ```php
 <?php
-$host = "localhost";
-$username = "root";
-$password = "";
-$database = "manan_school";
+    $host = "localhost";
+    $username = "root";
+    $password = "";
+    $database = "manan_school";
 
-$conn = new mysqli($host, $username, $password, $database);
+    $conn = new mysqli($host, $username, $password, $database);
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
 ?>
 ```
 
@@ -30,10 +30,10 @@ if($result->num_rows > 0){
 PHP
 ```php
 if(isset($_POST)){
-		$name = $_POST['names'];
-		if ($result = $conn -> query("INSERT INTO `amount` (`id`, `name`, `initial_amount`, `gst`, `discount`, `packing_charges`, `amount`) VALUES (NULL, '$name', '$initial_amount', '$gst', '$discount', '$packing_charges', '$amount');")) {
-            echo 'added';
-        }
+    $name = $_POST['names'];
+    if ($result = $conn -> query("INSERT INTO `amount` (`id`, `name`, `initial_amount`, `gst`, `discount`, `packing_charges`, `amount`) VALUES (NULL, '$name', '$initial_amount', '$gst', '$discount', '$packing_charges', '$amount');")) {
+        echo 'added';
+    }
 		
 	}
 ```
