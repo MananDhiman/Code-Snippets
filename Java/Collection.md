@@ -9,6 +9,8 @@ list.add("A");
 list.get(0);
 int size = list.size();
 
+Collections.sort(list);
+
 list.set(0,5) //replaces 0th element as 5
 list.add(3,1) //adds 1 at 3 index
 list.remove(3) //removes element at 3 index

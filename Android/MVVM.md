@@ -10,21 +10,17 @@ android {
 
 dependencies{
 
-	def lifecycle_version = "2.6.0"  
-	def arch_version = "2.1.0"  
-	  
-	// ViewModel  
-	implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"  
+	def lifecycle_version = "2.6.1"
+	implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"  // ViewModel  
+	implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"  // LiveData  
+	implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version" // Saved state module for ViewModel
+	
+	
+	//def arch_version = "2.1.0"  
 	// ViewModel utilities for Compose  
 	//implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version"  
-	// LiveData  
-	implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"  
 	// Lifecycles only (without ViewModel or LiveData)  
 	implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"  
-	  
-	// Saved state module for ViewModel  
-	implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"  
-	  
 	// Annotation processor  
 	//kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"  
 	// alternately - if using Java8, use the following instead of lifecycle-compiler  
@@ -39,8 +35,10 @@ android.databinding.enableV2=true
 ```
 ## activity_main.xml 
 ```xml
-<layout>
-	\?xml namespaces 3 lines\?
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    
 	<data>  
 	    <variable        
 		    name="viewModel"  
