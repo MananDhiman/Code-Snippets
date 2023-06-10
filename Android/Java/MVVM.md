@@ -10,22 +10,11 @@ android {
 
 dependencies{
 
-	def lifecycle_version = "2.6.1"
-	implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"  // ViewModel  
-	implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"  // LiveData  
-	implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version" // Saved state module for ViewModel
+	def lifecycle_version = "2.5.1"
+	implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+	implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+	implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
 	
-	
-	//def arch_version = "2.1.0"  
-	// ViewModel utilities for Compose  
-	//implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version"  
-	// Lifecycles only (without ViewModel or LiveData)  
-	implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"  
-	// Annotation processor  
-	//kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"  
-	// alternately - if using Java8, use the following instead of lifecycle-compiler  
-	//implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
-
 }
 ```
 
@@ -68,29 +57,23 @@ android.databinding.enableV2=true
 
 </layout>
 ```
-## MainViewModel.kt
-```kotlin
-class MainViewModel: ViewModel(){
-	var text: String? = null  
-  
-	var authListener: AuthListener? = null  
-  
-	fun onButtonClick(view: View){  
-	    if(text.isNullOrBlank()){  
-	        authListener?.onFailure("Enter Some Text")  
-	        return  
-	    }  
-	    authListener?.onSuccess()  
-	}
+## MainViewModel.java
+```java
+public class MainViewModel extends ViewModel {
+    private int firstNumber, secondNumber;
+
+    void add(){}
+    void subtract(){}
+    void multiply(){}
+    void divide(){}
+
+    boolean isEditTextEmpty(){
+        return true;
+    }
+
 }
 ```
-## AuthListener (Optional) (interface)
-```kotlin
-interface AuthListener {   
-    fun onSuccess()  
-    fun onFailure(message: String)  
-}
-```
+
 ## MainActivity
 ```kotlin
 class MainActivity : AppCompatActivity(), AuthListener {  
@@ -139,11 +122,3 @@ fun Context.toast(message: String){
     Toast.makeText(this, message, Toast.LENGTH_LONG).show()  
 }
 ```
-
-# ViewModel
-**Generate data for activity from Model.**
-	Activity or fragment should contain logic responsible for UI fragments only
-
-
-MVVM Recommended by Google
-
