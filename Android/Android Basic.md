@@ -47,3 +47,14 @@ In Manifest.xml
      android:windowSoftInputMode="adjustResize">
 </activity>
 ```
+
+# Progress Dialog
+```kotlin
+private lateinit var progressDialog: ProgressDialog 
+progressDialog = ProgressDialog(this) // var progressDialog: ProgressDialog = ProgressDialog(this)
+
+progressDialog.setTitle("Loading Posts...")
+progressDialog.show()
+
+progressDialog.dismiss()
+```

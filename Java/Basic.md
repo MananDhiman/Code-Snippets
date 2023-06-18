@@ -44,6 +44,7 @@ int[] marks = new int[3];
 int[] marks = {1,2,3};
 Arrays.sort(marks);
 
+Arrays.toString(arr); // directly print array
 
 return new double[]{2.1,1.8};
 

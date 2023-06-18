@@ -69,3 +69,13 @@ boolean result = stk.empty();
 Integer x = stk.peek();
 int location = stk.search(78); //-1 if not exists 
 ```
+
+# Tree
+## TreeSet
+```java
+TreeSet<Integer> tree = new TreeSet<>();
+
+tree.lower(); //arithmetically smaller value than current
+tree.last(); //largest value
+tree.higher(); //arithmetically greater value than current
+```
