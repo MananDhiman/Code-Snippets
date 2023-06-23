@@ -1,7 +1,7 @@
 # Tags
 * div = enclosing any element(s) in div, makes them occupy entire width
 * pre = preformatted text
-* a target (attribute)
+* anchor a target (attribute)
     * **_blank** = link in new window or tab
     * **_self** = link in same frame as clicked  (this is default)
     * **_parent** = parent frame
@@ -14,8 +14,48 @@
 * video
     * mp4, webm, ogg
     * **controls, autoplay, muted, loop**
+     
+# Form
+* action = sends data to this url
+* method = get / post. Post for sensitive data
 
+input types:
 
+```html
+<form action="file_to_send_data.php" method="POST" enctype="multipart/form-data">
+    <label for="username">username</label>
+    <input type="text" id="username" placeholder="John Doe" minlength="6" maxlength="15" required>
+
+    <input type="tel" id="phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+
+    <input type="date" id="bday">
+    
+    <input type="number" id="quantity" min="0" max="99" value="1">
+    
+    <label for="Mr.">Mr.</label>
+    <input type="radio" id="Mr." value="Mr." name="title">
+    <label for="Ms.">Ms.</label>
+    <input type="radio" id="Ms." value="Ms." name="title">
+    <label for="PhD.">PhD.</label>
+    <input type="radio" id="PhD." value="PhD." name="title">
+
+    <label for="payment">Payment</label>
+    <select id="payment">
+        <option value="visa">Visa</option>
+        <option value="mastercard">Mastercard</option>
+        <option value="giftcard">Giftcard</option>
+    </select>
+
+    <input type="checkbox" id="subsribe">
+    <textarea id="comment" rows="3" cols="25"></textarea>
+
+    <label for="file">file:</label>
+    <input type="file" id="file" accept="image/png, image/jpeg">
+
+    <input type="reset"><br>
+
+</form>
+```
 ```html
 <!-- pre -->
 <pre>
@@ -56,7 +96,7 @@ this   is preformatted text. Text retains line breaks and spaces
 
 <!-- button -->
 <a href="www.ab.c">
-<button>Click Here</button></a>
+<button onclick="jsFunction()">Click Here</button></a>
 ```
 
 ## Text Formatting
