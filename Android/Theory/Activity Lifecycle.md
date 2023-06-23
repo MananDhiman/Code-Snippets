@@ -1,3 +1,5 @@
+<img src="https://github.com/MananDhiman/Code-Snippets/assets/64782929/cf722766-0853-456f-a9c6-8ac449711ed2" width="500" alt="android activity lifecycle diagram">
+
 **Nonexistent** represents an activity that has not been launched yet or an activity that was just destroyed (by pressing the Back button). sometimes referred to as the **“destroyed”** state. There is no instance in memory, and there is no associated view.
 
 **Stopped** represents an activity that has an instance in memory but whose view is not visible on the screen. Occurs when the activity is first spinning up and re-occurs any time the view is fully occluded (such as when the user launches another full-screen activity, presses the Home button, or uses the overview screen to switch tasks).
