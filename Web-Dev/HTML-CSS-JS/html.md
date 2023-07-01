@@ -19,6 +19,9 @@
 * action = sends data to this url
 * method = get / post. Post for sensitive data
 
+# Header and Footer
+Semantic tags, describe meaning to web browser and developer. Organise content
+
 input types:
 
 ```html
@@ -99,6 +102,23 @@ this   is preformatted text. Text retains line breaks and spaces
 <button onclick="jsFunction()">Click Here</button></a>
 ```
 
+```html
+<header style="background-color:blue">
+    <h1>Welcome to our WebPage</h1>
+    <a href="">About</a>
+    <a href="">Contact</a>
+</header>
+
+<main>
+    <h2>This is the main body</h2>
+    <p>lorem ipsum</p>
+
+</main>
+
+<footer>
+    &copy; copyright reserved
+</footer>
+```
 ## Text Formatting
 ### Tags
 * b / strong = bold
@@ -144,4 +164,18 @@ include js, best to add at end of body tag
 </script>
 
 <script src="script.js"></script>
+```
+
+# CSS
+```html
+<head>
+    <style>
+        .blue {
+            color: blue;
+        }
+    </style>
+
+    <!-- better to include file -->
+    <link rel="stylesheet" href="style.css"/>
+</head>
 ```

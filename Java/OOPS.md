@@ -1,6 +1,6 @@
 # Inheritance
 
-```
+```java
 class Shape{
 	String colour;
 }
@@ -58,7 +58,7 @@ Class Human{
 	}
 }
 main(){
-	Huma
+	sout(Human.population);
 }
 ```
 
@@ -68,8 +68,8 @@ Giga.java
 ```java
 class Giga{
 	void doStuff(){
-	sout(“Good”);
-}
+		sout(“Good”);
+	}
 	psvm(){
 		Giga giga = new Giga();
 		giga.doStuff();
@@ -84,7 +84,7 @@ These serve only to be used in inherited functions to make a method or attribute
 
 Runtime Error
 
-```
+```java
 abstract class Animal{
 	abstract void walk();
 }
@@ -96,7 +96,7 @@ class Horse extends Animal{
 
 ## Interface
 Interface created to describe functionality. Cannot be instantiated and normal class needs to be created whose object can be created. Interface is just to describe necessary components of a class
-```
+```java
 interface class Animal{
 	abstract void walk();
 }
@@ -107,7 +107,7 @@ class Horese implements Animal{
 
 ```
 ## Multiple Inheritance
-```
+```java
 interface class Animal{
 	abstract void walk();
 }
@@ -116,17 +116,16 @@ interface Herbivore{
 
 }
 
-class Horese implements Animal, Herbivore{
+class Horse implements Animal, Herbivore{
 
 }
+```
 
 Interface is pure abstraction as everything in it needs to be abstract and cannot be called
 
 ## Static
 Static means cannot be changed. In derived class access modifier must be public
 
-
-```
 
 # Singleton
 The singleton design pattern restricts the instantiation of a class to a single instance. This is done in order to provide coordinated access to a certain resource, throughout an entire software system. Through this design pattern, the singleton class ensures that it’s only instantiated once, and can provide easy access to the single instance.
