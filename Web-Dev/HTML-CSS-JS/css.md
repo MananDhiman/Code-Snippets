@@ -44,3 +44,42 @@ Share properties between selectors
 
 .big, .large{ }
 * { } //everything
+
+# Common Properties
+
+```css
+/* Text Colour */
+p {
+  color: blue;
+  color: #0A1B3C; /* Hex Value */
+  color: rgba(0, 0, 0, 0.3); /* RGBA */
+  color: black; /* Named Colors */
+}
+
+/* Text Size */
+p {
+  font-size: 48px;
+}
+
+/* Any Element */
+h1 {
+  background-color: #FFB300;
+  height: 250px;
+  width: 500px;
+  border: 5px solid #FF6DBA; /*solid dashed dotted*/
+}
+
+h1 {
+  height: 300px;
+  color: white;
+  border: 1px solid black;
+  background-image: url("../img/rainbow_bg.jpg");
+}
+
+img {
+  border: 1px solid black;
+  border-radius: 25px;
+}
+```
+
+# Box Model
