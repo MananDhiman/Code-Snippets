@@ -10,6 +10,12 @@ let name = inputText.value; // get value
 
 // add edit and delete buttons dynamically to list of items 
 list.innerHTML += arr[i] + `<button onclick="deleteById(${i})">D</button>` + `<button onclick="editById(${i})">E</button><br>`;
+
+list.innerHTML += `<tr>
+            <td>${todoArray[i]}</td>
+            <td><button onclick="deleteById(${i})">D</button></td>
+            <td><button onclick="editById(${i})">E</button></td>
+        </tr>`;
 ```
 
 Modification
