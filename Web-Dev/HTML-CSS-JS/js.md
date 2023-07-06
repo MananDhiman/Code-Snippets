@@ -54,3 +54,13 @@ spanText.classList.remove('class');
 same but, textContent = displays with spacing, indentation
 
 innerText = displays with respect to css (if visible or not)
+
+# LocalStorage
+Permanently stores data as key value pairs in storage. Can be used to store previous score
+
+Stores only strings. HTML 5
+
+```javascript
+localStorage.getItem('key');
+localStorage.setItem('key','value');
+```
