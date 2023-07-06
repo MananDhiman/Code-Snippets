@@ -34,6 +34,14 @@ arr.push(50);
 arr.pop();
 arr.reverse();
 
+//type conversion
+String()
+Number()
+let num = Number("98");
+```
+
+# Function
+```javascript
 //function
 //arguments as value
 //objects as reference
@@ -48,4 +56,18 @@ let doSomething = (a,b) => {
 
 //minimised arrow function
 let doSomething = (a,b) => a+b
+
+// minimised single param
+let doSomething = a => a*a
+```
+
+# Function as variable
+```javascript
+function run(param){
+    param();
+}
+
+run(function(){
+    console.log('hello4');
+});
 ```
