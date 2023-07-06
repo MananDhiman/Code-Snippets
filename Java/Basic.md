@@ -47,5 +47,16 @@ Arrays.sort(marks);
 Arrays.toString(arr); // directly print array
 
 return new double[]{2.1,1.8};
+```
 
+# Type Conversion
+Primitive to Primitve
+```java
+double weightInDouble = 87.5;
+int weight = (double) weightInDouble;
+```
+
+Primitive to Reference
+```java
+String s = String.valueOf(char c);
 ```
