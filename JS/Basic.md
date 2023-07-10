@@ -38,6 +38,12 @@ arr.reverse();
 String()
 Number()
 let num = Number("98");
+
+// String Template
+let n = 7;
+for(let i=0; i<=10; i++){
+    console.log(`${n} X ${i} = ${n * i}`);
+}
 ```
 
 # Function
