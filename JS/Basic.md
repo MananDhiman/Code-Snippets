@@ -65,6 +65,11 @@ let doSomething = (a,b) => a+b
 
 // minimised single param
 let doSomething = a => a*a
+
+// arrow function no param
+let doSomething = () => console.log("Arr Fun")
+
+// if no braces after arrow, then tries to return the value
 ```
 
 # Function as variable
@@ -76,4 +81,76 @@ function run(param){
 run(function(){
     console.log('hello4');
 });
+```
+
+# Built in DS
+## Map
+```javascript
+const map = new Map();
+
+map.set("jan","31");
+map.set("mar","31");
+map.set("may","31");
+
+// get value by key
+console.log(map.get("may"));
+
+// check if key exists
+if(map.has("nov")) console.log("Winter");
+else console.log("No WInter");
+
+// delete key - pair
+map.delete("may");
+console.log(map.get("may"));
+
+// iterate through each element
+map.forEach(function (value, key) {
+    console.log(key + "- " + value);
+});
+```
+
+## For Loop
+```js
+// let i in arr is used to access keys or index
+// let i for arr is used to access element
+
+
+let arr = [5,10,15];
+
+for (let i in arr) console.log(`in arr, i = ${i}`);
+
+// in arr, i = 0
+// in arr, i = 1
+// in arr, i = 2
+
+for (let i of arr) console.log(`of arr, i = ${i}`);
+
+// of arr, i = 5
+// of arr, i = 10
+// of arr, i = 15
+
+let str = "Name";
+
+for (let i in str) console.log(`in str, i = ${i}`);
+// in str, i = 0
+// in str, i = 1
+// in str, i = 2
+// in str, i = 3
+
+for (let i of str) console.log(`of str, i = ${i}`);
+// of str, i = N
+// of str, i = a
+// of str, i = m
+// of str, i = e
+
+const map = new Map();
+
+map.set("jan","31");
+map.set("mar","31");
+map.set("may","31");
+
+for (let i of map) console.log(`of map, i = ${i}`);
+// of map, i = jan,31
+// of map, i = mar,31
+// of map, i = may,31
 ```
