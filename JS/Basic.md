@@ -15,7 +15,7 @@ import { exportedVar } from "./firstScript.js"
 # Syntax
 ```javascript
 var //function scope
-const //immutable
+const //immutable block scope
 let //block scope
 
 == //loose equality. performs type conversion

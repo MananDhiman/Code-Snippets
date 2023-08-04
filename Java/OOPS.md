@@ -77,7 +77,7 @@ class Giga{
 }
 ```
 
-`abstract`s define the basic structure and functionality shared by all derivative types, but cannot be used by themselves. Think of them as, I suppose, a blue print and a contract.
+`abstract`s define the basic structure and functionality shared by all derivative types, but cannot be used by themselves. Think of them as a blue print and a contract.
 
 Classess or methods can be abstracts if they cannot be instantiated or called
 These serve only to be used in inherited functions to make a method or attribute compulsary
