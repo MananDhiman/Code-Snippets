@@ -1,23 +1,23 @@
 # Array - Mutable - Fixed Size
 
-```k
+```kotlin
 val num = arrayOf(1, 2, 3, 4)   //implicit type declaration
 val num = arrayOf<Int>(1, 2, 3) //explicit type declaration
 ```
 
 Can print list directly, but not array
 
-# List - 
+# List -
 
 ## Read-only lists are created with listOf()
 
-```k
+```kotlin
 val a = listOf('1', '2', '3')
 ```
 
 ## Mutable lists created with mutableListOf()
 
-```Kotlin
+```kotlin
 val mutableListA = mutableListOf<Int>( 1 , 2 , 3 , 4 , 3);
 
 mutablelist.add("Geeks")
