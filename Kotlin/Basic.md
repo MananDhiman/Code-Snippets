@@ -1,5 +1,4 @@
-# Basic
-## Key Points:
+# Key Points:
 * can create functions outside classes. No need to set functions as static members of classes
 * There is no automatic conversion between types
 * All variable declarations in Kotlin must be initialized
@@ -21,7 +20,55 @@ val firstName : String = name!! // asserts not null, program crashes
 val maybeNullName : String = name? // if null, assigns null, otherwise value
 ```
 
-## Functions
+## Loops
+### For Loop
+```kotlin
+val num = arrayOf(1, 2, 3, 4)
+
+for (x in cars) {}
+// x is each element in array / list cars
+
+for(i in num.indices){
+  	println(num[i])
+    // i is index
+}
+
+// range first and last inclusive
+for (chars in ‘a’..’d’){
+	println(chars) 
+}
+// Output -> a b c d
+
+for (i in 0..num.size-1) {
+    print(" "+num[i])
+}	
+
+for (chars in 1..5){
+	println(chars) // 1 2 3 4 5
+}
+
+for (x in 11..15 step 2) {
+    println(x)
+}
+// 11 13 15
+
+for(ch in 'e'.downTo('a')){
+    println(ch)
+}
+// e d c b a
+```
+
+### While loop
+```kotlin
+var number = 1
+ 
+while(number <= 10) {
+    println(number)
+    number++
+}
+```
+
+# Functions
 
 * If a function returns value, you must declare it after the function name
 * A void function returns Unit type but you are not required to declare it
@@ -54,55 +101,22 @@ fun show (msg : String = "Hello World"){
 }
 ```
 
-## Collection
-List
+# Exception Handling
+Exception used to patch up a code that may cause it to crash. To prevent from crashing you catch the exception and try a method
+
 ```kotlin
+try{
+    //do stuff that may crash program
+    //when exception found, next line won't run
 
-```
-
-## Vararg and Function Literal
-```kotlin
-// varargs
-fun main() {
-    names("John", "Adam", "Joy", age = 20)
-    // or
-    val n = array("John", "Adam", "Joy")
-    names(*n)
-}
-
-fun names(vararg  names : String, age : Int){
-    for(n in names){
-        println("$n is $age old")
-    }
-}
-
-fun names(vararg  names : String){
-    println("Argument length is ${names.size}")
-    println("${names[0]}")
-    val nns : Array<String> = names
-    println("${nns[1]}")
-}
-```
-
-### Function Literal (Lambda)
-`() -> Unit` 
-type for a function that takes no parameter and returns a Unit (void)
-
-`() -> String`
-type for a function that takes no parameter and return a String
-
-`(String) -> Unit`
-type for a function that takes a string and returns nothing.
-
-`(String, Float) -> Unit` type for a function that takes two parameters (String and Float) and returns nothing.
-```kotlin
-val m = { (x : String) -> println("$x") } 
-val n : (String) -> Unit = { x -> println("$x") } 
-val o : (String) -> Unit = { (x : String) -> println("$x") } 
-
-fun main(args : Array<String>) { 
-    m("good morning")
-    n("good morning") 
-    o("good morning") 
+}catch(e: `type of exception arithmetic, index out of bounds` Exception){
+    //do stuff otherwise
+    println(e.message)
+    e.printStackTrace()
+    
+}catch(e: Exc_1){
+    //can have multiple catch blocks
+}finally{
+    //runs whether exception found or not
 }
 ```
