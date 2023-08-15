@@ -154,3 +154,36 @@ for (let i of map) console.log(`of map, i = ${i}`);
 // of map, i = mar,31
 // of map, i = may,31
 ```
+
+# Async / Await
+The keyword async before a function makes the function return a promise
+The await keyword can only be used inside an async function.
+The await keyword makes the function pause the execution and wait for a resolved promise before it continues:
+
+```javascript
+getParsedDataCollection().then( list => {
+
+    const allCurrencies = list[0];
+    const eurRate = list[1]["eur"];
+
+});
+
+async function getParsedDataCollection() {
+
+    const allCurrencies = await getJsonFromApi(URL_ALL_CURRENCIES_AND_SHORTFORM);
+    const currencyRateEurAsBase = await getJsonFromApi(URL_EUR_AS_BASE_TO_OTHER_CURRENCIES);
+
+    return [allCurrencies, currencyRateEurAsBase];
+}
+
+
+async function getJsonFromApi(url) {
+
+    const response = await fetch(url);
+
+    var data = await response.json();
+    
+    return data;
+}
+
+```
