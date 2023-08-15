@@ -1,38 +1,29 @@
 # Implementation
 
-## build.gradle (app)
+## build.gradle (kts) (app)
 ```gradle
+plugins {
+	id("kotlin-kapt")
+}
+
 android {  
-    dataBinding{  
-        enable = true  
-    }  
+    buildFeatures {
+		dataBinding = true
+	}
 }
 
 dependencies{
-
-	def lifecycle_version = "2.6.1"
-	implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"  // ViewModel  
-	implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"  // LiveData  
-	implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version" // Saved state module for ViewModel
-	
-	
-	//def arch_version = "2.1.0"  
-	// ViewModel utilities for Compose  
-	//implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version"  
-	// Lifecycles only (without ViewModel or LiveData)  
-	implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"  
-	// Annotation processor  
-	//kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"  
-	// alternately - if using Java8, use the following instead of lifecycle-compiler  
-	//implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
-
+	val lifecycle_version = "2.6.1"
+//    ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+//    LiveData
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
+//    Annotation processor
+    kapt("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
 }
 ```
 
-## gradle.properties
-```gradle
-android.databinding.enableV2=true
-```
+
 ## activity_main.xml 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -41,28 +32,29 @@ android.databinding.enableV2=true
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     
-	<data>  
-	    <variable        
-		    name="viewModel"  
-	        type="com.example.mvvm.ui.MainViewModel" />  
-	</data>
+	<data>
+        <variable
+            name="mainViewModel"
+            type="com.example.test.MainViewModel" />
+    </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
-	android:id="@+id/rootLayout"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	tools:context=".ui.MainActivity">
-	
+	tools:context=".MainActivity" >
+
+	<TextView
+		android:id="@+id/textViewName"
+		android:text="@={mainViewModel.textViewName}" />
+
 	<EditText
 		android:id="@+id/editText"
-		android:text="@={viewModel.text}"
-		android:hint="Enter Text"
-		app:layout_constraintBottom_toTopOf="@+id/textView"/>
+		android:text="@={mainNiewModel.editText}" />
 		
 	<Button
 		android:id="@+id/button"
-		android:text="Button"
-		android:onClick="@{viewModel::onButtonClick}" />
+		android:onClick="@{() -> mainViewModel.doStuff()}"
+		android:text="@={mainViewModel.buttonText}" />
 		
 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -70,47 +62,63 @@ android.databinding.enableV2=true
 ```
 ## MainViewModel.kt
 ```kotlin
-class MainViewModel: ViewModel(){
-	var text: String? = null  
-  
-	var authListener: AuthListener? = null  
-  
-	fun onButtonClick(view: View){  
-	    if(text.isNullOrBlank()){  
-	        authListener?.onFailure("Enter Some Text")  
-	        return  
-	    }  
-	    authListener?.onSuccess()  
+class MainViewModel: ViewModel(), Observable {
+
+	@Bindable
+    val textViewName = MutableLiveData<String?>()
+
+	@Bindable
+    val editText = MutableLiveData<String?>()
+
+	@Bindable
+    val buttonText = MutableLiveData<String>()
+
+	init {
+		buttonText.value = "Submit"
+		textViewName.value = "Enter Text Here"
+	}
+
+	fun doStuff() {
+		buttonText.value = "Clear Form"
+		textViewName.value = "Data Entered"
 	}
 }
 ```
-## AuthListener (Optional) (interface)
+## ViewModelFactory
 ```kotlin
-interface AuthListener {   
-    fun onSuccess()  
-    fun onFailure(message: String)  
+class MainViewModelFactory: ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if(modelClass.isAssignableFrom(MainViewModel::class.java)) {
+            return MainViewModel() as T
+        }
+        throw IllegalArgumentException("Unknown View Model Class")
+    }
 }
 ```
 ## MainActivity
 ```kotlin
-class MainActivity : AppCompatActivity(), AuthListener {  
+class MainActivity : AppCompatActivity() {  
+
+	private lateinit var binding: ActivityMainBinding
+    private lateinit var mainViewModel: MainViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {  
         super.onCreate(savedInstanceState)  
-        val binding: ActivityMainBinding = DataBindingUtil.setContentView(this,R.layout.activity_main)  
-        val viewModel = ViewModelProvider(this)[MainViewModel::class.java]  
-        binding.viewmodel = viewModel  
-        viewModel.authListener = this  
+
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+    	val factory = MainViewModelFactory()
+        mainViewModel = ViewModelProvider(this, factory)[MainViewModel::class.java]
+
+        binding.mainViewModel = mainViewModel
+        binding.lifecycleOwner = this 
     }  
-  
-    override fun onSuccess() {  
-        toast("Text Entered")  
-    }  
-  
-    override fun onFailure(message: String) {  
-        toast(message)  
-    }  
+ 
 }
 ```
+
+
+# Fragments not yet tested
 
 ## Fragment (My code may contain residue from ViewBinding)
 ```kotlin
