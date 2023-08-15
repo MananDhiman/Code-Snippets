@@ -12,15 +12,28 @@ dependencies{
 ```
 
 User
+Room will use data class name as table name, if in entity data class table name not specified
+For custom column name use column info
+
 ```kotlin
 @Entity
 data class User(
-    @ColumnInfo(name = "first_name") val firstName: String?,
+    val firstName: String?,
     @ColumnInfo(name = "last_name") val lastName: String?
 ){
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     var Id: Int? = null
+}
+```
+```kotlin
+@Entity (tableName = "user")
+data class User{
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "user_id")
+    val id: Int,
+
+    @ColumnInfo(name = "first_name") val firstName: String?
 }
 ```
 
