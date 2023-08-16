@@ -23,9 +23,9 @@ The below are better optimised to handle primitive data
 ```kotlin
 // initialisation
 val cars = arrayOf(“BMW”,”Audi”)
-val cars = arrayOf<String>(“BMW”,”Audi”)
+val arr = IntArray(n) // n is size
 val num = Array(3, {i-> i*1}) // first param is size, second param is lambda expression to fill values
-val num = intArrayOf(1, 2, 3, 4)
+val num = intArrayOf(1, 2, 3, 4) // method returning array type IntArray
 
 // access
 println(cars[0]) // BMW

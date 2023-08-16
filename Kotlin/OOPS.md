@@ -1,4 +1,10 @@
 # Class and Objects
+## Visiblity modifiers
+* Public (default) = Visible everywhere
+* Private =  inside same file containing declaration
+* Protected = Same as private but visible to subclasses
+* Internal = visible in same module, set of files compiled together 
+an outer class does not see private members of its inner classes
 ## Constructor
 - Ideally only one constructor
 - No logic in primary constructor or use Init Block
@@ -96,6 +102,8 @@ fun main() {
 
 
 # Abstract
+Hiding certain elements and showing only essential information. Achieved with either abstract class or interface.
+
 Cannot be instantiated
 
 In base class need to override the prescribed memebers
