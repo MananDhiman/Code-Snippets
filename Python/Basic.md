@@ -49,6 +49,8 @@ thistuple = ("apple", "banana", "cherry")
 list(set1)
 str(int1)
 int(str1)
+float(num)
+bool(foo)
 
 my_set = {s for s in list}
 
