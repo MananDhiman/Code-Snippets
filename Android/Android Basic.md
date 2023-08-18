@@ -1,31 +1,41 @@
-## Enable view binding
-1.  Open the app's build.gradle file ( Gradle Scripts > build.gradle (Module: Tip_Time.app) )
-    
-2.  In the android section, add the following lines
-
-```Kotlin
-buildFeatures {
-    viewBinding = true
-}
-
-class MainActivity : AppCompatActivity() {
-
-    lateinit var binding: ActivityMainBinding
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-    }
-}
+# Drawable 
+Can be used as background or foreground of any android view
+```xml
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+  <gradient
+    android:type="linear"
+    android:angle="45"
+    android:startColor="@color/black"
+    android:centerColor="@color/gray"
+    android:endColor="@color/white" />
+  
+  <corners
+    android:topRightRadius="8dp"
+    android:radius="50dp"/>
+  
+  <stroke
+    android:width="5dp"
+    android:color="@color/white" />
+</shape>
 ```
 
-## Layout 
+## Background
+Either colour or a drawable
 ```xml
 android:background="#E1D4D4"
 ```
 
-# Intent to another App
+# Intent
+## Implicit Intent
+Intent that does not specifically states the target
+```kotlin
+val intent = Intent(Intent.ACTION_SEND)
+intent.type = "text/plain" // MIME type
+intent.putExtra(Intent.EXTRA_SUBJECT, "$name is lucky today")
+intent.putExtra(Intent.EXTRA_TEXT, "Their lucky number is ${luckyNumber.toString()}") // main body
+startActivity(intent)	
+```
+## Use parse uri to handle specific request
 ```kotlin
 try{
 	var intent = Intent(Intent.ACTION_VIEW)
@@ -36,7 +46,34 @@ try{
 catch(e: Exception){
 	Toast.makeText(this,"Some Error Occurred. Please Try Again",Toast.LENGTH_LONG).show()
 }
+```
 
+## Explicit Intent
+Intent that specifically states the target
+```kotlin
+val intent: Intent = Intent(this, SecondActivity::class.java)
+intent.putExtra("name",name) // pass data to activity
+startActivity(intent)
+```
+## Enable view binding
+build.grade
+```
+buildFeatures {
+    viewBinding = true
+}
+```
+MainActivity
+```Kotlin
+class MainActivity : AppCompatActivity() {
+
+    lateinit var binding: ActivityMainBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+    }
+}
 ```
 
 # Adjust layout when soft keyboard opened
