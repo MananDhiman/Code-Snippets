@@ -113,11 +113,12 @@ class MainActivity : AppCompatActivity() {
         binding.mainViewModel = mainViewModel
         binding.lifecycleOwner = this 
     }  
- 
+
 }
 ```
 
-
+***
+***
 # Fragments not yet tested
 
 ## Fragment (My code may contain residue from ViewBinding)

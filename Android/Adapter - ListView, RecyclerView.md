@@ -1,3 +1,26 @@
+# Array Adapter
+simple_list_item_1 -> 1 textView
+
+simple_list_item_2 -> 2 textViews
+
+```kotlin
+val listView: ListView = findViewById(R.id.listView)
+
+val worldCupArray = arrayOf(
+   "Germany", "Brazil", "England", "Spain", "Qatar"
+)
+
+val arrayAdapter: ArrayAdapter<String> = ArrayAdapter(
+   this,
+   android.R.layout.simple_list_item_1,
+   worldCupArray
+)
+
+listView.adapter = arrayAdapter
+```
+
+
+# Recycler View
 Adapter
 ```kotlin
 package com.jagratilaharadmin.helper

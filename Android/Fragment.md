@@ -18,7 +18,19 @@ binding.button2.setOnClickListener {
     }  
 }
 ```
+Min Fragment Code
+```kotlin
+class Fragment1 : Fragment() {
+  override fun onCreateView(
+    inflater: LayoutInflater, container: ViewGroup?,
+    savedInstanceState: Bundle?
+  ): View? {
+    // Inflate the layout for this fragment
+    return inflater.inflate(R.layout.fragment_1, container, false)
+  }
+}
 
+```
 First Fragment
 ```kotlin
 class FirstFragment : Fragment() {  
