@@ -182,7 +182,7 @@ async function getJsonFromApi(url) {
     const response = await fetch(url);
 
     var data = await response.json();
-    
+
     return data;
 }
 

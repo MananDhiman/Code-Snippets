@@ -24,7 +24,7 @@ val name : String? = firstName
 ```
 Assigning a possibly null value to a non-null variable requires that the nullable variable is not null at assignment !! operator
 ```kotlin
-val name : String? = "Adam" 
+val name : String? = "Adam"
 val firstName : String = name!! // asserts not null, program crashes
 val maybeNullName : String = name? // if null, assigns null, otherwise value
 ```
@@ -48,13 +48,13 @@ for (i in num.withIndex()) {
 
 // range first and last inclusive
 for (chars in ‘a’..’d’){
-	println(chars) 
+	println(chars)
 }
 // Output -> a b c d
 
 for (i in 0..num.size-1) {
     print(" "+num[i])
-}	
+}
 
 for (chars in 1..5){
 	println(chars) // 1 2 3 4 5
@@ -74,7 +74,7 @@ for(ch in 'e'.downTo('a')){
 ### While loop
 ```kotlin
 var number = 1
- 
+
 while(number <= 10) {
     println(number)
     number++
@@ -93,25 +93,25 @@ Also vararg which produces array of argument
 * If mixing mandatory and optional parameters, mandatory parameters must be listed first
 ```kotlin
 // function with parameter and no return type
-fun greet(msg : String){ 
-    println(msg) 
-} 
-    
+fun greet(msg : String){
+    println(msg)
+}
+
 // single expression function with explicit return type
-fun englishGreeting() : String = "Hello world" 
+fun englishGreeting() : String = "Hello world"
 
 // single expression function with implicit return type
 fun englishGreeting() = "Hello world"
 fun add(a : Int, b : Int) = a + b
-    
+
 // function without parameter
-fun italianGreeting() : String{ 
-    return "bon giorno" 
+fun italianGreeting() : String{
+    return "bon giorno"
 }
 
 // optional parameters or default value parameter
 fun show (msg : String = "Hello World"){
-    println("$msg") 
+    println("$msg")
 }
 
 // implied return
@@ -130,7 +130,7 @@ try{
     //do stuff otherwise
     println(e.message)
     e.printStackTrace()
-    
+
 }catch(e: Exc_1){
     //can have multiple catch blocks
 }finally{

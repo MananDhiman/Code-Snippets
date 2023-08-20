@@ -15,7 +15,7 @@ input.nextLine()      //reads entire input as string
 
 input.nextInt()        //accepts only integer. If string entered,  exception mismatch type
 
-//anytime before nextLine(), clear scanner by scanner.nextLine(). 
+//anytime before nextLine(), clear scanner by scanner.nextLine().
 
 //Becase when nextInt(), scanner has residue of \\n  as nextInt accepts only numeric portion
 

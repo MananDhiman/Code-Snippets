@@ -14,7 +14,7 @@ length = len(list)
 ```
 
 # Bult in DS
-* Tuple 
+* Tuple
 ```python
 # List -> Modifiable elements, variable length
 list = []
@@ -88,7 +88,7 @@ def myFun(**kwargs):
 myFun(first='Geeks', mid='for', last='Geeks')
 ```
 # Pass by reference, value
-**Is Python Function Pass by Reference or pass by value?**   
+**Is Python Function Pass by Reference or pass by value?**
 One important thing to note is, in Python every variable name is a reference. When we pass a variable to a function, a new reference to the object is created.
 # Multiple inputs
 first,second=map(int, input().split())
