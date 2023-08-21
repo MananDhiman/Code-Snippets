@@ -1,3 +1,12 @@
+# Classes and Objects
+## Copy Constructor
+Passing another object of same class as a parameter to new object
+```java
+Student s1 = new Student("abc",1);
+
+Student s2 = new Student(s1);
+```
+
 # Inheritance
 
 ```java

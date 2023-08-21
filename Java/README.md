@@ -1,43 +1,29 @@
-# int vs Integer (wrapper class vs primitive)
+# Basic
+## int vs Integer (wrapper class vs primitive)
 int is faster bcs primitive data type. Integer when needing to use in a framework or arraylist.
 Java automatically boxes int to Integer
 int cannot be null. Integer can be null
 
-# Scanner
+## Scanner
 import java.util.Scanner();
 
 ```java
 Scanner input = new Scanner(System.in);
-
-input.next()             //reads one word only as string. spaces break up
-
-input.nextLine()      //reads entire input as string
-
-input.nextInt()        //accepts only integer. If string entered,  exception mismatch type
-
-//anytime before nextLine(), clear scanner by scanner.nextLine().
-
-//Becase when nextInt(), scanner has residue of \\n  as nextInt accepts only numeric portion
-
+input.next()  //reads one word only. spaces break up
+input.nextLine()  //reads entire input as string
+input.nextInt() //accepts only integer. If string entered, exception mismatch type
 scanner.close()
 ```
+* Anytime before nextLine(), clear scanner by scanner.nextLine().
+* Becase when nextInt(), scanner has residue of \n  as nextInt accepts only numeric portion
+* May choose to Integer.parseInt(scanner.nextLine()) and forget about scanner and idiocracies
 
-May choose to Integer.parseInt(scanner.nextLine()) and forget about scanner and idiocracies
+## == vs .equals
+* == compares if the variable references the same location/object
 
-# == vs .equals
-== compares if the variable references the same location/object
+* .equals used commonly in string checks for value
 
-.equals used commonly in string checks for value
-
-# Copy Constructor
-Passing another object of same class as a parameter to new object
-
-Student s1 = new Student("abc",1);
-
-Student s2 = new Student(s1);
-
-
-# Array
+## Array
 ```java
 //type[] arrayName = new type[size];
 int[] marks = new int[3];
@@ -45,11 +31,12 @@ int[] marks = {1,2,3};
 Arrays.sort(marks);
 
 Arrays.toString(arr); // directly print array
+Arrays.fill(array, val) // only 1d array
 
 return new double[]{2.1,1.8};
 ```
 
-# Type Conversion
+## Type Conversion
 Primitive to Primitve
 ```java
 double weightInDouble = 87.5;
@@ -59,4 +46,143 @@ int weight = (double) weightInDouble;
 Primitive to Reference
 ```java
 String s = String.valueOf(char c);
+```
+# String, StringBuilder and Character
+```java
+String str = Character.toString(char c)
+```
+
+## StringBuilder
+* mutable. does not create new object of each string
+
+```java
+methods
+
+sb.append(x) // x = all primitives, char[]
+
+sb.indexOf(String str) // returns int
+
+int length()
+
+char charAt(int index)
+
+int indexOf(String str) // -1 if not found
+
+StringBuilder delete(int start, int end)
+
+StringBuilder deleteCharAt(int index)
+
+StringBuilder insert()
+
+StringBuilder replace(int start, int end, String str)
+
+StringBuilder reverse()
+
+void setCharAt(int index, char ch)
+
+String substring()
+```
+
+## String
+### String Pool
+If string previously exists, string will point to same object
+
+# Collection
+## ArrayList
+```java
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.*;
+
+ArrayList<String> list = new ArrayList<>();
+list.add("A");
+list.get(index); 
+int size = list.size();
+
+Collections.sort(list);
+
+list.set(0,5) //replaces 0th element as 5
+list.add(3,1) //adds 1 at 3 index
+list.remove(3) //removes element at 3 index
+list.clear();
+
+// List of List
+List<List<Int>> arrayList = new ArrayList();
+List<Int> listAtI = new ArrayList ();
+
+// will return arrayList
+List<List<Int>> arrayList = new ArrayList();
+for(int i = 0; i < desiredSize; i++){
+	// inner list to be returned
+    List<Int> listAtI = new ArrayList ();
+    for(int j = 0; j < rowLength; j++){
+        listAtI.set(j, 0);
+    }
+    arrayList.set(i, listAtI);
+}
+
+arrayList.get(5); //returns the list at index 5
+arrayList.get(5).get(5) // returns values from column 5 in row 5
+```
+
+## Hash
+Constant time insertion, deletion, access
+
+### Set
+Like array Single element Constant time insertion, deletion, access (unordered)
+```java
+HashSet<Integer> set = new HashSet<Integer>();
+for(int i=0;i<nums.length;i++)
+	set.add(nums[i]);
+
+set.contains("No");
+set.remove("Welcome");
+```
+
+### HashMap
+Key Value pair, store and access by 
+```java
+HashMap<String, Integer> map = new HashMap<>();
+map.put("JOHN",69);
+
+map.get("JOHN");
+map.containsValue("World"));
+map.containsKey(5));
+```
+
+#### Iterate HashMap
+```java
+// using for-each loop for iteration over Map.entrySet()
+for (Map.Entry<String,Integer> entry : empIds.entrySet()) {
+	System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
+}
+```
+
+## Queue
+```java
+Queue<Integer> q = new LinkedList<>();
+q.add(i);
+q.remove();
+```
+
+## Stack
+```java
+Stack<Integer> stk = new Stack<>();
+stk.push(78);
+Integer x = (Integer) stk.pop();
+int x = stk.size();
+
+boolean result = stk.empty();
+Integer x = stk.peek();
+int location = stk.search(78); //-1 if not exists 
+```
+
+## Tree
+### TreeSet
+```java
+TreeSet<Integer> tree = new TreeSet<>();
+
+tree.lower(); //arithmetically smaller value than current
+tree.last(); //largest value
+tree.higher(); //arithmetically greater value than current
 ```
