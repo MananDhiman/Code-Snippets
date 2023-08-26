@@ -1,9 +1,4 @@
 # Basic
-## int vs Integer (wrapper class vs primitive)
-int is faster bcs primitive data type. Integer when needing to use in a framework or arraylist.
-Java automatically boxes int to Integer
-int cannot be null. Integer can be null
-
 ## Scanner
 import java.util.Scanner();
 
@@ -19,9 +14,21 @@ scanner.close()
 * May choose to Integer.parseInt(scanner.nextLine()) and forget about scanner and idiocracies
 
 ## == vs .equals
-* == compares if the variable references the same location/object
+* `==` compares if the variable references the same location/object
 
-* .equals used commonly in string checks for value
+* `.equals` used commonly in string checks for value
+
+# Data Types
+## int vs Integer (wrapper class vs primitive)
+int is faster bcs primitive data type. Integer when needing to use in a framework or arraylist.
+Java automatically boxes int to Integer
+int cannot be null. Integer can be null
+
+## Primitive
+```java
+int x = 0b1010; // binary number
+int x = 123_456_789; // underscore do not break int
+```
 
 ## Array
 ```java
@@ -37,17 +44,59 @@ return new double[]{2.1,1.8};
 ```
 
 ## Type Conversion
-Primitive to Primitve
+### Primitive to Primitve
+Bool cannot be converted to and from any type
 ```java
+// from int
+int i = 1;
+char ic = (char) i; // A, ascii char of int
+double id = i; // no need for explicit type case
+
+// from char
+char c = 'c';
+int ci = (int) c; // 99, ascii char to inr
+double cd = (double) c; // 99.0
+
+// from double
+double d = 65.5;
+int di = (int) d; // 65
+char dc = (char) d; // A
+
 double weightInDouble = 87.5;
 int weight = (double) weightInDouble;
 ```
-
-Primitive to Reference
+### Reference to Primitive
+All Wrapper class except Character **parseXxx()** to convert from String to Wrapper
 ```java
-String s = String.valueOf(char c);
+int i = Integer.parseInt("10");
+double d = Double.parseDouble("10.5");
+boolean b = Boolean.parseBoolean("true");
 ```
-# String, StringBuilder and Character
+### Primitive to Reference
+All primitives can be directly converted to referency types by autoboxing
+
+```java
+// to String
+String s = String.valueOf(char c);
+
+Integer age = new Integer(10);
+// All Wrapper including Character static toString() convert from primitive to String
+String s = age.toString();
+String s1 = Integer.toString(10);
+String s2 = Character.toString('a');
+
+// from string (Having incorrect types will cause exception)
+Integer I = Integer.valueOf("10"); // 10
+Double D = Double.valueOf("10.0"); // 10.0
+Boolean B = Boolean.valueOf("true"); // true
+```
+
+### Reference to Reference
+```java
+static Integer valueOf(String valStr)
+```
+
+### StringBuilder and Character
 ```java
 String str = Character.toString(char c)
 ```
