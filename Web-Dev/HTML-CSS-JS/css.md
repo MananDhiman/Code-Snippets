@@ -20,6 +20,10 @@ h1 { }
 .class_name { }
 
 #id { }
+
+/* Select child of a parent, can use tag, class or id */
+parent > child 
+parent > *
 ```
 
 <button class="btn btn-1">button 1</button>
