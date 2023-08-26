@@ -1,3 +1,8 @@
+# Headers
+```php
+header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
+```
 # Connection
 ```php
 <?php
@@ -31,11 +36,12 @@ PHP
 ```php
 if(isset($_POST)){
     $name = $_POST['names'];
+
     if ($result = $conn -> query("INSERT INTO `amount` (`id`, `name`, `initial_amount`, `gst`, `discount`, `packing_charges`, `amount`) VALUES (NULL, '$name', '$initial_amount', '$gst', '$discount', '$packing_charges', '$amount');")) {
         echo 'added';
     }
 		
-	}
+}
 ```
 
 HTML Form

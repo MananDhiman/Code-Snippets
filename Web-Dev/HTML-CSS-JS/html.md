@@ -151,6 +151,10 @@ Button
     <link rel="icon" type="image/jpeg" href="favicon.jpg">
 </head>
 ```
+## HTML Call JS Function With param
+```html
+<button id='button' value='Click' onclick=setText(this.value)>
+```
 ## Div vs Span (style="background-color: cyan")
 Span spans only the width of the text
 

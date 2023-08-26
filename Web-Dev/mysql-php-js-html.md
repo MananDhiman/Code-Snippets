@@ -1,27 +1,32 @@
+Contents are of a single file only
+```php
 <?php
 	//credentials to login to database
 	$DB_HOST = "localhost";
-    $DB_USER = "root";
-    $DB_PASS = "";
-    $DB_NAME = "shophere";
+	$DB_USER = "root";
+	$DB_PASS = "";
+	$DB_NAME = "shophere";
 
-	//connecting to database
-    $conn = mysqli_connect($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
+//connecting to database
+	$conn = mysqli_connect($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
 
-	//sql query to get data from database
-    $sql = "SELECT name,price,rating from products";
-    $result = mysqli_query($conn, $sql);
-    $data = array();
-    
-    //converting data from database to JSON and storing it in PHP variable
-    if(mysqli_num_rows($result) > 0){
-        $output = mysqli_fetch_all($result, MYSQLI_ASSOC);
-        $jsonArray = json_encode($output);
-    }else{
-        echo json_encode(array('message' => 'No Record Found', 'status'=>false));
-    }
+//sql query to get data from database
+	$sql = "SELECT name,price,rating from products";
+	$result = mysqli_query($conn, $sql);
+	$data = array();
+	
+	//converting data from database to JSON and storing it in PHP variable
+	if(mysqli_num_rows($result) > 0){
+		$output = mysqli_fetch_all($result, MYSQLI_ASSOC);
+		$jsonArray = json_encode($output);
+	}else{
+		echo json_encode(array('message' => 'No Record Found', 'status'=>false));
+	}
     
 ?>
+```
+
+```html
 <html>
 <body>
 	
@@ -44,3 +49,4 @@
 	
 </body>
 </html>
+```
