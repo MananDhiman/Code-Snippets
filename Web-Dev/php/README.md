@@ -46,7 +46,7 @@ var_dump(strpos($s, "L")); # => false
 ```
 
 # Function
-* Has default parameters
+* Has support for default parameters
 ```php
 function sum_numbers(int $a, int $b){
 	return $a+$b;
@@ -90,11 +90,8 @@ $multiArray = [
 
 echo count($num); 
 
-
 print_r($people); // var dump is general, print_r only array
 vardump($people, $num);
-
-
 
 sort($arr);
 ```
@@ -125,6 +122,9 @@ foreach ( $arr as $key => $value ) {
 }
 
 // append key to assoc array
+// method 1
+$arr[$category] = $question; 
+
+// method 2
 $arr += array($category => $question);
 ```
-

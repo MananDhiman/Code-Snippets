@@ -1,4 +1,5 @@
 # Headers
+For setting API as JSON and allowing all to access
 ```php
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
@@ -25,19 +26,32 @@ header('Access-Control-Allow-Origin: *');
 $sql = "SELECT * FROM `records`;";
 $result = $conn->query($sql);
 
+// data in associative array
+// to display in html
 if($result->num_rows > 0){
 	foreach($result as $rows){
 		echo "$row['id']";
 	}
 }
+
+// to display in api
+if($result -> num_rows > 0) {
+
+    $data = $result -> fetch_all(MYSQLI_ASSOC);
+    echo json_encode($data);
+
+} else {
+    echo json_encode(['msg' => 'No Data!', 'status' => false]);
+}
 ```
 
-PHP
+# Create
 ```php
 if(isset($_POST)){
     $name = $_POST['names'];
 
-    if ($result = $conn -> query("INSERT INTO `amount` (`id`, `name`, `initial_amount`, `gst`, `discount`, `packing_charges`, `amount`) VALUES (NULL, '$name', '$initial_amount', '$gst', '$discount', '$packing_charges', '$amount');")) {
+    if ($result = $conn -> query("INSERT INTO `amount` (`id`, `name`, `initial_amount`, `gst`, `discount`, `packing_charges`, `amount`) 
+    VALUES (NULL, '$name', '$initial_amount', '$gst', '$discount', '$packing_charges', '$amount');")) {
         echo 'added';
     }
 		
@@ -50,7 +64,22 @@ HTML Form
 
 </form>
 ```
+Same page submit button
+```php
+<html>
+    <body>
+        <form action='#' method='POST'>
+            <input type='submit' name='submit' value='Submit'>
+        </form>
+    </body>
+</html>
 
+<?php
+    if(isset($_POST['submit'])) {
+        echo 'button clicked';
+    }
+?>
+```
 
 
 
