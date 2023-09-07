@@ -1,4 +1,8 @@
 # Basic
+## ASCII
+* 'A' - 'Z' -> 65 - 90
+* 'a' - 'z' -> 97 - 122
+* Numbers 0 - 9 -> 48 - 57
 ## Scanner
 import java.util.Scanner();
 
@@ -137,6 +141,11 @@ String substring()
 If string previously exists, string will point to same object
 
 # Collection
+## Misc
+```java
+// create an array list from all values of a hashmap
+List<Integer> list = new ArrayList<>(map.values());
+```
 ## ArrayList
 ```java
 import java.util.ArrayList;
@@ -234,4 +243,27 @@ TreeSet<Integer> tree = new TreeSet<>();
 tree.lower(); //arithmetically smaller value than current
 tree.last(); //largest value
 tree.higher(); //arithmetically greater value than current
+```
+
+## Heap / Priority Queue 
+Tree Based DS
+
+* Min Heap: -> to keep the `min element always on top`, so you can access it in O(1).
+* Max Heap: -> to keep the `max element always on top`, so you can access it in O(1).
+
+```java
+// min heap
+PriorityQueue<Integer> minHeap = new PriorityQueue<Integer>();
+// maxheap
+PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
+
+heap.add(int i) // add element to the queue. O(log n)
+heap.remove(int i) // get and remove the min/max. O(log n)
+heap.peek() // get, but not remove the min/max. O(1)
+
+// iterate
+Iterator iterator = heap.iterator();
+
+while (heap.hasNext()) 
+    System.out.print(heap.next() + " ");
 ```
