@@ -1,6 +1,8 @@
 # Types:
 Inline, Internal, External
+
 Gives precedence to last defined element
+
 
 ## html
 ```html
@@ -85,5 +87,46 @@ img {
   border-radius: 25px;
 }
 ```
+# Notes
+* Div,p is a full page width block,
+* Img and span are partial width
 
-# Box Model
+# Flex
+* To create tabular design, use flex
+* Flexbox, grid, bootstrap are used to create an overall page structure
+flex pushes everything to single line, and width of each content is based on the content, gap property of flexbox
+* Flex makes element occupy full width, use inline flex to wrap content to widest content
+* Default flex direction is row
+* Cross axis is perpendicular to main axis
+```css
+.container {
+  display: flex;
+  gap: 5px;
+
+  /* attributes */
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+<div class="container">
+  <Item 1> <Item 2> <Item 3>
+</div>
+```
+
+
+## Width of each element
+Property to be set of child element not the main container. ``
+```css
+.container > div {
+  flex-basis: 100px; // (height or width of each element)
+  justify-content: center /* flex-start / flex-end / space-between (last elements pushed to boundary) / space-around (last elements have space) */
+
+  align-items: 'same attrs as above' /* sets alignment to cross axis, for this to work, the container must have size larger than each element */
+
+  align-self (child property): 'same attrs as above' /* makes the item independent from other children */
+
+  align-content: /* works when wrap in use */
+}
+```
+
+Float used to float an image to the left or right of a block of text. 
