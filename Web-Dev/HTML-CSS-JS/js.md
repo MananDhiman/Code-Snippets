@@ -12,12 +12,25 @@ let name = inputText.value; // get value
 list.innerHTML += arr[i] + `<button onclick="deleteById(${i})">D</button>` + `<button onclick="editById(${i})">E</button><br>`;
 
 list.innerHTML += `<tr>
-            <td>${todoArray[i]}</td>
-            <td><button onclick="deleteById(${i})">D</button></td>
-            <td><button onclick="editById(${i})">E</button></td>
-        </tr>`;
+        <td>${todoArray[i]}</td>
+        <td><button onclick="deleteById(${i})">D</button></td>
+        <td><button onclick="editById(${i})">E</button></td>
+    </tr>`;
 ```
+Event Listener
+```javascript
+element.addEventListener("click", function(){ 
+    alert("Hello World!"); 
+});
 
+// same as below
+
+element.addEventListener("click", myFunction);
+
+function myFunction() {
+    alert ("Hello World!");
+}
+```
 Modification
 ```javascript
 const body = document.body;
