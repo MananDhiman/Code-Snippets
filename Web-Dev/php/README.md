@@ -93,7 +93,10 @@ echo count($num);
 print_r($people); // var dump is general, print_r only array
 vardump($people, $num);
 
+// sort array elements
 sort($arr);
+// check if element exists in array
+if (in_array("A", $people)) // true
 ```
 ## Associative Array
 ```php
