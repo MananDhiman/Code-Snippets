@@ -89,6 +89,8 @@ $multiArray = [
 ];
 
 echo count($num); 
+array_push($num,10); // can insert single element or multiple elements
+array_push($num,11,100);
 
 print_r($people); // var dump is general, print_r only array
 vardump($people, $num);
