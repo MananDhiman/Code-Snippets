@@ -154,7 +154,42 @@ for (let i of map) console.log(`of map, i = ${i}`);
 // of map, i = mar,31
 // of map, i = may,31
 ```
+## Array Iteration
+```js
+const arr = [1,2,3];
 
+// foreach -> simply iterates over elements
+arr.forEach( function(item, index) {
+	console.log(item, index);
+});
+
+// map -> takes item, returns after operation
+const doubled = arr.map(function(item) {
+	return item*2;
+});
+console.log("Doubled",doubled);
+
+// filter -> take item and check for condition. if true, returns elements
+const evens = arr.filter(function (item) {
+	return item > 1;
+});
+console.log("> 1",evens)
+
+// reduce -> do something, pass result to next iteration
+const sum = arr.reduce(function (result, item) {
+	return result + item;
+}, 0); // initial item);
+
+// some -> returns boolean if condition true by single element
+const hasNeg = arr.some(function(item) {
+	return item < 0;
+});
+
+// every -> returns true if every number returns true condition
+const hasPos = [1,2-1].every(function(item) {
+	return item < 0;
+});
+```
 # Async / Await
 The keyword async before a function makes the function return a promise
 The await keyword can only be used inside an async function.
