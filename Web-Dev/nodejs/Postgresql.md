@@ -43,9 +43,8 @@ app.post('/user', db.getUserById)
 
 # Queries.js
 ```js
+// for local db
 const Pool = require('pg').Pool
-
-// Database Credentials
 const pool = new Pool({
     user: 'postgres',
     host: 'localhost',
@@ -53,6 +52,10 @@ const pool = new Pool({
     password: '1234',
     port: 5432
 })
+
+// for cloud db such as elephant sql
+var pg = require('pg');
+var client = new pg.Client("postgres://uri-here");
 
 // Simple GET Request
 // Not Arrow Function for clarity
@@ -78,10 +81,23 @@ const getUserById = (request, response) => {
   })
 }
 
+// For multiple variables have to pass array
+const createPost = async (req, res) => {
+    
+  const values = [req.body.body, req.body.title, Date.now()];
+  client.query(`INSERT INTO posts (id, body, title, time_created) VALUES (default, $1, $2, $3) RETURNING *;`, values, (err, results) => {
+    if(err) throw err.message;
+
+    res.status(200).json(results.rows);
+  });  
+
+};
+
 // exporting functions to use in app.js
 // if too many functions, may add them to a single class
 module.exports = {
-    getUsers,
-    getUserById
+  getUsers,
+  getUserById,
+  createPost
 }
 ```
