@@ -256,9 +256,15 @@ Tree Based DS
 PriorityQueue<Integer> minHeap = new PriorityQueue<Integer>();
 // maxheap
 PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
+// same as above. Collections does not enforce type checking
+Queue<Double> q = new PriorityQueue<>(Collections.reverseOrder());
 
-heap.add(int i) // add element to the queue. O(log n)
-heap.remove(int i) // get and remove the min/max. O(log n)
+heap.add(int i) // add element to the queue. O(log n) returns true but throws exception if cannot add
+q.offer(3.0); // add element. can return false if cannot add
+
+// poll can return false. remove will raise exception
+heap.remove(int i) // get and remove the min/max. O(log n).
+print(queu.poll()) // display and remove each element in ascending order
 heap.peek() // get, but not remove the min/max. O(1)
 
 // iterate
