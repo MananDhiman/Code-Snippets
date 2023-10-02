@@ -12,6 +12,12 @@ UByte, UShort, UByteArray, UIntArray
 val l: Long = 412521L
 val f: Float = 2.31F
 val d: Double = 2.21321
+
+## String
+```kotlin
+val str = "a b c"
+val strArray = str.split(" ") // splits strings separated by " ". ["a", "b", "c"]
+```
 ## Null
 have to decide if a variable can be null or not. Applies to both primitives or class types. A nullable variable is marked by assigning ? after the type, e.g. `var firstName: String?`
 

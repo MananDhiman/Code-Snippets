@@ -31,10 +31,21 @@ public interface ApiInterface {
     @GET("products/get_popular_products.php")
     fun getPopularProducts(): Call<List<Product>>
 
-    //post request
+    //post request using body
     @FormUrlEncoded
     @POST("products/search_products.php")
     fun getProductById(@Field("id") id:String, @Field("name") name:String): Call<List<Product>>
+
+    //url path param
+    @GET("popular/{duration}")
+    fun getPopularNews(@Path("duration") duration: String): Call<String>
+
+    // query params
+    fun getPopularNews(@Query("api-key") apiKey:String): Call<PopularNewsApiResponse>
+
+    // can send map of query params
+    @GET("article/q")
+    fun getArticle(@QueryMap options: Map<String, String>): Call<String>
 
     //other methods may be defined here
 }

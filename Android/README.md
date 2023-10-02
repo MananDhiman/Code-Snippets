@@ -35,7 +35,28 @@ android:fontFamily="@font/glakome"
 ```xml
 android:backgroundTint="@color/black"
 ```
+# Spinner
+```kotlin
+// elements to be displayed
+val timeDuration = arrayOf("1","3","5","7","10","15")
 
+val arrayAdapter = ArrayAdapter(requireContext(), <simple-spinner>, timeDuration)
+
+binding.spinner.adapter = arrayAdapter
+
+// on spinner click. if any item selected. if none selected
+binding.spinner.onItemSelectedListener = object :
+AdapterView.OnItemSelectedListener {
+  override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+    val durationSelected = binding.spinner.getItemAtPosition(p2).toString()
+    getPostsOfDuration(durationSelected)
+  }
+
+  override fun onNothingSelected(p0: AdapterView<*>?) {
+    TODO("Not yet implemented")
+  }
+}
+```
 # Adjust layout when soft keyboard opened
 In Manifest.xml
 ```xml
@@ -94,7 +115,7 @@ override fun onCreateOptionsMenu(menu: Menu?): Boolean {
    android:backgroundTint="@color/black" />
 ```
 
-
+```kotlin
 fun sayColour(view: View) {
    val clickedButton: Button = view as Button
 
@@ -109,6 +130,7 @@ fun sayColour(view: View) {
    )
    mediaPlayer.start()
 }
+```
 
 
 # Intent
