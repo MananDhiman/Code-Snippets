@@ -23,6 +23,10 @@ firewall-cmd --list-ports
 firewall-cmd --add-port 3000/tcp # not persistent. returns to default when device reset
 firewall-cmd --permanent --add-port 3000/tcp # didn't work
 ```
+## Port
+```sh
+sudo fuser -k 81/udp kill port
+```
 
 ## PostgreSQL EOS
 
