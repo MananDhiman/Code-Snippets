@@ -1,0 +1,88 @@
+
+<html></html>
+<head>
+  <title>Basic Colour Palette</title>
+  <style>
+    span {
+      font-size: xx-large;
+    }
+  </style>
+</head>
+<body>
+  <div id="div"></div>
+  <input type="text" placeholder="- hiphen separated codes" id="textF"><button onclick="gen()">Gen</button>
+  <h2>Gray / White / Black</h2>
+  <span style="background-color: #F8F9FA;">F8F9FA</span>
+  <span style="background-color: #E9ECEF;">E9ECEF</span>
+  <span style="background-color: #DEE2E6;">DEE2E6</span>
+  <span style="background-color: #CED4DA;">CED4DA</span>
+  <span style="background-color: #ADB5BD;">ADB5BD</span>
+  <span style="background-color: #6C757D;">6C757D</span>
+  <span style="background-color: #495057;">495057</span>
+  <span style="background-color: #343A40;">343A40</span>
+  <span style="background-color: #212529;">212529</span>
+  <br><br>
+  <span style="background-color: #c2fcf7;">c2fcf7</span>
+  <span style="background-color: #85bdbf;">85bdbf</span>
+  <span style="background-color: #57737a;">57737a</span>
+  <span style="background-color: #040f0f;">040f0f</span>
+
+  <h2>Blue</h2>
+  <span style="background-color: #CAF0F8;">CAF0F8</span>
+  <span style="background-color: #ADE8F4;">ADE8F4</span>
+  <span style="background-color: #90E0EF;">90E0EF</span>
+  <span style="background-color: #48CAE4;">48CAE4</span>
+  <span style="background-color: #00B4D8;">00B4D8</span>
+  <span style="background-color: #0096C7;">0096C7</span>
+  <span style="background-color: #0077B6;">0077B6</span>
+  <span style="background-color: #023E8A;">023E8A</span>
+  <span style="background-color: #03045E;">03045E</span>
+  <br><br>
+  <span style="background-color: #b9d6f2;">b9d6f2</span>
+  <span style="background-color: #061a40;">061a40</span>
+  <span style="background-color: #0353a4;">0353a4</span>
+  <span style="background-color: #006daa;">006daa</span>
+  <span style="background-color: #003559;">003559</span>
+
+  <h2>Red</h2>
+  <span style="background-color: #03071e;">03071e</span>
+  <span style="background-color: #370617;">370617</span>
+  <span style="background-color: #6a040f;">6a040f</span>
+  <span style="background-color: #9d0208;">9d0208</span>
+  <span style="background-color: #d00000;">d00000</span>
+  <span style="background-color: #dc2f02;">dc2f02</span>
+  <span style="background-color: #e85d04;">e85d04</span>
+  <span style="background-color: #f48c06;">f48c06</span>
+  <span style="background-color: #faa307;">faa307</span>
+  <span style="background-color: #ffba08;">ffba08</span>
+
+  <h2>Multipurpose</h2>
+  <span style="background-color: #faa916;">faa916</span>
+  <span style="background-color: #fbfffe;">fbfffe</span>
+  <span style="background-color: #6d676e;">6d676e</span>
+  <span style="background-color: #1b1b1e;">1b1b1e</span>
+  <span style="background-color: #96031a;">96031a</span>
+  <br><br>
+  <span style="background-color: #000814;">000814</span>
+  <span style="background-color: #001d3d;">001d3d</span>
+  <span style="background-color: #003566;">003566</span>
+  <span style="background-color: #ffc300;">ffc300</span>
+  <span style="background-color: #ffd60a;">ffd60a</span>
+  
+
+  <script>
+    function gen() {
+      const url = String(document.getElementById("textF").value);
+      const arr = url.split("-");
+
+      let str = "<h2></h2>";
+      for(let i of arr) {
+        str += `<span style="background-color: #${i};">${i}</span>`;
+      }
+
+      document.getElementById("div").innerHTML = str;
+    }
+  </script>
+</body>
+</html>
+<!-- https://coolors.co/palette/03071e-370617-6a040f-9d0208-d00000-dc2f02-e85d04-f48c06-faa307-ffba08 -->
