@@ -72,8 +72,6 @@ fs.rename('original.txt', 'changed.txt', () => {
 
 In .env in root folder
 ```env
-.env
-
 PORT=3005
 CONNECTION_URI=mongodb://127.0.0.1/test
 ```
@@ -174,34 +172,4 @@ app.get('/api/customers/:id/:name', async(req,res) => {
     "query": "test"
   }
 }
-```
-# Apps
-## QR Code generator
-inquirer for user input. Answer stored in answers objects under `name`
-```js
-import qr_image from "qr-image";
-import inquirer from "inquirer";
-import fs from "fs";
-
-inquirer
-  .prompt([
-    /* Pass your questions in here */
-    { message: "Enter URL or any text: ", name: "inputText" },
-  ])
-  .then((answers) => {
-    // Use user feedback for... whatever!!
-    const inputText = answers.inputText;
-    console.log(inputText);
-
-    //   defaults to png
-    let qr_svg = qr_image.image(inputText, { type: 'png'});
-    qr_svg.pipe(fs.createWriteStream(`${inputText}.png`));
-  })
-  .catch((error) => {
-    if (error.isTtyError) {
-      // Prompt couldn't be rendered in the current environment
-    } else {
-      // Something else went wrong
-    }
-  });
 ```

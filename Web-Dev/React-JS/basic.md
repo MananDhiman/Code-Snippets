@@ -3,7 +3,6 @@ Or
 npm init react-app <app name here>
 npm start
 
-only file to work on is 'Apps.js'
 Compulsary files is index.js
 
 App.js

@@ -68,8 +68,11 @@ $(“#h1”).remove();
 function getData() {
 	$.ajax({
 		url: 'sample.html',
-		type: 'GET',
-		dataType: 'text',
+		type: 'GET', // or POST
+		data: {
+			username: username,
+			password: password,
+		},
 		success: successFun, // if page found
 		error: errorFun, // if page not found
 		complete: function(xhr, status) { // runs when req complete

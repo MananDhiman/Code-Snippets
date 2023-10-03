@@ -112,7 +112,7 @@ map.forEach(function (value, key) {
 ## For Loop
 ```js
 // let i in arr is used to access keys or index
-// let i for arr is used to access element
+// let i of arr is used to access element
 
 
 let arr = [5,10,15];
