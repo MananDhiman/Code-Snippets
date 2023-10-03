@@ -70,6 +70,14 @@ In Manifest.xml
 ```kotlin
 val colors: Int = resources.getColor(R.color.purple_700)
 ```
+## Use xml defined strings
+```kotlin
+// in fragment
+val apiKey = context?.getString(R.string.api_key)
+
+// in activity
+val apiKey = R.string.api_key
+```
 
 ## Android Menu
 Inflate with menu inflater. Main menu in top bar of activity

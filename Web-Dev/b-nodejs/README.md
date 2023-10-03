@@ -135,7 +135,13 @@ app.post('/', (req, res) => {
  res.send(req.body);
 });
 ```
+### Req and Res methods
+```js
+req.rawHeaders 
 
+// send file as response w/o file handling
+res.sendFile(__dirname + "file.txt")
+```
 ### Parameterised URL & Query String Param
 * / is treated as different path
 
