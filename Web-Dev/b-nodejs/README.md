@@ -139,7 +139,7 @@ app.post('/', (req, res) => {
 ```js
 req.rawHeaders 
 
-// send file as response w/o file handling
+// send file as response
 res.sendFile(__dirname + "file.txt")
 ```
 ### Parameterised URL & Query String Param

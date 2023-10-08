@@ -316,6 +316,33 @@ Property to be set of child element not the main container. ``
 }
 ```
 
+### Summary
+```css
+container {
+  display: flex;
+
+  justify-content: end / center / space-around / space-between / space-evenly 
+  /* align items along main axis */
+
+  align-items: end / center / baseline / stretch 
+  /* align items along cross axis */
+
+  flex-direction: row-reverse / column / column-reverse
+  /* direction of main axis */
+
+  flex-wrap: wrap / wrap-reverse
+  flex-flow: /* shorthand for flex-direction and flex-wrap */
+
+  align-content: start / end / center / space-between / space-around / space-evenly / stretch
+  /* Aligns a flex container's lines within the flex container when there is extra space on the cross-axis. */
+}
+
+item {
+  order: integer /* relatively change position */
+  align-self: start / end / center / baseline / stretch
+}
+```
+
 Float used to float an image to the left or right of a block of text. 
 
 # JavaScript
