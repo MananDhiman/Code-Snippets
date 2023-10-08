@@ -202,5 +202,16 @@ progressDialog.show()
 
 progressDialog.dismiss()
 ```
+# Glide Image Load
+`dependencies {
+  implementation 'com.github.bumptech.glide:glide:4.16.0'
+}`
 
-
+```kotlin
+Glide
+  .with(context)
+  .load(url)
+  .centerCrop()
+  .placeholder(R.drawable.loading_spinner)
+  .into(myImageView);
+```
