@@ -12,6 +12,8 @@ then in root folder `npm run start`
 
 To referesh package.json, or download all dependencies in package.json `npm install`
 
+`npm root -g` is where global dependencies are installed, can install dependencies in project without internet by providing path as `<npm root -g>/express`
+
 ## ES Modules vs ECMAscript Modules
 Instead of common es modules that are accomplished using `const fs = require(“fs”)`, it is preferred to use ecmascript modules.
 
