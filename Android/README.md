@@ -192,7 +192,7 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-# Progress Dialog
+# Progress Dialog (Deprecated. Use ProgressBar)
 ```kotlin
 private lateinit var progressDialog: ProgressDialog 
 progressDialog = ProgressDialog(this) // var progressDialog: ProgressDialog = ProgressDialog(this)
@@ -201,6 +201,42 @@ progressDialog.setTitle("Loading Posts...")
 progressDialog.show()
 
 progressDialog.dismiss()
+```
+
+# Progress Bar
+Create Layout
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:orientation="horizontal"
+  android:padding="20dp">
+
+  <ProgressBar
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1" />
+
+  <TextView
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:layout_weight="4"
+    android:gravity="center"
+    android:text="Loading" />
+</LinearLayout>
+```
+In
+```kt
+// first create builder
+val builder: AlertDialog.Builder = AlertDialog.Builder(context)
+builder.setCancelable(false)
+builder.setView(R.layout.loading_dialog)
+
+// then create dialog
+val loadingDialog : AlertDialog = builder.create()
+loadingDialog.show()
+loadingDialog.dismiss()
 ```
 # Glide Image Load
 `dependencies {

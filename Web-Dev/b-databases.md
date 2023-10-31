@@ -1,11 +1,22 @@
 # SQL
 ## DDL Commands:
 * CREATE: database objects, tables, and triggers.
+```sql
+CREATE TABLE customer(
+  name VARCHAR(30) NOT NULL,
+  id SERIAL PRIMARY KEY
+);
+```
 * ALTER: adding, deleting, and modifying columns of existing tables
 * DROP: deletes table
 * TRUNCATE: deletes all the data and records from table. Unlike the DROP command, it does not delete the table.
 * RENAME: changes the table name
 
+```sql
+/* ALTER */
+ALTER TABLE table_name DROP COLUMN column_name;
+
+```
 ## DML COmmands:
 * SELECT
 * INSERT
