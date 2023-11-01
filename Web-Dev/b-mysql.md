@@ -76,24 +76,30 @@ SELECT name FROM bands;
 
 -- where
 WHERE release_year < 2000;
+WHERE id % 2 = 0;
+WHERE area >= 3000000 OR population >= 25000000;
 
 WHERE release_year IS NULL;
 
 WHERE NOT city=’Berlin’;
 
+WHERE release_year BETWEEN 2000 and 2018;
+
+WHERE LENGTH(content) > 15;
+
 WHERE CITY NOT LIKE "%a";
+
+WHERE name LIKE "%er%" OR band_id=2;
 
 -- column alias
 SELECT id AS 'ID', name AS 'Band Name' FROM bands;
 
 -- order by
-SELECT * FROM bands ORDER BY name;
-SELECT * FROM customers ORDER By country, city; // alphabetically, first by country, then city;
+FROM bands ORDER BY name;
+customers ORDER By country, city; -- alphabetically, first by country, then city;
 
 -- distinct values of column
-SELECT DISTINCT name FROM albums;
-
-SELECT * FROM albums WHERE release_year BETWEEN 2000 and 2018 AND name LIKE "%er%" OR band_id=2;
+DISTINCT name FROM albums;
 ```
 
 DELETE
@@ -101,6 +107,7 @@ DELETE
 ```sql
 -- del everything
 DELETE FROM albums;
+
 DELETE FROM albums WHERE id=5;
 ```
 
@@ -127,8 +134,6 @@ INNER / LEFT / RIGHT
 
 ```sql
 SELECT * FROM bands JOIN albums ON bands.id = albums.band_id;
-
-
 ```
 
 AGGREGATE FUNCTIONS
@@ -159,5 +164,4 @@ FROM bands AS b
 LEFT JOIN albums AS a ON b.id = a.band_id
 GROUP BY b.id
 HAVING num_albums = 1;
-
 ```
