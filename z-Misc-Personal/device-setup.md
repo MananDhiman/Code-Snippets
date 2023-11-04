@@ -22,7 +22,7 @@ india, china, taiwan, thailand, us, worldwide
 Personal
 
 ```sh
-audacious calibre chromium firefox fish flatpak geoclue2 gimp gtk2 inkscape hunspell-en_gb libreoffice-fresh mpv noto-fonts noto-fonts-emoji obs-studio  qbittorrent qpdf syncthing torbrowser-launcher
+audacious calibre chromium firefox fish flatpak geoclue2 gimp gtk2 inkscape kcharselect hunspell-en_gb libreoffice-fresh mpv noto-fonts noto-fonts-emoji obs-studio  qbittorrent qpdf syncthing torbrowser-launcher
 ```
 
 Dev Only
