@@ -94,6 +94,7 @@ run(function () {
 
 ```javascript
 const map = new Map();
+let map = new Map([‘a1’.’he1llo’],[‘b’,[gbye]]);
 
 map.set("jan", "31");
 map.set("mar", "31");
@@ -115,6 +116,35 @@ map.forEach(function (value, key) {
   console.log(key + "- " + value);
 });
 ```
+
+## Set
+```js
+const arr = [11,22];
+
+const set = new Set(arr);
+set.add(‘100’)
+set.add({a:1,b:2})
+
+set.delete(22)
+set.clear()
+set.size
+
+set.forEach(function(val) {
+  c.log(val);
+})
+```
+
+## Weak
+`wset = new WeakSet()`
+
+object in WeakSet can be garbage collected.
+
+Other differences (or rather side-effects) are:
+- WeakSets are collections of objects only.
+- Not have size property.
+- Does not have clear, keys, values, entries, forEach methods.
+- not iterable.
+
 
 ## For Loop
 
@@ -198,6 +228,25 @@ const hasNeg = arr.some(function (item) {
 const hasPos = [1, 2 - 1].every(function (item) {
   return item < 0;
 });
+```
+
+## Iterate
+Map
+```js
+for (const [key, value] of map) { 
+  // Using the default iterator (could be `map.entries()` instead) console.log(`The value for key ${key} is ${value}`); 
+}
+
+```
+object
+```js
+for (let key in yourobject) { 
+  console.log(key, yourobject[key]); 
+}
+
+for (let [key, value] of Object.entries(yourobject)) {
+  console.log(key, value); 
+}
 ```
 
 # Promise

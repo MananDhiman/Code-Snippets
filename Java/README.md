@@ -1,9 +1,13 @@
 # Basic
+
 ## ASCII
-* 'A' - 'Z' -> 65 - 90
-* 'a' - 'z' -> 97 - 122
-* Numbers 0 - 9 -> 48 - 57
+
+- 'A' - 'Z' -> 65 - 90
+- 'a' - 'z' -> 97 - 122
+- Numbers 0 - 9 -> 48 - 57
+
 ## Scanner
+
 import java.util.Scanner();
 
 ```java
@@ -13,28 +17,34 @@ input.nextLine()  //reads entire input as string
 input.nextInt() //accepts only integer. If string entered, exception mismatch type
 scanner.close()
 ```
-* Anytime before nextLine(), clear scanner by scanner.nextLine().
-* Becase when nextInt(), scanner has residue of \n  as nextInt accepts only numeric portion
-* May choose to Integer.parseInt(scanner.nextLine()) and forget about scanner and idiocracies
+
+- Anytime before nextLine(), clear scanner by scanner.nextLine().
+- Becase when nextInt(), scanner has residue of \n as nextInt accepts only numeric portion
+- May choose to Integer.parseInt(scanner.nextLine()) and forget about scanner and idiocracies
 
 ## == vs .equals
-* `==` compares if the variable references the same location/object
 
-* `.equals` used commonly in string checks for value
+- `==` compares if the variable references the same location/object
+
+- `.equals` used commonly in string checks for value
 
 # Data Types
+
 ## int vs Integer (wrapper class vs primitive)
+
 int is faster bcs primitive data type. Integer when needing to use in a framework or arraylist.
 Java automatically boxes int to Integer
 int cannot be null. Integer can be null
 
 ## Primitive
+
 ```java
 int x = 0b1010; // binary number
 int x = 123_456_789; // underscore do not break int
 ```
 
 ## Array
+
 ```java
 //type[] arrayName = new type[size];
 int[] marks = new int[3];
@@ -48,8 +58,11 @@ return new double[]{2.1,1.8};
 ```
 
 ## Type Conversion
+
 ### Primitive to Primitve
+
 Bool cannot be converted to and from any type
+
 ```java
 // from int
 int i = 1;
@@ -69,14 +82,19 @@ char dc = (char) d; // A
 double weightInDouble = 87.5;
 int weight = (double) weightInDouble;
 ```
+
 ### Reference to Primitive
+
 All Wrapper class except Character **parseXxx()** to convert from String to Wrapper
+
 ```java
 int i = Integer.parseInt("10");
 double d = Double.parseDouble("10.5");
 boolean b = Boolean.parseBoolean("true");
 ```
+
 ### Primitive to Reference
+
 All primitives can be directly converted to referency types by autoboxing
 
 ```java
@@ -96,17 +114,20 @@ Boolean B = Boolean.valueOf("true"); // true
 ```
 
 ### Reference to Reference
+
 ```java
 static Integer valueOf(String valStr)
 ```
 
 ### StringBuilder and Character
+
 ```java
 String str = Character.toString(char c)
 ```
 
 ## StringBuilder
-* mutable. does not create new object of each string
+
+- mutable. does not create new object of each string
 
 ```java
 methods
@@ -137,16 +158,22 @@ String substring()
 ```
 
 ## String
+
 ### String Pool
+
 If string previously exists, string will point to same object
 
 # Collection
+
 ## Misc
+
 ```java
 // create an array list from all values of a hashmap
 List<Integer> list = new ArrayList<>(map.values());
 ```
+
 ## ArrayList
+
 ```java
 import java.util.ArrayList;
 import java.util.Collections;
@@ -154,7 +181,7 @@ import java.util.*;
 
 ArrayList<String> list = new ArrayList<>();
 list.add("A");
-list.get(index); 
+list.get(index);
 int size = list.size();
 
 Collections.sort(list);
@@ -170,6 +197,7 @@ List<Int> listAtI = new ArrayList ();
 
 // will return arrayList
 List<List<Int>> arrayList = new ArrayList();
+
 for(int i = 0; i < desiredSize; i++){
 	// inner list to be returned
     List<Int> listAtI = new ArrayList ();
@@ -184,10 +212,13 @@ arrayList.get(5).get(5) // returns values from column 5 in row 5
 ```
 
 ## Hash
+
 Constant time insertion, deletion, access
 
 ### Set
+
 Like array Single element Constant time insertion, deletion, access (unordered)
+
 ```java
 HashSet<Integer> set = new HashSet<Integer>();
 for(int i=0;i<nums.length;i++)
@@ -198,7 +229,9 @@ set.remove("Welcome");
 ```
 
 ### HashMap
-Key Value pair, store and access by 
+
+Key Value pair, store and access by
+
 ```java
 HashMap<String, Integer> map = new HashMap<>();
 map.put("JOHN",69);
@@ -209,6 +242,7 @@ map.containsKey(5));
 ```
 
 #### Iterate HashMap
+
 ```java
 // using for-each loop for iteration over Map.entrySet()
 for (Map.Entry<String,Integer> entry : empIds.entrySet()) {
@@ -217,6 +251,7 @@ for (Map.Entry<String,Integer> entry : empIds.entrySet()) {
 ```
 
 ## Queue
+
 ```java
 Queue<Integer> q = new LinkedList<>();
 q.add(i);
@@ -224,6 +259,7 @@ q.remove();
 ```
 
 ## Stack
+
 ```java
 Stack<Integer> stk = new Stack<>();
 stk.push(78);
@@ -232,11 +268,13 @@ int x = stk.size();
 
 boolean result = stk.empty();
 Integer x = stk.peek();
-int location = stk.search(78); //-1 if not exists 
+int location = stk.search(78); //-1 if not exists
 ```
 
 ## Tree
+
 ### TreeSet
+
 ```java
 TreeSet<Integer> tree = new TreeSet<>();
 
@@ -245,11 +283,12 @@ tree.last(); //largest value
 tree.higher(); //arithmetically greater value than current
 ```
 
-## Heap / Priority Queue 
+## Heap / Priority Queue
+
 Tree Based DS
 
-* Min Heap: -> to keep the `min element always on top`, so you can access it in O(1).
-* Max Heap: -> to keep the `max element always on top`, so you can access it in O(1).
+- Min Heap: -> to keep the `min element always on top`, so you can access it in O(1).
+- Max Heap: -> to keep the `max element always on top`, so you can access it in O(1).
 
 ```java
 // min heap
@@ -270,6 +309,98 @@ heap.peek() // get, but not remove the min/max. O(1)
 // iterate
 Iterator iterator = heap.iterator();
 
-while (heap.hasNext()) 
+while (heap.hasNext())
     System.out.print(heap.next() + " ");
+```
+
+# Generics
+
+why generics? problems that generics solve. Have to create new class for different type. offer abilitty to accommodate many types
+
+generics don't work with primitives
+
+```java
+// bounded generic
+public class Printer<T extends Animal> {
+	T t;
+	public Printer(T t) {
+	  // logic
+  }
+}
+
+public class Printer<T> {
+	T t;
+	public Printer(T t) {
+	  // logic
+  }
+}
+
+psvm() {
+  Printer<Integer> printer = new Printer<>(23);
+  printer.print();
+}
+```
+
+Generic Method
+
+```java
+
+psvm() {
+	shout(“John”)
+	shout(“John”, “mac”)
+}
+
+<T> void shout(T th) {
+	sout(th + “!!!”);
+}
+
+<T,V> void shout(T th, V ch) {
+	sout(th + “!!!”);
+}
+
+<T,V> V shout(T th, V ch) {
+	sout(th + “!!!”);
+}
+
+```
+
+Wildcard
+
+```java
+List<Integer>list;
+printList(list);
+
+printList(List<?> list) {
+	// code
+}
+```
+
+# Serialisation
+Process of converting a object into a byteStream so as to save it in a file, send to different device. Has extension .ser
+
+Deserialisation - Convert byteStream into object
+
+Object class should implement serializable interface
+
+Serialisation (import java.io.Serializable)
+```java
+User user = new User();
+
+FileOutputSteam fileOut = new FileOutputSteam("UserInfo.ser");
+ObjectOutputSteam out = new ObjectOutputSteam(fileOut);
+
+out.writeObjectt(user);
+out.close();
+fileOut.close();
+```
+Deserialisation
+```java
+User user = null;
+
+FielInputStream fileIn = new FileInputStream(<pathToSerialFile>);
+ObjectInputStream in = ObjectInputStream(fileIn);
+
+user = (User) in.readObject;
+in.close();
+fileIn.close();
 ```

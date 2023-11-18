@@ -165,3 +165,57 @@ LEFT JOIN albums AS a ON b.id = a.band_id
 GROUP BY b.id
 HAVING num_albums = 1;
 ```
+
+### Subqueries
+```sql
+select f_name, last_name, (select AVG(hourly_pay) from employees) AS avg_pay FROM emp;
+select f_name from emp  where h_pay > (select avg(h_pay) from emp);
+```
+
+### AUTOCOMMIT, COMMIT, ROLLBACK
+- AUTOCOMMIT when execute trans, it is saved. 
+- To be able to Undo trans. SET AUTOCOMMIT = OFF. 
+- When saving trans.: COMMIT. 
+- ROLLBACK will restore previous commit
+
+Primary key
+```sql
+CREATE TABLE trans(
+  trans_id PRIMARY KEY AUTO_INCREMENT,
+  amount DECIMAL(5,2)
+);
+
+alter table trans ADD CONSTRAINT PRIMARY KEY(t_id);
+```
+Foreign KEY
+```sql
+CREATE TABLE transactions (
+  transaction_id INT PRIMARY KEY AUTO_INCREMENT,
+  amount DECIMAL(5, 2),
+  customer_id INT,
+  FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+);
+
+ALTER TABLE customers
+ADD CONSTRAINT fk_customer_id
+FOREIGN KEY (customer_id) REFERENCES customers(customer_id);
+```
+### Views
+virtual tables, made from real table change to original table will update the view
+```sql
+CREATE VIEW e_att AS
+SELECT f_name, l_name
+FROM emp;
+```
+
+### Index
+Data Structure to find value in col. B-tree. mysql searches sequentially. update takes more time, select takes less time
+```sql
+SHOW INDEXES FROM customers;
+
+CREATE INDEX last_name_idx ON CUSTOMERS(last_name);
+
+CREATE IDNEX f_l_idx ON custoemrs(last_name, f_name);
+
+ALTER TABLE customers DROP INDEX last_name_idx;
+```
