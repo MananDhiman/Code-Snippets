@@ -12,8 +12,8 @@ india, china, taiwan, thailand, us, worldwide
 
 **No Install Apps**
 
-- GithubDesktop - flatpak
-- android studio, vscode, redshift, joplin, postman (tar-sh, appimage)
+- GithubDesktop - flatpak / aur
+- android studio, vscode, redshift, joplin, postman, intellij (tar-sh, appimage)
 
 ## Always Install (Pacman + yay (endeavour-os))
 
@@ -22,13 +22,16 @@ india, china, taiwan, thailand, us, worldwide
 Personal
 
 ```sh
-audacious calibre chromium firefox fish flatpak geoclue2 gimp gtk2 inkscape kcharselect hunspell-en_gb libreoffice-fresh mpv noto-fonts noto-fonts-emoji obs-studio  qbittorrent qpdf syncthing torbrowser-launcher
+audacious calibre chromium firefox fish flatpak geoclue2 gimp gtk2 inkscape
+kcharselect hunspell-en_gb libreoffice-fresh mpv noto-fonts noto-fonts-emoji
+obs-studio  qbittorrent qpdf syncthing torbrowser-launcher
 ```
 
 Dev Only
 
 ```sh
-android-tools go intellij-idea-community-edition jdk17-openjdk kotlin mariadb nodejs-lts-hydrogen npm postgresql python python-pip
+android-tools go intellij-idea-community-edition jdk17-openjdk kotlin mariadb
+nodejs-lts-hydrogen npm postgresql python python-pip
 ```
 
 ### AUR Main (yay -Syu)
@@ -41,13 +44,14 @@ grive ttf-ms-fonts
 
 ```
 "gnome-disk-utility | partitionmananger" filelight flameshot
-gnome-keyring  jdk-openjdk nodejs noto-fonts-cjk noto-fonts-extra "qutebrowser | midori" scrcpy signal-desktop
+gnome-keyring  jdk-openjdk nodejs noto-fonts-cjk noto-fonts-extra qutebrowser
+midori scrcpy signal-desktop
 ```
 
 ### AUR Optional
 
 ```sh
-otpclient albert
+otpclient albert github-desktop-bin
 tk # built in python gui
 ```
 
@@ -66,14 +70,28 @@ mongodb-bin mongodb-compass mongodb-tools-bin mongosh-bin
 
 ```sh
 sudo apt update
-sudo apt install android-tools-adb android-tools-fastboot audacious calibre chromium firefox flameshot geoclue-2.0 (default-jdk) openjdk-17-jdk otpclient hunspell-dictionary-en-gb hunspell-en-gb libreoffice mpv python3 nodejs npm qbittorrent qpdf syncthing torbrowser-launcher
+sudo apt install android-tools-adb android-tools-fastboot audacious calibre
+chromium firefox flameshot geoclue-2.0 (default-jdk) openjdk-17-jdk otpclient
+hunspell-dictionary-en-gb hunspell-en-gb libreoffice mpv python3 nodejs npm
+qbittorrent qpdf syncthing torbrowser-launcher
 
 gnome-disk-utility | partitionmanager filelight gnome-keyring qutebrowser
 ```
-
+* sudo apt install nvidia-driver
+* sudo apt install linux-image-6.5
 Not Found:
+- grive download from github and build from source
+- noto-fonts are 'fonts-noto'
+- github-desktop use flatpak
 gtk2 noto-fonts
-github-desktop grive ms-fonts albert
+github-desktop grive ms-fonts albert*
+
+## Flatpak
+```
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak search shiftkey
+flatpak install io.github.shiftey.Desktop
+```
 
 ## Install Gnome DE From Arch CLI
 
