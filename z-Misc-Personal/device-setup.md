@@ -92,7 +92,8 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 flatpak search shiftkey
 flatpak install io.github.shiftey.Desktop
 ```
-
+Authenticator may not have access to filesystem
+`sudo flatpak override com.belmoussaoui.Authenticator --filesystem=host`
 ## Install Gnome DE From Arch CLI
 
 ```sh
