@@ -1,7 +1,7 @@
 Coroutine(lightweight thread, not really thread) exist only in kotlin not in java
 
 Threads are heavy and cannot create too many of them.
-```
+```kotlin
 //Name of current thread. 'main' is default.
 Thread.currentThread().name
 
@@ -23,5 +23,16 @@ Dispatcher.IO
 Dispatcher.Main
 Dispatcher.Default
 
-![[Pasted image 20230118065934.png]]
- 
+
+ # Minimal Coroutine Android
+ `implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")`
+ ```kotlin
+ GlobalScope.launch {
+	// long running tasks
+	startCount()
+ }
+
+ fun startCount() {
+	// function body
+ }
+ ```

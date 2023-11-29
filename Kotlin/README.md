@@ -7,15 +7,19 @@
 
 ## Data Types
 Byte, Short, Int, Long
-UByte, UShort, UByteArray, UIntArray
 
+UByte, UShort, UByteArray, UIntArray
+```kotlin
 val l: Long = 412521L
 val f: Float = 2.31F
 val d: Double = 2.21321
+```
 
 ## String
 ```kotlin
 val str = "a b c"
+
+// string methods
 val strArray = str.split(" ") // splits strings separated by " ". ["a", "b", "c"]
 ```
 ## Null
