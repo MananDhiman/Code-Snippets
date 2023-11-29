@@ -14,6 +14,13 @@ function addNumbers(int $a, int $b) {
 }
 ```
 
+# Display Errors
+In any php file
+```php
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+```
+
 # API / JSON / HTTP 
 ```php
 header('Content-Type: application/json');
@@ -29,6 +36,13 @@ parse_str(file_get_contents("php://input"),$vars);
     
 $todo_id = $vars['todo_id'];
 $todo = $vars['todo'];
+```
+
+# Get from external api
+```php
+$url = 'data.json'; // path to your JSON file
+$data = file_get_contents($url); // put the contents of the file into a variable
+$characters = json_decode($data); // decode the JSON feed
 ```
 
 ## Cookies
