@@ -45,3 +45,24 @@ Request header cookies
 * / is path parameter
 
 `https://ab.com/a-path/?query=abc&query2=xyz`
+
+# cURL (client URL)
+transfer data to and from server using command line. http, ftp, imap, pop3, smap
+```
+curl -i <url>. 
+// Gets the body, with all the header info
+
+curl --head
+curl -o file.txt <url>
+curl -O <url> downloads file
+```
+```
+Request
+POST: curl --data "title=Hello&body=Hello World" <url>
+PUT: curl -X PUT "title=Hello&body=Hello World" <url>
+DEL: curl -X DELETE <url>
+Authentication (Secure Route):
+curl -u <username>:<password> <url>
+FTP:
+curl -u <FTP-account>:><password> -T <file-name> <ftp-url>
+```

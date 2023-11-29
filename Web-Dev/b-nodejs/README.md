@@ -1,3 +1,4 @@
+We still use servers like apache because built in servers do not scale well
 # NPM
 
 ## Package, Start
