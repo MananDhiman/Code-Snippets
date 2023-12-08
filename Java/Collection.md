@@ -83,6 +83,8 @@ map.containsKey(5));
 for (Map.Entry<String,Integer> entry : empIds.entrySet()) {
 	System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
 }
+
+numbers.forEach((k,v) -> System.out.println("Key = " + k + ", Value = " + v));
 ```
 
 ## Queue
