@@ -1,4 +1,6 @@
 # Class and Objects
+* By default final (no inheritance) unless marked open
+* No static methods
 ## Visiblity modifiers
 * Public (default) = Visible everywhere
 * Private =  inside same file containing declaration

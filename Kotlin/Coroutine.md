@@ -24,15 +24,15 @@ Dispatcher.Main
 Dispatcher.Default
 
 
- # Minimal Coroutine Android
- `implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")`
- ```kotlin
- GlobalScope.launch {
-	// long running tasks
-	startCount()
- }
+# Minimal Coroutine Android
+`implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")`
+```kotlin
+GlobalScope.launch {
+// long running tasks
+startCount()
+}
 
- fun startCount() {
-	// function body
- }
- ```
+fun startCount() {
+// function body
+}
+```

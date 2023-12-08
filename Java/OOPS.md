@@ -31,10 +31,6 @@ psmv(){
 4.  **Public**: The access level of a public modifier is everywhere. It can be accessed from within the class, outside the class, within the package and outside the package.
 
 # Abstract
-`abstract` same as `static` except abstract used in inheritance and static used just to provide space
-
-`static` indicates the class can only have static members and you cannot create an instance of it. This is used for stateless functionality methods, or utility methods). 
-[Here's more detail on using static members and classes](http://msdn.microsoft.com/en-us/library/79b3xss3(VS.80).aspx).
 
 ## Static
 

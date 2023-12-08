@@ -7,7 +7,8 @@
 
 ## Common Properties and Methods
 - collection.size
-- if (“BMW” in cars) {}
+- if(“BMW” in cars) {}
+- if(-1 !in 0..list.lastIndex)
   
 ## Array
 **Fixed Length, Mutable**
@@ -30,6 +31,7 @@ val num = intArrayOf(1, 2, 3, 4) // method returning array type IntArray
 // access
 println(cars[0]) // BMW
 num.get(0)
+list[2]
 
 // modify
 cars[1] = “mercedes”
@@ -49,11 +51,20 @@ val m = mutableListOf(1, 2, 3)
 a[0] = a[1] // OK
 l[0] = l[1] // doesn't compile
 m[0] = m[1] // OK
+list[2]
 
 a.indexOf('2')
 println(numbers.first())
 println(numbers.last())
+
+// add
+list.add(5)
+
+// delete
+list.remove(1)
+list.removeAt(1)
 ```
+
 
 ## Set -> Unordered set (immutable)
 
@@ -70,10 +81,19 @@ for(item in immutableSet){
 
 ## Map
 ```kotlin
-var immutableMap = mapOf(9 to “Manipal”, 8 to “Nikhil”, 7 to “Rahul”)
+val immutableMap = mapOf(9 to “Manipal”, 8 to “Nikhil”, 7 to “Rahul”)
+val map = mapOf(1 to "Doug", 2 to 25)
+val map2 = mutableMapOf<Int, Any?>()
+
+map2[1] = "Derek"
+map2[2] = 42
 
 for (key in immutableMap.leys) {
 	println(immutableMap[key])
+}
+
+for((key, value) in map) {
+  println($key, $value)
 }
 ```
 ##  Mutable Collection
@@ -110,3 +130,9 @@ mutablelist.remove("For")
 ```
 
 
+## Methods
+### List / Array
+```kotlin
+var list3 = list1.subList(0,3)
+list1.forEach{ n -> println("$n")}
+```
