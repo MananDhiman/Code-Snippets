@@ -13,7 +13,7 @@ india, china, taiwan, thailand, us, worldwide
 **No Install Apps**
 
 - GithubDesktop - flatpak / aur
-- android studio, vscode, redshift, joplin, postman, intellij (tar-sh, appimage)
+- android studio, vscode, redshift, joplin, postman, intellij, freetube, beekeeper, thunderbird (tar-sh, appimage)
 
 ## Always Install (Pacman + yay (endeavour-os))
 
@@ -30,22 +30,23 @@ obs-studio  qbittorrent qpdf syncthing torbrowser-launcher
 Dev Only
 
 ```sh
-android-tools go intellij-idea-community-edition jdk17-openjdk kotlin mariadb
-nodejs-lts-hydrogen npm postgresql python python-pip
+android-tools composer go intellij-idea-community-edition jdk17-openjdk
+kotlin mariadb neovim nodejs-lts-hydrogen npm php php-gd postgresql
+python python-pip
 ```
 
 ### AUR Main (yay -Syu)
 
 ```sh
-grive ttf-ms-fonts
+grive ttf-ms-fonts github-desktop-bin libxcrypt-compat
 ```
 
 ## Pacman Optional
 
 ```
-"gnome-disk-utility | partitionmananger" filelight flameshot
-gnome-keyring  jdk-openjdk nodejs noto-fonts-cjk noto-fonts-extra qutebrowser
-midori scrcpy signal-desktop
+bluez bluez-utils "gnome-disk-utility | partitionmananger" filelight
+flameshot gpaste gnome-keyring  jdk-openjdk nodejs noto-fonts-cjk
+nfs-utils noto-fonts-extra qutebrowser midori scrcpy signal-desktop
 ```
 
 ### AUR Optional
