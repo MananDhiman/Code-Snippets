@@ -1,4 +1,4 @@
-# Linux
+# Software List Only
 
 ## Partitions:
 
@@ -31,7 +31,7 @@ Dev Only
 
 ```sh
 android-tools composer go intellij-idea-community-edition jdk17-openjdk
-kotlin mariadb neovim nodejs-lts-hydrogen npm php php-gd postgresql
+kotlin mariadb maven neovim nodejs-lts-hydrogen npm php php-gd postgresql
 python python-pip
 ```
 

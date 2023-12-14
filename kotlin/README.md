@@ -51,13 +51,44 @@ val maybeNullName : String = name? // if null, assigns null, otherwise value
 
 val c: Int  // Type required when no initializer is provided
 c = 3       // deferred assignment
+
+val str = String.format("%.2f", foo(bar))
 ```
 ## Primitive Array
-- `arrayOf` and its types are boxed to wrapper classes
--  IntArray, DoubleArray, BooleanArray are primitive
+**Fixed Length, Mutable**
+- `arrayOf` types are boxed to wrapper classes. Integer[] instead of int[]
+- IntArray, DoubleArray, BooleanArray are primitive
+- intArrayOf(), byteArrayOf(), charArrayOf() are wrapper
 ```kotlin
-val arr: IntArray = intArrayOf(5,4,3,2)
-val arr = IntArray(5)
+val cars = arrayOf(“BMW”,”Audi”)
+val arr: IntArray = intArrayOf(5,4,3,2) // init by elements, explicit primitive type 
+val arr = IntArray(5) // size
+val initArray = Array<Int>(3) { 0 } // 0 - lambda fun to init values
+val num = Array(3, {i-> i*1}) // first param is size, second param is lambda expression to fill values
+
+// access
+println(cars[0]) // BMW
+num.get(0)
+list[2]
+
+// modify
+cars[1] = “mercedes”
+num.set(0, 2) // index, value
+
+
+// compare array
+println(simpleArray.contentEquals(anotherArray))
+
+// array to collection
+val simpleArray = arrayOf("a", "b", "c", "c")
+
+// Converts to a Set
+println(simpleArray.toSet())
+// [a, b, c]
+
+// Converts to a List
+println(simpleArray.toList())
+// [a, b, c, c]
 ```
 ## Loops
 
@@ -134,6 +165,7 @@ while(number <= 10) {
 - If a function returns value, you must declare it after the function name
 - A void function returns Unit type but you are not required to declare it
 - All parameters in a Kotlin function are read only. Not allowed to mark it with val or var.
+- Function can be passed as param
 - Given to function call is argument and variable in function body is parameter
 
 Kotlin has Optional / Default Params, Named Params
@@ -172,6 +204,17 @@ fun nextTwo(num1: Int): Pair<Int, Int> {
   return Pair(num+1, num+2)
 }
 val (two, three) = nextTwo(5)
+
+// pass fun as param
+fun cToF(c: Double): Double = c*(9.0/5) + 32
+printFinalTemperature(27.0, ::cToF)
+
+fun printFinalTemperature(
+ initialMeasurement: Double,
+ conversionFormula: (Double) -> Double
+) {
+ val ans = conversionFormula(initialMeasurement) // two decimal places
+}
 ```
 
 # Exception Handling

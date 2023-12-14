@@ -1,0 +1,1 @@
+Spring: stock java maven project, dependency for spring, annotation for main class, SpringAppllication.run(//main activity, // args)

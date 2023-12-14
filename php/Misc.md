@@ -1,3 +1,10 @@
+```php
+// server root dir
+echo $_SERVER["DOCUMENT_ROOT"];
+
+// run a shell command
+$a = shell_exec('php b.php');
+```
 # Password
 ```php
   $pwd_hashed = password_hash($pwd, PASSWORD_DEFAULT);

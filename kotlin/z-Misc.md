@@ -6,24 +6,18 @@ val num = (0..500).random()
 val num = Random.nextInt(1000)
 ```
 
-# Example Code
-Pass Function as argument
+## Destructure data class
 ```kotlin
-fun main() {    
-  printFinalTemperature(27.0, "Celsius", "Fahrenheit") { 9.0 / 5.0 * it + 32 }
-  printFinalTemperature(350.0, "Kelvin", "Celsius") { it - 273.15 }
-}
+val jane = User("Jane", 35)
+val (name, age) = jane
+println("$name, $age years of age")
+```
 
-fun printFinalTemperature(
-  initialMeasurement: Double, 
-  initialUnit: String, 
-  finalUnit: String, 
-  conversionFormula: (Double) -> Double
-) {
-  val finalMeasurement = String.format("%.2f", conversionFormula(initialMeasurement)) // two decimal places
-  println("$initialMeasurement degrees $initialUnit is $finalMeasurement degrees $finalUnit.")
+## Return anonymous object
+```kotlin
+private fun getObject() = object {
+  val x: String = "x"
 }
-
 ```
 Smaller If when
 ```kotlin

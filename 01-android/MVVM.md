@@ -1,3 +1,58 @@
+# Only ViewModel
+**Generate data for activity from Model.**
+	Activity or fragment should contain logic responsible for UI fragments only
+
+Dependencies
+```gradle
+val lifecycle_version = "2.6.2"
+implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+```
+
+Example ViewModel class (MainViewModel)
+```kotlin
+import androidx.lifecycle.ViewModel
+
+data class User(
+  val name: String? = null,
+  val age: Int? = null
+)
+
+class MainViewModel: ViewModel() {
+  private val list = arrayOf(
+    User("A",10),
+    User("B",20),
+    User("C",30),
+  )
+
+  private var count = 0
+
+  fun getUserById(id: Int): String {
+    if(id in 0..2) {
+      val user = list[id]
+      return "${user.name} is ${user.age}"
+    } else {
+      return "Incorrect id"
+    }
+  }
+
+  fun incrementCount() {
+    this.count++
+  }
+
+  fun getCount(): Int = this.count
+}
+```
+Activity
+```kotlin
+val viewModel: MainViewModel = ViewModelProvider(this)[MainViewModel::class.java]
+
+textView.text = viewModel.getCount().toString()
+button.setOnClickListener {
+  viewModel.incrementCount()
+  textView.text = viewModel.getCount().toString()
+}
+```
+
 # Implementation
 
 ## build.gradle (kts) (app)
@@ -7,7 +62,7 @@ plugins {
 }
 
 android {  
-    buildFeatures {
+  buildFeatures {
 		dataBinding = true
 	}
 }
@@ -15,11 +70,11 @@ android {
 dependencies{
 	val lifecycle_version = "2.6.1"
 //    ViewModel
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+  implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
 //    LiveData
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
+  implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
 //    Annotation processor
-    kapt("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
+  kapt("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
 }
 ```
 
@@ -33,10 +88,10 @@ dependencies{
     xmlns:app="http://schemas.android.com/apk/res-auto">
     
 	<data>
-        <variable
-            name="mainViewModel"
-            type="com.example.test.MainViewModel" />
-    </data>
+    <variable
+      name="mainViewModel"
+      type="com.example.test.MainViewModel" />
+  </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
 	android:layout_width="match_parent"
@@ -87,12 +142,12 @@ class MainViewModel: ViewModel(), Observable {
 ## ViewModelFactory
 ```kotlin
 class MainViewModelFactory: ViewModelProvider.Factory {
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if(modelClass.isAssignableFrom(MainViewModel::class.java)) {
-            return MainViewModel() as T
-        }
-        throw IllegalArgumentException("Unknown View Model Class")
+  override fun <T : ViewModel> create(modelClass: Class<T>): T {
+    if(modelClass.isAssignableFrom(MainViewModel::class.java)) {
+      return MainViewModel() as T
     }
+    throw IllegalArgumentException("Unknown View Model Class")
+  }
 }
 ```
 ## MainActivity
@@ -100,19 +155,19 @@ class MainViewModelFactory: ViewModelProvider.Factory {
 class MainActivity : AppCompatActivity() {  
 
 	private lateinit var binding: ActivityMainBinding
-    private lateinit var mainViewModel: MainViewModel
+  private lateinit var mainViewModel: MainViewModel
 
-    override fun onCreate(savedInstanceState: Bundle?) {  
-        super.onCreate(savedInstanceState)  
+  override fun onCreate(savedInstanceState: Bundle?) {  
+    super.onCreate(savedInstanceState)  
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+    binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-    	val factory = MainViewModelFactory()
-        mainViewModel = ViewModelProvider(this, factory)[MainViewModel::class.java]
+    val factory = MainViewModelFactory()
+    mainViewModel = ViewModelProvider(this, factory)[MainViewModel::class.java]
 
-        binding.mainViewModel = mainViewModel
-        binding.lifecycleOwner = this 
-    }  
+    binding.mainViewModel = mainViewModel
+    binding.lifecycleOwner = this 
+  }  
 
 }
 ```
@@ -148,11 +203,5 @@ fun Context.toast(message: String){
     Toast.makeText(this, message, Toast.LENGTH_LONG).show()  
 }
 ```
-
-# ViewModel
-**Generate data for activity from Model.**
-	Activity or fragment should contain logic responsible for UI fragments only
-
-
 MVVM Recommended by Google
 

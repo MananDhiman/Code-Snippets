@@ -1,3 +1,16 @@
+## Check network
+```kotlin
+private fun checkConn(): Boolean {
+  val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+  val networkInfo: NetworkInfo = connectivityManager.activeNetworkInfo ?: return false
+
+
+  if(networkInfo.type == ConnectivityManager.TYPE_WIFI) { }
+  if(networkInfo.type == ConnectivityManager.TYPE_MOBILE) { }
+  return networkInfo.isConnected
+}
+```
+
 # Retrofit
 
 ## AndroidManifest.xml

@@ -21,6 +21,15 @@ SSL (Secure socket layer), TLS (transport security layer). Install certificate o
 * 404 - not found
 * 500 - internal server err
 
+**Common Ports**
+- 20 - FTP
+- 22 - SSH
+- 80 - default HTTP
+- 443 - HTTPS
+- 3306 - MySQL
+- 5432 - PostgreSQL
+- 27017 - MongoDB
+
 **Methods**
 * get -> request resource from server
 * post -> send resource signup

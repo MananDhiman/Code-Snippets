@@ -10,33 +10,7 @@
 - if(“BMW” in cars) {}
 - if(-1 !in 0..list.lastIndex)
   
-## Array
-**Fixed Length, Mutable**
-- arrayOf()
 
-The below are better optimised to handle primitive data
-- intArrayOf()
-- byteArrayOf()
-- charArrayOf()
-- shortArrayOf()
-- longArrayOf()
-
-```kotlin
-// initialisation
-val cars = arrayOf(“BMW”,”Audi”)
-val arr = IntArray(n) // n is size
-val num = Array(3, {i-> i*1}) // first param is size, second param is lambda expression to fill values
-val num = intArrayOf(1, 2, 3, 4) // method returning array type IntArray
-
-// access
-println(cars[0]) // BMW
-num.get(0)
-list[2]
-
-// modify
-cars[1] = “mercedes”
-num.set(0, 2) // index, value
-```
 
 ## List
 Two Types:
@@ -94,6 +68,7 @@ for (key in immutableMap.leys) {
 
 for((key, value) in map) {
   println($key, $value)
+	println("Key = $key, Value = $value")
 }
 ```
 ##  Mutable Collection

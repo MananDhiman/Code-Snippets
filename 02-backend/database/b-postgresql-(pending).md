@@ -1,6 +1,34 @@
 # Postgresql
 
-Derek Banas
+## Secondary commands
+`\list`: lists all present databases
+
+`\du`: lists users and their role
+
+`\q`: quits postgresql 
+ 
+`\c <databaseName>`: Opens / Uses database 
+
+`\dt`: List all tables in database
+
+## User and Database
+
+CREATE USER `<jonathan>`;
+
+CREATE USER `<username>` WITH ENCRYPTED PASSWORD `'<password>'`;
+
+CREATE DATABASE `<dbname>`;
+
+GRANT ALL PRIVILEGES ON DATABASE `<dbname>` TO `<username>`;
+
+
+## DML
+* For Auto Increment use 'SERIAL'
+
+`CREATE TABLE test_table (id SERIAL PRIMARY KEY, name varchar(50));`
+* Insert Into Auto increment column 'default'
+
+`INSERT INTO test_table (id, name) VALUES (default, 'manan');`
 
 ## Text vs char vs varchar
 

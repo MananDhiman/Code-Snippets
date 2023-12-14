@@ -142,6 +142,7 @@ fun sayColour(view: View) {
 
 
 # Intent
+finish() after startActivity clears prev activity
 ## Implicit Intent
 Intent that does not specifically states the target
 ```kotlin
