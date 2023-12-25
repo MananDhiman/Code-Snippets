@@ -23,13 +23,12 @@ putValues(){
 ## Dependencies
 ```gradle
 plugins{
-	id 'kotlin-kapt'
+	id("kotlin-kapt")
 }
 dependencies{
-	def room_version = "2.5.0"
-    implementation "androidx.room:room-runtime:$room_version"
-    annotationProcessor "androidx.room:room-compiler:$room_version"
-    kapt "androidx.room:room-compiler:$room_version"
+	val roomVersion = "2.6.1"
+  implementation("androidx.room:room-runtime:$room_version")  
+  kapt("androidx.room:room-compiler:$room_version")
 }
 ```
 
@@ -87,7 +86,7 @@ interface UserDao {
 
 ## AppDatabase
 ```kotlin
-@Database(entities = [User::class], version = 1)
+@Database(entities = [User::class, Person::class], version = 1)
 abstract class AppDatabase: RoomDatabase() {
     abstract fun userDao(): UserDao
 }

@@ -17,6 +17,8 @@ CREATE USER `<jonathan>`;
 
 CREATE USER `<username>` WITH ENCRYPTED PASSWORD `'<password>'`;
 
+ALTER USER `<username>` CREATEDB;
+
 CREATE DATABASE `<dbname>`;
 
 GRANT ALL PRIVILEGES ON DATABASE `<dbname>` TO `<username>`;

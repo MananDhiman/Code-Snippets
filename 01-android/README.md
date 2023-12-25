@@ -57,6 +57,14 @@ AdapterView.OnItemSelectedListener {
   }
 }
 ```
+# Create XML Elements dynamically
+```kotlin
+for(i in 0..5) {
+  val editText = EditText(this)
+  editText.setText("${i+10}")
+  linearLayout.addView(editText)
+}
+```
 # Adjust layout when soft keyboard opened
 In Manifest.xml
 ```xml
@@ -227,7 +235,7 @@ Create Layout
     android:text="Loading" />
 </LinearLayout>
 ```
-In
+In Activity
 ```kt
 // first create builder
 val builder: AlertDialog.Builder = AlertDialog.Builder(context)

@@ -145,12 +145,7 @@ yay -S mongodb-bin mongodb-tools-bin
 ```
 
 ## Mysql
-```sh
-sudo pacman -Sy mysql
-sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
-sudo mysql_secure_installation
-```
-Verify method below
+<img src='../_images/mysql-install.png'>
 ```sh
 sudo pacman -S mysql
 sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
@@ -158,6 +153,10 @@ sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 sudo -i
 
 mysql -u root -p
+CREATE USER 'admin'@’localhost’ IDENTIFIED BY 'admin';
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost' WITH GRANT OPTION;
+
+FLUSH PRIVILEGES;
 ```
 # Misc
 ## Android Studio Move avd dir

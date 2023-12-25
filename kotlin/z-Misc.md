@@ -57,8 +57,11 @@ class Song(
     println("$title, performed by $artist, was released in $yearPublished.")
   }   
 }
+```
+# Map, filter
 
-
+```kotlin
+// filter: if return true, element is accepted
 ```
 
 # Function Literal (Lambda)

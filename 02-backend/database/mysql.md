@@ -1,4 +1,8 @@
 # MySQL
+## User and Database
+CREATE USER 'admin'@’localhost’ IDENTIFIED BY 'admin';
+
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost' WITH GRANT OPTION;
 
 ## Types
 
@@ -166,7 +170,7 @@ GROUP BY b.id
 HAVING num_albums = 1;
 ```
 
-### Subqueries
+### Subqueries / nested queries
 ```sql
 select f_name, last_name, (select AVG(hourly_pay) from employees) AS avg_pay FROM emp;
 select f_name from emp  where h_pay > (select avg(h_pay) from emp);

@@ -22,6 +22,10 @@ function addNumbers(int $a, int $b) {
 ```
 
 # Display Errors
+In php.ini
+```ini
+display_errors=On
+```
 In any php file
 ```php
 error_reporting(E_ALL);

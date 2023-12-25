@@ -135,3 +135,66 @@ You can then use it from inside Kotlin code as
 ```kotlin
 Foo.a()
 ```
+
+# Object without class
+- Init block only, no constructor
+- Singleton
+- Can inherit class/interface
+```kotlin
+object B {
+  val p: Int = 29
+  fun test() {
+    println("HELLO")
+  }
+}
+```
+
+# Enum Classes
+A given fixed set of values. We restrict values
+```kotlin
+fun main() {
+  val day = Day.MON
+  println(day) // MON
+  // println(day.n) verify
+
+  for(i in Days.values()) {
+    println(i)
+  }
+}
+
+// only values
+enum class Days {
+  MON, // objects
+  TUE,
+  WED,
+  THU
+}
+
+enum class Days(num: Int) {
+  MON(1),
+  TUE(2),
+  WED(3),
+  THU(4);
+
+  fun print() {
+    println("Day is $this")
+  }
+} 
+```
+
+# Sealed Class
+We restrict type
+```kotlin
+fun main() {
+  val tile: Tile = Red(p)
+  // when gives error if not all classes covered
+  val points = when(tile) {
+    is Red -> 
+    isBlue -> 
+  }
+}
+
+sealed class Tile
+class Red(p)
+class Blue(p)
+```
