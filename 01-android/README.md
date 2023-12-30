@@ -64,7 +64,12 @@ for(i in 0..5) {
   editText.setText("${i+10}")
   linearLayout.addView(editText)
 }
+
+// delete all elements of layout
+layout.removeAllViews()
 ```
+Highlight a View
+`view.requestFocus()`
 # Adjust layout when soft keyboard opened
 In Manifest.xml
 ```xml
@@ -122,29 +127,29 @@ override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 ## Function call with XML declare onClick
 ```xml
 <Button
-   android:id="@+id/button5"
-   android:layout_width="wrap_content"
-   android:layout_height="wrap_content"
-   android:tag="black"
-   android:text="Black"
-   android:onClick="sayColour"
-   android:backgroundTint="@color/black" />
+  android:id="@+id/button5"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:tag="black"
+  android:text="Black"
+  android:onClick="sayColour"
+  android:backgroundTint="@color/black" />
 ```
 
 ```kotlin
 fun sayColour(view: View) {
-   val clickedButton: Button = view as Button
+  val clickedButton: Button = view as Button
 
 
-   var mediaPlayer: MediaPlayer = MediaPlayer.create(
-       this,
-       resources.getIdentifier(
-           clickedButton.tag.toString(),
-           "raw",
-           packageName
-       )
-   )
-   mediaPlayer.start()
+  var mediaPlayer: MediaPlayer = MediaPlayer.create(
+    this,
+    resources.getIdentifier(
+      clickedButton.tag.toString(),
+      "raw",
+      packageName
+    )
+  )
+  mediaPlayer.start()
 }
 ```
 
@@ -184,20 +189,20 @@ startActivity(intent)
 build.grade
 ```
 buildFeatures {
-    viewBinding = true
+  viewBinding = true
 }
 ```
 MainActivity
 ```Kotlin
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
+  lateinit var binding: ActivityMainBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-    }
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    binding = ActivityMainBinding.inflate(layoutInflater)
+    setContentView(binding.root)
+  }
 }
 ```
 

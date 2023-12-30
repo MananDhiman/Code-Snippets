@@ -129,6 +129,8 @@ set.delete(22)
 set.clear()
 set.size
 
+set.has(11)
+
 set.forEach(function(val) {
   c.log(val);
 })

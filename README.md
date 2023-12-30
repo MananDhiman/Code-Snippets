@@ -4,3 +4,8 @@ A repository that contains small snippets of code to be used for personal refere
 ## Project structure
 - Package by layer: Domain, controller, service, repository, configuration
 - by feature: product, customer, order, cart
+
+
+## Git
+Revert to a commit
+`git reset --hard <your commit hash key>`

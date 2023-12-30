@@ -9,10 +9,15 @@ Contents are of a single file only
 
 //connecting to database
 	$conn = mysqli_connect($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
+	// oops
+	// $conn = new mysqli("localhost", "root", "", "test");
 
 //sql query to get data from database
 	$sql = "SELECT name,price,rating from products";
 	$result = mysqli_query($conn, $sql);
+	// $result = $conn->query($sql);
+	// fetch all db rows fetch_all'MYSQLI_ASSOC'
+	// $questions = json_encode($result->fetch_all(MYSQLI_ASSOC));
 	$data = array();
 	
 	//converting data from database to JSON and storing it in PHP variable

@@ -106,8 +106,6 @@ LazyColumn(modifier) {
     Divider()
   }
 }
-
-
 ```
 
 MainActivity

@@ -17,6 +17,8 @@ data class User(
   val age: Int? = null
 )
 
+// for context use AndroidViewModel, and getApplication()
+// class MainViewModel(application: Application): AndroidViewModel(application) {
 class MainViewModel: ViewModel() {
   private val list = arrayOf(
     User("A",10),
@@ -52,7 +54,17 @@ button.setOnClickListener {
   textView.text = viewModel.getCount().toString()
 }
 ```
+# Live Data
+```kotlin
+// viewmodel
+var count = MutableLiveData<Int>()
+fun inc() {count.value = (count.value)?.plus(1) }
 
+// MainActivity
+viewModel.count.observe(this,{
+  textView.text = it.toString()
+})
+```
 # Implementation
 
 ## build.gradle (kts) (app)
