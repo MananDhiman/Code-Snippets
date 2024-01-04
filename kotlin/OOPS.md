@@ -7,6 +7,9 @@
 * Protected = Same as private but visible to subclasses
 * Internal = visible in same module, set of files compiled together 
 an outer class does not see private members of its inner classes
+
+`const val PI = 3.14 // static final. known before runtime`
+`val pi = 3.14 // final`
 ## Constructor
 - Ideally only one constructor
 - No logic in primary constructor or use Init Block

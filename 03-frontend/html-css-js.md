@@ -435,3 +435,5 @@ Stores only strings. HTML 5
 localStorage.getItem('key');
 localStorage.setItem('key','value');
 ```
+## Clipboard
+`navigator.clipboard.writeText("sss")`

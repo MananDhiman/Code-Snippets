@@ -13,3 +13,8 @@ create from cli.
 - `mvn clean` delete target dir
 - `mvn package` will compile and package, create jar in target
 - `mvn install` will compile and package, but also put the package in your local repository
+
+# java spring
+
+`#server.port=9000`
+`#jdbc:mysql://HOST/DATABASE?permitMysqlScheme`

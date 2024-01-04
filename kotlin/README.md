@@ -38,6 +38,7 @@ have to decide if a variable can be null or not. Applies to both primitives or c
 ? if variable null, then null assigned, otherwise intended value
 
 ```kotlin
+var marbles Int? = null
 val firstName : String = "Adam"
 val name : String? = firstName
 ```
@@ -54,6 +55,15 @@ c = 3       // deferred assignment
 
 val str = String.format("%.2f", foo(bar))
 ```
+## User Input
+```kotlin
+// use scanner
+val s = Scanner(System.`in`)
+val i = s.nextInt()
+
+val r = readln()
+```
+
 ## Primitive Array
 **Fixed Length, Mutable**
 - `arrayOf` types are boxed to wrapper classes. Integer[] instead of int[]

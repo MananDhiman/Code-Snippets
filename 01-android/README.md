@@ -185,7 +185,7 @@ val intent: Intent = Intent(this, SecondActivity::class.java)
 intent.putExtra("name",name) // pass data to activity
 startActivity(intent)
 ```
-## Enable view binding
+# Enable view binding
 build.grade
 ```
 buildFeatures {
@@ -206,6 +206,11 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
+# Clipboard
+```kotlin
+val c = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+Log.d("TAG",c.primaryClip?.itemCount.toString())
+```
 # Progress Dialog (Deprecated. Use ProgressBar)
 ```kotlin
 private lateinit var progressDialog: ProgressDialog 
