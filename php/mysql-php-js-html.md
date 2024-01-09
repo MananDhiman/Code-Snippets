@@ -1,18 +1,18 @@
 Contents are of a single file only
 ```php
 <?php
-	//credentials to login to database
+	// credentials to login to database
 	$DB_HOST = "localhost";
 	$DB_USER = "root";
 	$DB_PASS = "";
 	$DB_NAME = "shophere";
 
-//connecting to database
+    // connecting to database
 	$conn = mysqli_connect($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
 	// oops
 	// $conn = new mysqli("localhost", "root", "", "test");
 
-//sql query to get data from database
+    // sql query to get data from database
 	$sql = "SELECT name,price,rating from products";
 	$result = mysqli_query($conn, $sql);
 	// $result = $conn->query($sql);

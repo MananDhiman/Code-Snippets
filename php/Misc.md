@@ -7,9 +7,9 @@ $a = shell_exec('php b.php');
 ```
 # Password
 ```php
-  $pwd_hashed = password_hash($pwd, PASSWORD_DEFAULT);
+$pwd_hashed = password_hash($pwd, PASSWORD_DEFAULT);
 
-  password_verify($pwd, $hash); // returns boolean 
+password_verify($pwd, $hash); // returns boolean 
 ```
 
 # Strict Types
@@ -40,13 +40,28 @@ header('Access-Control-Allow-Origin: *');
 
 ## FORM Data HTTP Request Methods
 ```php
+// get request body
+// Takes raw data from the request
+$json = file_get_contents('php://input');
+
+// Converts it into a PHP object
+$data = json_decode($json);
 $req_method = $_SERVER['REQUEST_METHOD'];
 
 // methods other than get, post
 parse_str(file_get_contents("php://input"),$vars);
-    
+// $vars contains request body
 $todo_id = $vars['todo_id'];
 $todo = $vars['todo'];
+
+// 
+$method = $_SERVER['REQUEST_METHOD'];  
+switch ($method) {  
+ case 'GET':  
+ case 'POST':  
+ case 'PUT':  
+ case 'DELETE':    
+}
 ```
 
 # Get from external api

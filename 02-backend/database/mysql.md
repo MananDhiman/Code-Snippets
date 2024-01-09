@@ -203,6 +203,11 @@ CREATE TABLE transactions (
 ALTER TABLE customers
 ADD CONSTRAINT fk_customer_id
 FOREIGN KEY (customer_id) REFERENCES customers(customer_id);
+
+ALTER TABLE `posts`
+ADD  CONSTRAINT `user_id`
+FOREIGN KEY (`user_id`) REFERENCES `users`(`id`)
+ON DELETE RESTRICT ON UPDATE RESTRICT;
 ```
 ### Views
 virtual tables, made from real table change to original table will update the view

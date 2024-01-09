@@ -22,9 +22,10 @@ private fun checkConn(): Boolean {
 ## Dependencies (build.gradle (app))
 
 ```gradle
-implementation 'com.google.code.gson:gson:2.9.0'
-implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+implementation("com.google.code.gson:gson:2.10")  
+  
+implementation("com.squareup.retrofit2:retrofit:2.9.0")  
+implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 ```
 
 ## Model Class (Product.java)
@@ -249,3 +250,6 @@ private fun getJSONArray(){
   queue.add(jsonArrayRequest)
 }
 ```
+
+
+https://www.researchgate.net/publication/329310551_Android_REST_APIs_Volley_vs_Retrofit

@@ -1,3 +1,9 @@
+Dependency
+```gradle
+implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+```
+
 Coroutine(lightweight thread, not really thread) exist only in kotlin not in java
 
 Threads are heavy and cannot create too many of them.
@@ -36,7 +42,7 @@ way to define on which crt executed
 
 
 # Minimal Coroutine Android
-`implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")`
+
 ```kotlin
 GlobalScope.launch {
 	// long running tasks

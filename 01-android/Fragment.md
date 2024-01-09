@@ -35,7 +35,7 @@ class Fragment1 : Fragment() {
 
 ```
 
-First Fragment
+First Fragment ViewBinding
 
 ```kotlin
 class FirstFragment : Fragment() {

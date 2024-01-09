@@ -18,9 +18,8 @@ Basics
 ```kotlin
 // state variable
 val count = remember {
-  mutableStateOf(0) // 0 is default valuue
+  mutableStateOf(0) // 0 is default value
 }
-var names by remember { // eliminates need to get 'value' member
   mutableStateOf(listOf<String>())
 }
 
@@ -123,3 +122,15 @@ setContent {
   }
 }
 ```
+# Elements
+## Colours
+```kotlin
+import androidx.compose.ui.graphics.Color
+```
+## Surface
+Basic building block
+```kotlin
+Surface(color = Color.Cyan) {}
+```
+## Modifier
+Used to decorate composable
