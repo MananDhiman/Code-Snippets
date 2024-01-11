@@ -60,5 +60,6 @@ class FirstFragment : Fragment() {
 ```
 
 ## Methods
+
 Recreate activity from within fragment
 `getActivity().recreate()`

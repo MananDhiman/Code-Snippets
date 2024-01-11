@@ -1,12 +1,16 @@
 # Methods
+
 ## Random
+
 Kotlin random number in range
+
 ```kotlin
 val num = (0..500).random()
 val num = Random.nextInt(1000)
 ```
 
 ## Destructure data class
+
 ```kotlin
 val jane = User("Jane", 35)
 val (name, age) = jane
@@ -14,25 +18,28 @@ println("$name, $age years of age")
 ```
 
 ## Return anonymous object
+
 ```kotlin
 private fun getObject() = object {
   val x: String = "x"
 }
 ```
+
 Smaller If when
+
 ```kotlin
 fun main() {
   val child = 5
   val adult = 28
   val senior = 87
-  
+
   val isMonday = true
-  
+
   println("The movie ticket price for a person aged $child is \$${ticketPrice(child, isMonday)}.")
   println("The movie ticket price for a person aged $adult is \$${ticketPrice(adult, isMonday)}.")
   println("The movie ticket price for a person aged $senior is \$${ticketPrice(senior, isMonday)}.")
 }
- 
+
 fun ticketPrice(age: Int, isMonday: Boolean): Int {
   return when(age) {
     in 0..12 -> 15
@@ -42,12 +49,14 @@ fun ticketPrice(age: Int, isMonday: Boolean): Int {
   }
 }
 ```
+
 Constructor value
+
 ```kotlin
 class Song(
-  val title: String, 
-  val artist: String, 
-  val yearPublished: Int, 
+  val title: String,
+  val artist: String,
+  val yearPublished: Int,
   val playCount: Int
 ){
   val isPopular: Boolean
@@ -55,9 +64,10 @@ class Song(
 
   fun printDescription() {
     println("$title, performed by $artist, was released in $yearPublished.")
-  }   
+  }
 }
 ```
+
 # Map, filter
 
 ```kotlin
@@ -65,6 +75,7 @@ class Song(
 ```
 
 # Function Literal (Lambda)
+
 Lambda function are used to make stuff less complex
 
 ```kotlin
@@ -73,14 +84,14 @@ val calcSquare: (Int) -> Int={number->
   number*number
 }
 println(calcSquare(5))
-  
+
   //fun name //param   //ret type //no param name because 'it'
 val printHi: (String) -> Unit={
   println("Hi $it")
 }
 printHi("World")
 
-  //fun name  //no param //ret type //no param because it 
+  //fun name  //no param //ret type //no param because it
 val simpleLamba: () -> Unit={
   println("perhaps")
 }
@@ -89,10 +100,15 @@ simpleLamba()
 //  literal
 val mul = {num1: Int, num2: Int -> num1*num2}
 println("5*3 = ${mul(5,3)}")
+
+val treat = ::trick
+val betterTreat = t2
+
+val t2 = {}
+fun trick() {  }
 ```
 
-
-`() -> Unit` 
+`() -> Unit`
 type for a function that takes no parameter and returns a Unit (void)
 
 `() -> String`
@@ -102,19 +118,21 @@ type for a function that takes no parameter and return a String
 type for a function that takes a string and returns nothing.
 
 `(String, Float) -> Unit` type for a function that takes two parameters (String and Float) and returns nothing.
-```kotlin
-val m = { (x : String) -> println("$x") } 
-val n : (String) -> Unit = { x -> println("$x") } 
-val o : (String) -> Unit = { (x : String) -> println("$x") } 
 
-fun main(args : Array<String>) { 
+```kotlin
+val m = { (x : String) -> println("$x") }
+val n : (String) -> Unit = { x -> println("$x") }
+val o : (String) -> Unit = { (x : String) -> println("$x") }
+
+fun main(args : Array<String>) {
   m("good morning")
-  n("good morning") 
-  o("good morning") 
+  n("good morning")
+  o("good morning")
 }
 ```
 
 # Vararg
+
 ```kotlin
 // varargs
 fun main() {

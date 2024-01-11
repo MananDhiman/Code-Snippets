@@ -54,8 +54,13 @@ val c: Int  // Type required when no initializer is provided
 c = 3       // deferred assignment
 
 val str = String.format("%.2f", foo(bar))
+
+// elvis
+val namelength = canBeNull?.length ?: 0
 ```
+
 ## User Input
+
 ```kotlin
 // use scanner
 val s = Scanner(System.`in`)
@@ -65,13 +70,16 @@ val r = readln()
 ```
 
 ## Primitive Array
+
 **Fixed Length, Mutable**
+
 - `arrayOf` types are boxed to wrapper classes. Integer[] instead of int[]
 - IntArray, DoubleArray, BooleanArray are primitive
 - intArrayOf(), byteArrayOf(), charArrayOf() are wrapper
+
 ```kotlin
 val cars = arrayOf(“BMW”,”Audi”)
-val arr: IntArray = intArrayOf(5,4,3,2) // init by elements, explicit primitive type 
+val arr: IntArray = intArrayOf(5,4,3,2) // init by elements, explicit primitive type
 val arr = IntArray(5) // size
 val initArray = Array<Int>(3) { 0 } // 0 - lambda fun to init values
 val num = Array(3, {i-> i*1}) // first param is size, second param is lambda expression to fill values
@@ -100,6 +108,7 @@ println(simpleArray.toSet())
 println(simpleArray.toList())
 // [a, b, c, c]
 ```
+
 ## Loops
 
 ### For Loop

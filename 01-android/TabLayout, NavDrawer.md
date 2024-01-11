@@ -1,7 +1,9 @@
 # Tab Layout
+
 ViewPagerAdapter, Fragments, MainActivity
 
 ## ViewPagerAdapter
+
 ```kotlin
 class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle): FragmentStateAdapter(fragmentManager, lifecycle) {
   override fun getItemCount(): Int {
@@ -18,8 +20,11 @@ class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle): 
   }
 }
 ```
+
 ## No Modification in Fragments
+
 ## activity_main.xml
+
 ```xml
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -49,7 +54,9 @@ class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle): 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
+
 ## MainActivity
+
 ```kotlin
 class MainActivity : AppCompatActivity() {
 
@@ -71,11 +78,12 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-
 # Navigation Drawer
+
 ## activity_main.xml
+
 ```xml
-<androidx.drawerlayout.widget.DrawerLayout 
+<androidx.drawerlayout.widget.DrawerLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
@@ -106,7 +114,9 @@ class MainActivity : AppCompatActivity() {
 
 </androidx.drawerlayout.widget.DrawerLayout>
 ```
+
 ## nav_menu.xml
+
 ```xml
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
@@ -127,7 +137,9 @@ class MainActivity : AppCompatActivity() {
   </item>
 </menu>
 ```
+
 ## nav_header.xml (optional)
+
 ```xml
 <TextView
   android:id="@+id/textView"
@@ -142,7 +154,9 @@ class MainActivity : AppCompatActivity() {
 ```
 
 ## No Change in Fragments
+
 ## MainActivity
+
 ```kotlin
 class MainActivity : AppCompatActivity() {
 

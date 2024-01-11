@@ -37,6 +37,7 @@ private fun turnOnFlashlight(mCameraManager: CameraManager) {
 ```
 
 ## Chronograph
+
 ```kotlin
 private lateinit var binding: ActivityMainBinding
 private lateinit var chronometer: Chronometer

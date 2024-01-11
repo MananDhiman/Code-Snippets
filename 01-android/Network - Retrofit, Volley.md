@@ -1,4 +1,5 @@
 ## Check network
+
 ```kotlin
 private fun checkConn(): Boolean {
   val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -22,9 +23,8 @@ private fun checkConn(): Boolean {
 ## Dependencies (build.gradle (app))
 
 ```gradle
-implementation("com.google.code.gson:gson:2.10")  
-  
-implementation("com.squareup.retrofit2:retrofit:2.9.0")  
+implementation("com.google.code.gson:gson:2.9.0")
+implementation("com.squareup.retrofit2:retrofit:2.9.0")
 implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 ```
 
@@ -145,6 +145,43 @@ private fun searchProduct() {
 
 ```
 
+## Coroutine
+
+- call is call, response is response
+- response has isSuccessful method
+  interface
+
+```kotlin
+import retrofit2.Response
+import retrofit2.http.GET
+
+interface ApiInterface {
+ @GET("a.json")
+ suspend fun get(): Response<List<Data>>
+}
+```
+
+Main
+
+```kotlin
+val api = RetrofitInstance.getInstance().apiInterface
+
+GlobalScope.launch(Dispatchers.IO) {
+ val response = api.get()
+ val body = response.body()
+ if (response.isSuccessful && body!= null) {
+   for(i in body) {
+     Log.d("tag response", i.toString())
+   }
+ }
+}
+
+// if Call<List<Data>>
+val response = api.get().await() // returns list 
+val response = api.get().awaitResponse() // returns response
+response has body, isSuccessful, message, errorBody
+```
+
 ## Sample API
 
 ```json
@@ -250,6 +287,5 @@ private fun getJSONArray(){
   queue.add(jsonArrayRequest)
 }
 ```
-
 
 https://www.researchgate.net/publication/329310551_Android_REST_APIs_Volley_vs_Retrofit

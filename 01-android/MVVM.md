@@ -1,14 +1,17 @@
 # Only ViewModel
+
 **Generate data for activity from Model.**
-	Activity or fragment should contain logic responsible for UI fragments only
+Activity or fragment should contain logic responsible for UI fragments only
 
 Dependencies
+
 ```gradle
 val lifecycle_version = "2.6.2"
 implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
 ```
 
 Example ViewModel class (MainViewModel)
+
 ```kotlin
 import androidx.lifecycle.ViewModel
 
@@ -44,7 +47,9 @@ class MainViewModel: ViewModel() {
   fun getCount(): Int = this.count
 }
 ```
+
 Activity
+
 ```kotlin
 val viewModel: MainViewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
@@ -54,7 +59,33 @@ button.setOnClickListener {
   textView.text = viewModel.getCount().toString()
 }
 ```
+
+Jetpack Compose (source: Google)
+
+```kotlin
+// SignUpViewModel.kt
+class SignUpViewModel(private val userRepository: UserRepository) : ViewModel() {
+	var username by mutableStateOf("")
+	private set
+
+    fun updateUsername(input: String) {
+        username = input
+    }
+}
+
+// SignUpScreen.kt
+@Composable
+fun SignUpScreen(/*...*/) {
+    OutlinedTextField(
+        value = viewModel.username,
+        onValueChange = { username -> viewModel.updateUsername(username) }
+        /*...*/
+    )
+}
+```
+
 # Live Data
+
 ```kotlin
 // viewmodel
 var count = MutableLiveData<Int>()
@@ -65,15 +96,17 @@ viewModel.count.observe(this,{
   textView.text = it.toString()
 })
 ```
+
 # Implementation
 
 ## build.gradle (kts) (app)
+
 ```gradle
 plugins {
 	id("kotlin-kapt")
 }
 
-android {  
+android {
   buildFeatures {
 		dataBinding = true
 	}
@@ -90,15 +123,15 @@ dependencies{
 }
 ```
 
+## activity_main.xml
 
-## activity_main.xml 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<layout 
+<layout
 	xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    
+
 	<data>
     <variable
       name="mainViewModel"
@@ -117,17 +150,19 @@ dependencies{
 	<EditText
 		android:id="@+id/editText"
 		android:text="@={mainNiewModel.editText}" />
-		
+
 	<Button
 		android:id="@+id/button"
 		android:onClick="@{() -> mainViewModel.doStuff()}"
 		android:text="@={mainViewModel.buttonText}" />
-		
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
 ```
+
 ## MainViewModel.kt
+
 ```kotlin
 class MainViewModel: ViewModel(), Observable {
 
@@ -151,7 +186,9 @@ class MainViewModel: ViewModel(), Observable {
 	}
 }
 ```
+
 ## ViewModelFactory
+
 ```kotlin
 class MainViewModelFactory: ViewModelProvider.Factory {
   override fun <T : ViewModel> create(modelClass: Class<T>): T {
@@ -162,15 +199,17 @@ class MainViewModelFactory: ViewModelProvider.Factory {
   }
 }
 ```
+
 ## MainActivity
+
 ```kotlin
-class MainActivity : AppCompatActivity() {  
+class MainActivity : AppCompatActivity() {
 
 	private lateinit var binding: ActivityMainBinding
   private lateinit var mainViewModel: MainViewModel
 
-  override fun onCreate(savedInstanceState: Bundle?) {  
-    super.onCreate(savedInstanceState)  
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
 
     binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
@@ -178,17 +217,20 @@ class MainActivity : AppCompatActivity() {
     mainViewModel = ViewModelProvider(this, factory)[MainViewModel::class.java]
 
     binding.mainViewModel = mainViewModel
-    binding.lifecycleOwner = this 
-  }  
+    binding.lifecycleOwner = this
+  }
 
 }
 ```
 
-***
-***
+---
+
+---
+
 # Fragments not yet tested
 
 ## Fragment (My code may contain residue from ViewBinding)
+
 ```kotlin
 class NewContactFragment : Fragment() {
 
@@ -208,12 +250,12 @@ class NewContactFragment : Fragment() {
 }
 ```
 
-
 ## ViewUtils
+
 ```kotlin
-fun Context.toast(message: String){  
-    Toast.makeText(this, message, Toast.LENGTH_LONG).show()  
+fun Context.toast(message: String){
+    Toast.makeText(this, message, Toast.LENGTH_LONG).show()
 }
 ```
-MVVM Recommended by Google
 
+MVVM Recommended by Google
