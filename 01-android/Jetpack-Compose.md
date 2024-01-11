@@ -27,6 +27,7 @@ Basics
 val count = remember {
   mutableStateOf(0) // 0 is default value
 }
+
   mutableStateOf(listOf<String>())
 }
 
@@ -153,5 +154,5 @@ Surface(color = Color.Cyan) {}
 ```
 
 ## Modifier
-
 Used to decorate composable
+<img src="../_images/android-jcompose-1.png"></img>
