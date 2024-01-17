@@ -139,3 +139,6 @@ Glide
   .placeholder(R.drawable.loading_spinner)
   .into(myImageView);
 ```
+
+# Format Number Currency
+NumberFormat.getCurrencyInstance().format(tip) // tip is double

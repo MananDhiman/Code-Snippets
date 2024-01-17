@@ -96,6 +96,12 @@ viewModel.count.observe(this,{
   textView.text = it.toString()
 })
 ```
+## Mutability/immutability in ViewModel
+1. Create a private MutableLiveData in viewModel
+2. Create a getter method for that MutableLiveData
+3. in onCreate() method you should register the observer without making any call
+4. Then you should call a public method that fetches data and posts value into MutableLiveData.
+5. This way, your observer in the UI should be triggered.
 
 # Implementation
 

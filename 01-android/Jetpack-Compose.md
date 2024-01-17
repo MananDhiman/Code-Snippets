@@ -1,12 +1,12 @@
 # Jetpack Compose
 
 - Declarative. UI built in kotlin using lambda functions annotated by @Composable.
-- Need to use state variables, when state changes, component is recomposed. Goal is to update state
-- use remember so initial val not always loaded. remember remembers last value. mutablestateof rerenders UI when value change. comp fun called any time, so essential to have a remember
-- Can write logic inside composable functions. Funs rendered in order written, effects applied accordingly
+- Need to use state variables, when state changes, component is recomposed so reset to default value. Goal is to update state
+- use remember so initial value not always loaded. remember remembers last value. mutableStateOf rerenders UI when value change. composable function called any time, so essential to have a remember
+- Can write logic inside composable functions. Functions rendered in order written, effects applied accordingly
 - function can be outside class
 - the only way to update it is by calling the same composable with new arguments.
-- Best practtice to have modifier param in composable
+- Best practice to have modifier param in composable
 
 Live Preview
 
@@ -28,7 +28,8 @@ val count = remember {
   mutableStateOf(0) // 0 is default value
 }
 
-  mutableStateOf(listOf<String>())
+val favourites = remember { 
+  mutableStateListOf<Track>() // list is not initialised
 }
 
 // text
@@ -41,8 +42,11 @@ Text(
     .padding(16.dp)
     .background(Color.Green)
     ..align(Alignment.CenterHorizontally),
-  fontWeight = FontWeight.Bold
+  fontWeight = FontWeight.Bold,
+  style = TextStyle(textDecoration = TextDecoration.Underline)
 )
+
+Text(stringResource(R.string.bill_amount))
 
 // button
 Button(onClick = {
@@ -56,12 +60,17 @@ Button(onClick = {
 }
 
 // edit text
-OutlinedTextField(
+OutlinedTextField( // TextField
   value = name,
   onValueChange = { text -> // text comes from edit text
     name = text
   },
-  modifier = Modifier.weight(1f) // how muc space to occupy, like linear layout
+  modifier = Modifier.weight(1f), // how muc space to occupy, like linear layout
+  label = { Text(text="Lable") },
+  singleLine = true, //  condenses textbox to a single, horizontally scrollable line from multiple lines
+  keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+  leadingIcon = { Icon(painter = painterResource(id = leadingIcon), null) },
+  imeAction = ImeAction.Next // Search, Send, Go
 )
 
 // image
@@ -71,6 +80,7 @@ Image(
   modifier = Modifier.background(Color.Blue).size(40.dp)
   alpha = 0.5F // image opacity
 )
+
 Icon(
   imageVector = Icons.Default.Add,
   contentDescription = "add",
@@ -84,7 +94,12 @@ Box (contentAlignment = )  // box is simple container like Frame layout. Inner e
 
 // column (elements vertically place)
 Column(
-  modifier = Modifier.fillMaxSize().fillMaxWidth().size(400.dp),
+  modifier = Modifier
+    .fillMaxSize()
+    .fillMaxWidth()
+    .size(400.dp)
+    .clickable { /* do click stuff. mouse scroll exception */ },
+    .verticalScroll(rememberScrollState()) // add scroll bar
   verticalArrangement = Arrangement.SpaceBetween // Evenly,Around
   horizontalAlignment = Alignment.CenterHorizontally
 ) {
@@ -117,6 +132,26 @@ LazyColumn(modifier) {
     )
     Divider()
   }
+
+  // single item in end
+  item { 
+    // multiple items displayed only once
+  }
+}
+
+// switch or checkbox
+var roundUp by remember { mutableStateOf(false) }
+Switch(
+    checked = roundUp, // boolean
+    onCheckedChange = onRoundUpChanged, // callback (bool) -> unit
+)
+
+// pass composable as function parameter
+@Composable
+fun CompFun(
+ anotherComposableFunction: @Composable () -> Unit
+) {
+  anotherComposableFunction()
 }
 ```
 

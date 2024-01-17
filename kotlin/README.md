@@ -57,6 +57,7 @@ val str = String.format("%.2f", foo(bar))
 
 // elvis
 val namelength = canBeNull?.length ?: 0
+val amount = amountInput.toDoubleOrNull() ?: 0.0 // if null 0.0 assigned
 ```
 
 ## User Input
@@ -234,6 +235,11 @@ fun printFinalTemperature(
 ) {
  val ans = conversionFormula(initialMeasurement) // two decimal places
 }
+
+// pass method inside class
+foo("hi", OtherClass()::buz)
+foo("hi", thatOtherThing::buz)
+foo("hi", this::buz)
 ```
 
 # Exception Handling

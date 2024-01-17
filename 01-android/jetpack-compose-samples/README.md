@@ -1,4 +1,4 @@
-EditText adds data to LazyColumn 
+## EditText adds data to LazyColumn 
 ```kotlin
 @Composable
 private fun UI() {
@@ -51,7 +51,7 @@ private fun InputSection(namesList: MutableState<List<String>>) {
 }
 ```
 
-EditText TextView
+## EditText TextView
 ```kotlin
 @Composable
 fun UI() {
@@ -89,4 +89,53 @@ fun UI() {
 
   }
 }
+```
+## LazyColumn Dynamic List of Input Fields
+```kotlin
+val subjectNames = remember { mutableStateListOf<String>() }
+LazyColumn {
+  items(confirmedNumberOfSubjects.intValue) { ind ->
+    subjectNames.add("")
+    OutlinedTextField(
+      value = subjectNames[ind], 
+      onValueChange = { subjectNames[ind] = it }
+    )
+  }
+}
+```
+## DropDown on click
+```kotlin
+val dropDownExpanded = remember {
+  mutableStateOf(false)
+}
+
+Column (
+ Modifier.clickable { dropDownExpanded.value = !dropDownExpanded.value }
+) {
+    DropdownMenu(
+    expanded = dropDownExpanded.value,
+    onDismissRequest = { dropDownExpanded.value = false }
+ ) {
+   DropdownMenuItem(
+     text = {  Text("Refresh") },
+     onClick = { /* Handle refresh! */ }
+   )
+   DropdownMenuItem(
+     text = { Text("Settings") },
+     onClick = { /* Handle settings! */ }
+   )
+   Divider()
+   DropdownMenuItem(
+     text = { Text("Send Feedback") },
+     onClick = { /* Handle send feedback! */ }
+   )
+ }
+}
+```
+
+## Exposing immutability Jetpack Compose
+```kotlin
+// ViewModel
+private val _plantPictures = MutableStateFlow<PagingData<UnsplashPhoto>?>(null)
+val plantPictures: Flow<PagingData<UnsplashPhoto>> get() = _plantPictures.filterNotNull()
 ```
