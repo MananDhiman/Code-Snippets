@@ -139,6 +139,58 @@ Glide
   .placeholder(R.drawable.loading_spinner)
   .into(myImageView);
 ```
+# Dhaval Image picker
+```gradle
+allprojects {
+  repositories {
+    maven { url "https://jitpack.io" }
+  }
+}
+–
+implementation 'com.github.dhaval2404:imagepicker:2.1'
+```
 
+```kotlin
+// call image picker
+ImagePicker.with(this)
+  .crop()   //Crop image(Optional), Check Customization for more option
+  .compress(1024)   //Final image size will be less than 1 MB(Optional)
+  .maxResultSize(1080, 1080)    //Final image resolution will be less than 1080 x 1080(Optional)
+  .start()
+
+// handle operation
+override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+  super.onActivityResult(requestCode, resultCode, data)
+  if (resultCode == Activity.RESULT_OK) {
+  
+      //Image Uri will not be null for RESULT_OK
+      val uri: Uri = data?.data!!
+
+      // Use Uri object instead of File to avoid storage permissions
+      imgProfile.setImageURI(fileUri)
+  } else if (resultCode == ImagePicker.RESULT_ERROR) {
+      Toast.makeText(this, ImagePicker.getError(data), Toast.LENGTH_SHORT).show()
+  } else {
+      Toast.makeText(this, "Task Cancelled", Toast.LENGTH_SHORT).show()
+  }
+}
+
+// customisation
+ImagePicker.with(this)
+   .compress(1024)     //Final image size will be less than 1 MB(Optional)
+   .maxResultSize(1080, 1080)  //Final image resolution will be less than 1080 x 1080(Optional)
+   .createIntent { intent -> startForProfileImageResult.launch(intent) }
+
+ImagePicker.with(this)
+  .galleryOnly() //User can only select image from Gallery
+  .cameraOnly() //User can only capture image using Camera
+  .crop()     //Crop image and let user choose aspect ratio.
+  .crop(16f, 9f) //Crop image with 16:9 aspect ratio
+  .cropSquare() //Crop square image, its same as crop(1f, 1f)
+  .compress(1024) //Final image size will be less than 1 MB
+  .maxResultSize(620, 620) //Final image resolution will be less than 620 x 620
+  .setDismissListener { /* Handle dismiss event */ Log.d("ImagePicker", "onDismiss"); }
+  .start() //Default Request Code is ImagePicker.REQUEST_CODE
+```
 # Format Number Currency
 NumberFormat.getCurrencyInstance().format(tip) // tip is double

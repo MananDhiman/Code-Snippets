@@ -32,6 +32,8 @@ val favourites = remember {
   mutableStateListOf<Track>() // list is not initialised
 }
 
+var revenue by rememberSaveable { mutableStateOf(0) } // survives config changes
+
 // text
 Text(
   text = count.value.toString(), // value
@@ -191,3 +193,43 @@ Surface(color = Color.Cyan) {}
 ## Modifier
 Used to decorate composable
 <img src="../_images/android-jcompose-1.png"></img>
+
+# Navigation
+
+Dependency
+`implementation("androidx.navigation:navigation-compose:2.7.6")`
+```kotlin
+@Composable
+fun CuteDogPicturesApp() {
+  val navController = rememberNavController()
+  NavHost(navController, startDestination = "feed", modifier = Modifier) {
+    composable(route = "feed") {
+      FeedScreen(navController)
+    }
+    composable(route = "adopt") {
+      AdoptionScreen()
+    }
+  }
+}
+
+@Composable
+fun FeedScreen(navController: NavController) {
+  Button(onClick = { navController.navigate("adopt") }) {
+    Text("Click me to adopt!")
+  }
+}
+
+@Composable
+fun AdoptionScreen(...) { ... }
+
+// ideal approach is to create enum or sealed class
+
+// paramters
+sealed class Screen(val route: String) {
+  object Feed: Screen("feed")
+  object Adopt: Screen("dog/{dogId}/adopt")
+}
+
+@Composable
+fun AdoptionScreen(navController: NavController, dogId: String) { ... }
+```

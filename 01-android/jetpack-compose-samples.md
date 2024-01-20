@@ -134,8 +134,16 @@ Column (
 ```
 
 ## Exposing immutability Jetpack Compose
+
+MutableStateFlow
 ```kotlin
 // ViewModel
 private val _plantPictures = MutableStateFlow<PagingData<UnsplashPhoto>?>(null)
 val plantPictures: Flow<PagingData<UnsplashPhoto>> get() = _plantPictures.filterNotNull()
+
+private val _uiState = MutableStateFlow(GameUiState())
+val uiState: StateFlow<GameUiState> = _uiState.asStateFlow()
+
+// view
+val gameUiState by gameViewModel.uiState.collectAsState()
 ```

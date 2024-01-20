@@ -37,7 +37,16 @@ ini_set('display_errors', '1');
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 ```
+## PHP Path
+```php 
+$_SERVER['PATH_INFO']
 
+PATH_INFO: /products/xxx/yyy
+PATH_INFO is relative to the root URL. REQUEST_URI is not.
+URL: http://api.yoursite.com/post/index.php/parameters/
+REQUEST_URI: /post/index.php/xxx/yyy<br>\
+PATH_INFO: /products/xxx/zzz
+```
 ## FORM Data HTTP Request Methods
 ```php
 // get request body
@@ -64,7 +73,7 @@ switch ($method) {
 }
 ```
 
-# Get from external api
+## Get from external api
 ```php
 $url = 'data.json'; // path to your JSON file
 $data = file_get_contents($url); // put the contents of the file into a variable
