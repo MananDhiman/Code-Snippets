@@ -78,6 +78,11 @@ SELECT * FROM bands LIMIT 2;
 -- skip a number of results
 SELECT * FROM bands OFFSET 5;
 
+-- first offset, then limit (pagination)
+SELECT * FROM sub_categories LIMIT 1,2;
+-- same as above
+SELECT * FROM sub_categories LIMIT 2 OFFSET 1;
+
 -- choose columns to display
 SELECT name FROM bands;
 

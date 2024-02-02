@@ -257,3 +257,11 @@ AlertDialog(
   }
 )
 ```
+
+# ViewModel
+```kotlin
+// dependency
+import androidx.lifecycle.viewmodel.compose.viewModel
+
+val viewModel = viewModel { MViewModel() }  
+```
