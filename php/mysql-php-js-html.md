@@ -30,7 +30,7 @@ Contents are of a single file only
     
 ?>
 ```
-
+HTML File
 ```html
 <html>
 <body>
@@ -138,6 +138,13 @@ Same page submit button
 		echo 'button clicked';
 	}
 ?>
+```
+# Sanitise User input
+`$val = $conn->real_escape_string($val);`
+
+# MySQL
+```bash
+$query = "SELECT * FROM `tablename` WHERE `columnname` LIKE '%{$variable}%'";
 ```
 # Upload Image
 ## And Insert Data

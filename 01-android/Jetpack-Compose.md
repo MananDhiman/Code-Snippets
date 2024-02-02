@@ -43,21 +43,26 @@ Text(
     .background(Color.Red)
     .padding(16.dp)
     .background(Color.Green)
-    ..align(Alignment.CenterHorizontally),
+    .align(Alignment.CenterHorizontally),
   fontWeight = FontWeight.Bold,
+  maxLines = 2, 
+  overflow = TextOverflow.Ellipsis // Clip, Ellipsis, Visible
   style = TextStyle(textDecoration = TextDecoration.Underline)
 )
 
 Text(stringResource(R.string.bill_amount))
 
 // button
-Button(onClick = {
-  count.value++
-  if(name.isNotBlank()) {
-    names = names + name
-    name = ""
-  }
-}) {
+Button(
+  onClick = {
+    count.value++
+    if(name.isNotBlank()) {
+      names = names + name
+      name = ""
+    }
+  },
+  colors = ButtonDefaults.buttonColors(containerColor = Color.Green, contentColor = Color.Black)
+) {
   Text(text = "SSS") // text inside button
 }
 
@@ -232,4 +237,23 @@ sealed class Screen(val route: String) {
 
 @Composable
 fun AdoptionScreen(navController: NavController, dogId: String) { ... }
+```
+
+# Confirm / Alert Dialog
+```kotlin
+AlertDialog(
+  onDismissRequest = { openDialog.value = false },
+  title = { Text(text = "Dialog Title Will Show Here") },
+  text = { Text("Here is a description text of the dialog") },
+  confirmButton = { 
+    Button( 
+      onClick = { openDialog.value = false }
+    ) { Text("Confirm Button") }
+  },
+  dismissButton = {
+    Button(
+      onClick = { openDialog.value = false }
+    ) { Text("Dismiss Button") }
+  }
+)
 ```

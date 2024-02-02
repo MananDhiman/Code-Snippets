@@ -1,4 +1,28 @@
 # Shared Preferences
+Better create a object / singleton
+```kotlin
+object SharedPreferencesManager {  
+
+  private const val PREF_NAME = "MySharedPrefs"  
+  private lateinit var sharedPreferences: SharedPreferences  
+
+  fun init(context: Context) {  
+      sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)  
+  }  
+
+  fun saveString(key: String, value: String) {  
+      sharedPreferences.edit().putString(key, value).apply()  
+  }  
+
+  fun getString(key: String, defaultValue: String): String {  
+      return sharedPreferences.getString(key, defaultValue) ?: defaultValue  
+  }
+}
+
+// use sharedPref
+SharedPreferencesManager.init(this)
+SharedPreferencesManager.getString("user","abc")
+```
 
 ```kotlin
 private lateinit var preferences: SharedPreferences

@@ -75,6 +75,9 @@ SELECT
 -- limit number of results
 SELECT * FROM bands LIMIT 2;
 
+-- skip a number of results
+SELECT * FROM bands OFFSET 5;
+
 -- choose columns to display
 SELECT name FROM bands;
 
@@ -104,6 +107,9 @@ customers ORDER By country, city; -- alphabetically, first by country, then city
 
 -- distinct values of column
 DISTINCT name FROM albums;
+
+-- search in multiple given columns
+SELECT * FROM table WHERE 'val' IN (col1, col2, ..., colN) ;
 ```
 
 DELETE

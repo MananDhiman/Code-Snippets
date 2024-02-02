@@ -1,4 +1,4 @@
-# Go
+  # Go
 `go run foo.go`
 
 ```go
