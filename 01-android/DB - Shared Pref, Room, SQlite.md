@@ -268,40 +268,40 @@ class DataBaseHandler(context: Context): SQLiteOpenHelper(context, DATABASE_NAME
 
 ```kotlin
 class MainActivity : AppCompatActivity() {
-    lateinit var binding: ActivityMainBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+  lateinit var binding: ActivityMainBinding
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    binding = ActivityMainBinding.inflate(layoutInflater)
+    setContentView(binding.root)
 
-        val context = this
+    val context = this
 
-        binding.butSubmit.setOnClickListener {
-            validateAndSaveData(context)
-        }
-        binding.butView.setOnClickListener {
-            readData()
-        }
+    binding.butSubmit.setOnClickListener {
+      validateAndSaveData(context)
     }
-
-    private fun validateAndSaveData(context: MainActivity) {
-        if(binding.etAge.text.isEmpty() || binding.etName.text.isEmpty()){
-            Toast.makeText(this,"Please Enter The Required Data",Toast.LENGTH_LONG).show()
-            return
-        }
-        var user = Data(binding.etName.text.toString(), binding.etAge.text.toString().toInt())
-        var db = DataBaseHandler(context)
-        db.insertData(user)
+    binding.butView.setOnClickListener {
+      readData()
     }
+  }
 
-    private fun readData(){
-        val data = db.readData()
-        binding.tvAge.text = ""
-        binding.tvName.text = ""
-        for (i in 0 until data.size){
-            binding.tvAge.append(data[i].age.toString() + "\n")
-            binding.tvName.append(data[i].name.toString() + "\n")
-        }
+  private fun validateAndSaveData(context: MainActivity) {
+    if(binding.etAge.text.isEmpty() || binding.etName.text.isEmpty()){
+      Toast.makeText(this,"Please Enter The Required Data",Toast.LENGTH_LONG).show()
+      return
     }
+    var user = Data(binding.etName.text.toString(), binding.etAge.text.toString().toInt())
+    var db = DataBaseHandler(context)
+    db.insertData(user)
+  }
+
+  private fun readData(){
+    val data = db.readData()
+    binding.tvAge.text = ""
+    binding.tvName.text = ""
+    for (i in 0 until data.size){
+      binding.tvAge.append(data[i].age.toString() + "\n")
+      binding.tvName.append(data[i].name.toString() + "\n")
+    }
+  }
 }
 ```

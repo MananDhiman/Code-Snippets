@@ -1,22 +1,21 @@
 jvm test - unit test
 instrumentation test - android, espresso - views
 
-## Font
-
-Drawable -> new resource -> font, paste otf in folder
-
-In textView XML tags
-
+# Orientation Rotate 
+AndroidManifest.xml
 ```xml
-android:fontFamily="@font/glakome"
+android_:screenOrientation="portrait"
 ```
 
-Highlight a View
-`view.requestFocus()`
+# Relase APK without signing 
+```kotlin
+signingConfig = signingConfigs.getByName("debug")
+```
+
 
 # Adjust layout when soft keyboard opened
 
-In Manifest.xml
+AndroidManifest.xml
 
 ```xml
 <activity
@@ -109,8 +108,13 @@ class MainActivity : AppCompatActivity() {
 # Clipboard
 
 ```kotlin
-val c = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
-Log.d("TAG",c.primaryClip?.itemCount.toString())
+// copy last from clipboard
+val clipboard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+Log.d("TAG",clipboard.primaryClip?.itemCount.toString())
+
+// save to clipboard
+val clip = ClipData.newPlainText("label", "data to copy")
+clipboard.setPrimaryClip(clip)
 ```
 
 # Progress Dialog (Deprecated. Use ProgressBar)
@@ -126,10 +130,7 @@ progressDialog.dismiss()
 ```
 
 # Glide Image Load
-
-`dependencies {
-  implementation 'com.github.bumptech.glide:glide:4.16.0'
-}`
+`implementation("com.github.bumptech.glide:glide:4.16.0")`
 
 ```kotlin
 Glide

@@ -25,7 +25,13 @@ private fun getObject() = object {
 }
 ```
 
-Smaller If when
+## Return list of objects sorted by field
+```kotlin
+data class Student( val name: String, val age: Int )
+
+val students get() = _students.sortedBy { it.name }
+```
+## Smaller If when
 
 ```kotlin
 fun main() {

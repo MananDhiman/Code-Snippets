@@ -214,7 +214,7 @@ response has body, isSuccessful, message, errorBody
 ## Dependency
 
 ```
- implementation 'com.android.volley:volley:1.2.1'
+ implementation("com.android.volley:volley:1.2.1")
 ```
 
 ## Minimal Volley Response in String

@@ -39,6 +39,7 @@ Text(
   text = count.value.toString(), // value
   fontSize = 30.sp,
   color = Color.Blue,
+  lineHeight = 50.sp,
   modifier = Modifier
     .background(Color.Red)
     .padding(16.dp)
@@ -75,9 +76,10 @@ OutlinedTextField( // TextField
   modifier = Modifier.weight(1f), // how muc space to occupy, like linear layout
   label = { Text(text="Lable") },
   singleLine = true, //  condenses textbox to a single, horizontally scrollable line from multiple lines
-  keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
   leadingIcon = { Icon(painter = painterResource(id = leadingIcon), null) },
-  imeAction = ImeAction.Next // Search, Send, Go
+  keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number, imeAction = ImeAction.Next),
+  keyboardActions = KeyboardActions( onNext = { doStuff() /*focusRequester.requestFocus()*/ } ),
+  // imeAction = ImeAction.Next // Search, Send, Go (didn't work)
 )
 
 // image
@@ -85,7 +87,8 @@ Image(
   painter = painterResource(id = R.drawable.ic_launcher_foreground),
   contentDescription = null,
   modifier = Modifier.background(Color.Blue).size(40.dp)
-  alpha = 0.5F // image opacity
+  alpha = 0.5F, // image opacity
+  contentscale = ContentScale.crop
 )
 
 Icon(
@@ -160,6 +163,11 @@ fun CompFun(
 ) {
   anotherComposableFunction()
 }
+
+// selectable text
+SelectionContainer {
+  Text("This is text")
+}
 ```
 
 MainActivity
@@ -192,13 +200,19 @@ import androidx.compose.ui.graphics.Color
 Basic building block
 
 ```kotlin
-Surface(color = Color.Cyan) {}
+Surface(color = Color.Cyan, bottomBar = { BottomAppBar() }) {
+
+}
 ```
 
 ## Modifier
 Used to decorate composable
 <img src="../_images/android-jcompose-1.png"></img>
 
+# Loading
+```kotlin
+LinearProgressIndicator()
+```
 # Navigation
 
 Dependency
@@ -257,7 +271,6 @@ AlertDialog(
   }
 )
 ```
-
 # ViewModel
 ```kotlin
 // dependency

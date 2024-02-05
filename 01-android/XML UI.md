@@ -1,3 +1,15 @@
+# Font
+
+Drawable -> new resource -> font, paste otf in folder
+
+In textView XML tags
+
+```xml
+android:fontFamily="@font/glakome"
+```
+
+## Highlight a View
+`view.requestFocus()`
 # Drawable
 
 Can be used as background or foreground of any android view

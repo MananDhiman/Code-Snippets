@@ -132,6 +132,17 @@ Column (
  }
 }
 ```
+## Glide Image
+implementation("com.github.bumptech.glide:compose:1.0.0-beta01")
+```kotlin
+GlideImage(  
+  model = imageURL, contentDescription = "Post Image",  
+  Modifier  
+    .fillMaxWidth(1f)  
+    .wrapContentSize(),  
+  contentScale = ContentScale.FillWidth  
+)
+```
 
 ## Exposing immutability Jetpack Compose
 

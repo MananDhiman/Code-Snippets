@@ -437,3 +437,17 @@ localStorage.setItem('key','value');
 ```
 ## Clipboard
 `navigator.clipboard.writeText("sss")`
+
+## Geolocation
+```js
+if("geolocation" in navigator) {  
+  navigator.geolocation.getCurrentPosition(function(position){  
+    const lat = position.coords.latitude;  
+    const long = position.coords.longitude;  
+    console.log(lat,long);  
+  })  
+}
+else {
+
+}
+```
