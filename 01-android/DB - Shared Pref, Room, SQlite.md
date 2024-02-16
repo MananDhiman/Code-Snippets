@@ -22,6 +22,17 @@ object SharedPreferencesManager {
 // use sharedPref
 SharedPreferencesManager.init(this)
 SharedPreferencesManager.getString("user","abc")
+
+// handle db upgrade
+override fun onUpgrade(
+	db: SQLiteDatabase?, 
+	oldVersion: Int, 
+	newVersion: Int
+) {  
+	// or handle data migration
+	val del = "DROP TABLE IF EXISTS $_TABLE_POSTS"  
+	db?.execSQL(deletePostsTable)  
+}
 ```
 
 ```kotlin
@@ -146,7 +157,9 @@ onCreate(){
 	val db = Room.databaseBuilder(
     applicationContext,
     AppDatabase::class.java, "database-name",)
-    .allowMainThreadQueries().build()
+    .allowMainThreadQueries() // find alternative
+    .fallbackToDestructiveMigration() // when app updated
+    .build()
 
   val userDao = db.userDao()
 

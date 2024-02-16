@@ -16,6 +16,7 @@ Live Preview
 fun GreetingPreview() {
   JetpackComposeTheme {
     Comp() // list fun that gen UI
+    Screen(rememberNavController(), viewModel()) // NavHostController, ViewModel
   }
 }
 ```
@@ -36,7 +37,7 @@ var revenue by rememberSaveable { mutableStateOf(0) } // survives config changes
 
 // text
 Text(
-  text = count.value.toString(), // value
+  text = count.value.toString(), // value // stringResource(id = R.string.s).repeat(30)
   fontSize = 30.sp,
   color = Color.Blue,
   lineHeight = 50.sp,
@@ -48,7 +49,9 @@ Text(
   fontWeight = FontWeight.Bold,
   maxLines = 2, 
   overflow = TextOverflow.Ellipsis // Clip, Ellipsis, Visible
-  style = TextStyle(textDecoration = TextDecoration.Underline)
+  style = TextStyle(textDecoration = TextDecoration.Underline),
+  fontFamily = FontFamily.Monospace
+  
 )
 
 Text(stringResource(R.string.bill_amount))
@@ -62,7 +65,15 @@ Button(
       name = ""
     }
   },
-  colors = ButtonDefaults.buttonColors(containerColor = Color.Green, contentColor = Color.Black)
+  shape = RoundedCornerShape(10.dp), // CutCornerShape, CircleShape
+  colors = ButtonDefaults.buttonColors(
+	  containerColor = Color.Green,
+	  contentColor = Color.Black),
+  elevation = ButtonDefaults.buttonElevation(
+	  defaultElevation = 10.dp,
+	  pressedElevation = 6.dp
+  ),
+  border = BorderStroke(1.dp, Color.Gray)
 ) {
   Text(text = "SSS") // text inside button
 }
@@ -76,8 +87,13 @@ OutlinedTextField( // TextField
   modifier = Modifier.weight(1f), // how muc space to occupy, like linear layout
   label = { Text(text="Lable") },
   singleLine = true, //  condenses textbox to a single, horizontally scrollable line from multiple lines
+  maxLines = 2, // max lines display at once
+  visualTransformation = PasswordVisualTransformation()
   leadingIcon = { Icon(painter = painterResource(id = leadingIcon), null) },
-  keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number, imeAction = ImeAction.Next),
+  keyboardOptions = KeyboardOptions(
+	  keyboardType = KeyboardType.Number, // Phone
+	  imeAction = ImeAction.Next
+  ),
   keyboardActions = KeyboardActions( onNext = { doStuff() /*focusRequester.requestFocus()*/ } ),
   // imeAction = ImeAction.Next // Search, Send, Go (didn't work)
 )
@@ -168,6 +184,9 @@ fun CompFun(
 SelectionContainer {
   Text("This is text")
 }
+
+// context
+val context = LocalContext.current
 ```
 
 MainActivity
@@ -212,11 +231,29 @@ Used to decorate composable
 # Loading
 ```kotlin
 LinearProgressIndicator()
+CircularProgressIndicator()
 ```
 # Navigation
 
 Dependency
 `implementation("androidx.navigation:navigation-compose:2.7.6")`
+
+```kotlin
+val navController = rememberNavController()
+NavHost(navController, startDestination = "main") {
+	composable(route = "main") { MainScreen() }
+	composable(route = "detail/{id}") { DetailScreen(it.arguments?.getString("id")) }
+}
+
+fun DetailScreen(i: String?) {
+  if(i != null) {
+    val index = i.toInt()
+  }
+}
+```
+
+```
+```
 ```kotlin
 @Composable
 fun CuteDogPicturesApp() {

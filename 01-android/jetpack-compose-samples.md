@@ -144,6 +144,15 @@ GlideImage(
 )
 ```
 
+## Font family
+Import in resource manager, dropdown
+```
+val font = FontFamily(Font(R.font.courg))
+Text(
+	fontFamily = font
+)
+```
+
 ## Exposing immutability Jetpack Compose
 
 MutableStateFlow
@@ -157,4 +166,23 @@ val uiState: StateFlow<GameUiState> = _uiState.asStateFlow()
 
 // view
 val gameUiState by gameViewModel.uiState.collectAsState()
+```
+
+# Intent
+```kotlin
+val context = LocalContext.current
+
+fun sharePost(post: Post, context: Context) {
+  val link = "http://www.jagratilahar.com/${post.language}/${post.categires}/${post.id}/${post.tags}"
+
+  val sendIntent: Intent = Intent().apply {
+    action = Intent.ACTION_SEND
+    putExtra(Intent.EXTRA_TEXT, link)
+    type = "text/html"
+  }
+
+  val shareIntent = Intent.createChooser(sendIntent, null)
+  context.startActivity(shareIntent)
+
+}
 ```

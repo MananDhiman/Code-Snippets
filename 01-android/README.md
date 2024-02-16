@@ -80,6 +80,19 @@ intent.putExtra("name",name) // pass data to activity
 startActivity(intent)
 ```
 
+# WebView
+```kotlin
+val webView = findViewById<WebView>(R.id.web_view)  
+webView.loadUrl("https://webhead.in/lptv/")  
+webView.settings.javaScriptEnabled = true
+
+webView.webViewClient = WebViewClient()
+
+override fun onBackPressed() {  
+	if (webView.canGoBack()) webView.goBack()  
+	else super.onBackPressed()  
+}
+```
 # Enable view binding
 
 build.grade

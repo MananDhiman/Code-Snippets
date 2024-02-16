@@ -145,3 +145,9 @@ gnome-disk-utility | kde-partitionmanager
 
 Not found compared to pacman:
 noto-fonts ttf-ms-fonts otpclient albert
+
+# Windows
+helix editor shortcut
+```bat
+start "" ""D:\software\installed\helix\hx.exe"" "D:\code\Code-Snippets"
+```
