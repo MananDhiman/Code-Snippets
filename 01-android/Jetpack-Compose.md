@@ -124,7 +124,11 @@ Column(
     .fillMaxSize()
     .fillMaxWidth()
     .size(400.dp)
-    .clickable { /* do click stuff. mouse scroll exception */ },
+	.clickable { /* do click stuff. mouse scroll exception */ },
+	.combinedClickable(  
+		onClick = {  }, // clicking item takes to note detail  
+		onLongClick = {  }
+	 ) // long click for delete  
     .verticalScroll(rememberScrollState()) // add scroll bar
   verticalArrangement = Arrangement.SpaceBetween // Evenly,Around
   horizontalAlignment = Alignment.CenterHorizontally
@@ -314,4 +318,6 @@ AlertDialog(
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 val viewModel = viewModel { MViewModel() }  
+
+//  For CompPrev(viewModel())
 ```
