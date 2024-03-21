@@ -1,3 +1,4 @@
+a tour of go, go by example
 # Run
 `go run foo.go`
 

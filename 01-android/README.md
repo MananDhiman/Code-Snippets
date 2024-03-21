@@ -23,7 +23,23 @@ AndroidManifest.xml
   android:windowSoftInputMode="adjustResize">
 </activity>
 ```
+# Runtime Permission
+```xml
+<uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+```
 
+Ask for Permission
+```kotlin
+private fun askForPermission() {
+ val pState = ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS)
+
+
+ if (pState == PackageManager.PERMISSION_DENIED) {
+   ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.POST_NOTIFICATIONS) ,1)
+ }
+}
+
+```
 ## Use xml defined colours in activities
 
 ```kotlin

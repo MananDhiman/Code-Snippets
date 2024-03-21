@@ -33,6 +33,19 @@ Need two things to create crt, crt scope (lifetime), and crt context (which thre
 Defines lifetime of coroutine. If a coroutine starts a process derived from MainActivity (fragment or ViewModel) but activity changes, then all the coroutines in the MainActivity scope get destroyed
 Can wait for a scope
 
+```kotlin
+// fragment
+val scope = CoroutineScope(CoroutineName(“MyScope”))
+// val scope = CoroutineScope(Dispatchers.IO + CoroutineName(“MyScope”))
+
+scope.launch { // parent
+	launch { 
+	// launch is extension fun that returns job. Responsible for crt lifecycle, cancellation, parent child rel
+	// child
+	}
+}
+```
+
 ## Coroutine Context
 
 Tells on which threads our coroutines run
@@ -41,9 +54,9 @@ Tells on which threads our coroutines run
 
 way to define on which crt executed
 
-- Dispatcher.IO
-- Dispatcher.Main
-- Dispatcher.Default
+- Dispatcher.IO - Network and Disk
+- Dispatcher.Main - UI, tasks that are short
+- Dispatcher.Default - CPU heavy task, like parsing large file
 
 # Minimal Coroutine Android
 
@@ -75,6 +88,50 @@ private suspend fun sendLoginReq(pass: String, user: String) {
 		Log.d("response", loginResponse.body().toString())
 	}  catch (e: Exception) {
 		Log.d("response exception", e.message.toString())
+	}
+}
+```
+## Running Clock
+ViewModel
+```kotlin
+class MViewModel: ViewModel() {
+	val count = mutableStateOf(1)
+	
+	fun increment() {
+		CoroutineScope(Dispatchers.IO).async {
+			_increment()
+		}
+	}
+	fun _increment() {
+		for(i in 0..200_000) {
+			Log.d("tag dummy long task", i.toString())
+		}
+		count.value = 200_000
+	}
+	fun addNote(note: Note) {
+		 viewModelScope.launch(Dispatchers.IO) {
+			 db.createNote(note)
+			 notes.value = db.readNotes(notebookSelected.value)
+		}
+	}
+}
+```
+UI
+```kotlin
+Column(Modifier.fillMaxSize()) {
+	Button(onClick = { viewModel.increment() }) {
+		Text(text = viewModel.count.value.toString())
+	}
+	
+	var ticks by remember { mutableIntStateOf(0) }
+	
+	Text(text = ticks.toString())
+	
+	LaunchedEffect(Unit) {
+		while(true) {
+			delay(1.milliseconds)
+			ticks++
+		}
 	}
 }
 ```

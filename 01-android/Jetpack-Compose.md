@@ -129,6 +129,14 @@ Column(
 		onClick = {  }, // clicking item takes to note detail  
 		onLongClick = {  }
 	 ) // long click for delete  
+	 .pointerInput(Unit) {
+		 detectTapGestures(
+	        onPress = { },
+	        onDoubleTap = { },
+	        onLongPress = { },
+	        onTap = { }
+	      )
+	 }
     .verticalScroll(rememberScrollState()) // add scroll bar
   verticalArrangement = Arrangement.SpaceBetween // Evenly,Around
   horizontalAlignment = Alignment.CenterHorizontally
@@ -311,6 +319,59 @@ AlertDialog(
     ) { Text("Dismiss Button") }
   }
 )
+```
+
+# Basic Dialog
+```kotlin
+@Composable
+fun MinimalDialog(onDismissRequest: () -> Unit) {
+    Dialog(onDismissRequest = { onDismissRequest() }) {
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(200.dp)
+                .padding(16.dp),
+            shape = RoundedCornerShape(16.dp),
+        ) {
+            Text(
+                text = "This is a minimal dialog",
+                modifier = Modifier
+                    .fillMaxSize()
+                    .wrapContentSize(Alignment.Center),
+                textAlign = TextAlign.Center,
+            )
+        }
+    }
+}
+```
+# DropDown on click
+```kotlin
+val dropDownExpanded = remember {
+  mutableStateOf(false)
+}
+
+Column (
+ Modifier.clickable { dropDownExpanded.value = !dropDownExpanded.value }
+) {
+    DropdownMenu(
+    expanded = dropDownExpanded.value,
+    onDismissRequest = { dropDownExpanded.value = false }
+ ) {
+   DropdownMenuItem(
+     text = {  Text("Refresh") },
+     onClick = { /* Handle refresh! */ }
+   )
+   DropdownMenuItem(
+     text = { Text("Settings") },
+     onClick = { /* Handle settings! */ }
+   )
+   Divider()
+   DropdownMenuItem(
+     text = { Text("Send Feedback") },
+     onClick = { /* Handle send feedback! */ }
+   )
+ }
+}
 ```
 # ViewModel
 ```kotlin

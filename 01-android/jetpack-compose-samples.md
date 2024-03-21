@@ -103,35 +103,6 @@ LazyColumn {
   }
 }
 ```
-## DropDown on click
-```kotlin
-val dropDownExpanded = remember {
-  mutableStateOf(false)
-}
-
-Column (
- Modifier.clickable { dropDownExpanded.value = !dropDownExpanded.value }
-) {
-    DropdownMenu(
-    expanded = dropDownExpanded.value,
-    onDismissRequest = { dropDownExpanded.value = false }
- ) {
-   DropdownMenuItem(
-     text = {  Text("Refresh") },
-     onClick = { /* Handle refresh! */ }
-   )
-   DropdownMenuItem(
-     text = { Text("Settings") },
-     onClick = { /* Handle settings! */ }
-   )
-   Divider()
-   DropdownMenuItem(
-     text = { Text("Send Feedback") },
-     onClick = { /* Handle send feedback! */ }
-   )
- }
-}
-```
 ## Glide Image
 implementation("com.github.bumptech.glide:compose:1.0.0-beta01")
 ```kotlin
