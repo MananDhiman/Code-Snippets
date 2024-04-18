@@ -5,9 +5,13 @@ a tour of go, go by example
 # Data Types
 Numbers: integer, uint, float, complex
 default types: bool, string, int, uint32, byte, rune, float64, complex
+const can be character, string, boolean, numeric
 ```go
 var name string // ""
 var age uint // 0
+
+const Pi = 3.14 // cannot use :=
+const txt = "Hello There"
 
 // printf
 // %v - generic type
@@ -17,6 +21,7 @@ var age uint // 0
 // %t - boolean
 fmt.Printf("%T",PI) // prints data type
 ```
+
 # Basic Go Program
 ```go
 package main
@@ -53,6 +58,21 @@ if length := getLength(x); length <= 1 {
   // length variable available only inside if block
 }
 ```
+
+# For Loop
+```go
+
+for i:=0; i<100; i++ {
+  // do stuff
+}
+
+// loop over array / slice
+ar := make([]string, 0)
+for index, value := range ar {
+  println(v)
+}
+```
+
 # Array / Slice
 Almost always slice is used
 ```go
@@ -71,6 +91,8 @@ myslice := make([]int, init_size)
 
 // get length
 len(slice) 
+
+arr = append(arr, value) // can be single or multiple values
 ```
 
 # Functions
@@ -124,4 +146,13 @@ func (p Person) carProp() string {
 
 p1 := Person{25,”zaza”, “accord”}
 fmt.Println(p1.carProp())
+```
+
+String methods
+```go
+// ascii to string
+str := string(rune(asci))
+
+// string contains
+strings.Contains(haystack, needle) // returns bool
 ```
