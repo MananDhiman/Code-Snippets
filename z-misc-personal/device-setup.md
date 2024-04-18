@@ -30,8 +30,8 @@ obs-studio  qbittorrent qpdf syncthing torbrowser-launcher
 Dev Only
 
 ```sh
-android-tools composer go intellij-idea-community-edition jdk17-openjdk
-kotlin mariadb maven neovim nodejs-lts-hydrogen npm php php-gd postgresql
+android-tools composer go intellij-idea-community-edition jdk21-openjdk
+kotlin mariadb maven neovim nodejs-lts-iron npm php php-gd postgresql
 python python-pip
 ```
 
@@ -48,6 +48,9 @@ bluez bluez-utils "gnome-disk-utility | partitionmananger" filelight
 flameshot gpaste gnome-keyring  jdk-openjdk nodejs noto-fonts-cjk
 nfs-utils noto-fonts-extra qutebrowser midori scrcpy signal-desktop
 ```
+XFCE clipboard
+`sudo pacman -S xfce4-clipman-plugin; xfce4-popup-clipman; xfce4-clipman-history`
+
 
 ### AUR Optional
 
@@ -151,3 +154,8 @@ helix editor shortcut
 ```bat
 start "" ""D:\software\installed\helix\hx.exe"" "D:\code\Code-Snippets"
 ```
+## Mongo db do not install as service windows 
+`mongod --port 27017 --dbpath C:\MongoDB\data\db`
+
+## AVD Home if path changed for flutter or react native
+<img src="../_images/avd_home.png" />
