@@ -53,7 +53,23 @@ temporary  `PATH=$PATH:~/bin`
 
 archlinux-java built in util
 
+### Android
+Inside android sdk folder, emulator dir
 
+`emulator -list-avds`
+
+Run one of the listed emulators with -avd flag:
+`emulator -avd name-of-your-emulator`
+
+`export ANDROID_HOME=/home/manan/software/android-sdk`
+`export PATH="$PATH:$ANDROID_HOME/platform-tools"`
+
+May add to .bashrc
+
+
+## Command Alias
+`alias cs="helix -w /home/manan/code/Code-Snippets/"`
+May add to .bashrc
 
 # System Configure
 
@@ -92,6 +108,11 @@ firewall-cmd --permanent --add-port 3000/tcp # didn't work
 ```sh
 sudo fuser -k 81/udp kill port
 ```
+## Drive Mount
+Create directory /diska
+`sudo mount from to`
+`sudo mount /dev/sda1 /diska`
+
 ## File Structure
 - bin - binaries, sbin - system admin binaries (admin single user mode)
 - boot - bootloader
