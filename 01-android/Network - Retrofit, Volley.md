@@ -35,7 +35,9 @@ data class Product(var rating: String,
   var category: String?,
   var price: String?,
   var id: String?,
-  var name: String?
+  var name: String?,
+  @SerializedName("product_expiry")
+  var validTill: String
 )
 ```
 
