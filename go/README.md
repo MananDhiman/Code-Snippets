@@ -156,3 +156,40 @@ str := string(rune(asci))
 // string contains
 strings.Contains(haystack, needle) // returns bool
 ```
+
+# Data Structures
+Map
+```go
+var m map[string]int // reference type. so init to nil
+
+var numbers = make(map[int]int) // can make(map[int] int, 5) for map of size 5
+
+m = make(map[string])
+m["route"] = 66 // set value
+i := m["route"] // get value. if key not exist, we get value type's zero valuer
+n := len(m)
+delete(m, "route")
+
+for key, value := range m {
+    fmt.Println("Key:", key, "Value:", value)
+}
+
+commits := map[string]int{
+    "rsc": 3711,
+    "r":   2138,
+    "gri": 1908,
+    "adg": 912,
+}
+```
+
+Set (untested)
+```go
+set := make(map[string]bool) // New empty set
+set["Foo"] = true            // Add
+for k := range set {         // Loop
+	fmt.Println(k)
+}
+delete(set, "Foo")    // Delete
+size := len(set)      // Size
+exists := set["Foo"]  // Membership
+```
