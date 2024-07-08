@@ -113,6 +113,12 @@ Create directory /diska
 `sudo mount from to`
 `sudo mount /dev/sda1 /diska`
 
+fstab (automount drive)
+```
+original-path-or-uuid    new-path-mount-point     type
+/dev/sda1                /data                    ntfs     defaults    0 0
+```
+
 ## File Structure
 - bin - binaries, sbin - system admin binaries (admin single user mode)
 - boot - bootloader
