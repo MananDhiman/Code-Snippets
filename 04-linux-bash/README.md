@@ -66,6 +66,16 @@ Run one of the listed emulators with -avd flag:
 
 May add to .bashrc
 
+## Android
+### APK from AAB
+```
+brew install bundletool # package manager
+bundletool build-apks --mode universal --bundle ./app-release.aab --output ./app.apks
+mv app.apks app.zip
+unzip app.zip
+
+``` 
+
 
 ## Command Alias
 `alias cs="helix -w /home/manan/code/Code-Snippets/"`
@@ -285,4 +295,18 @@ ffmpeg -i input.mp4 -vn audio_only.mp3
 for f in *.mp4; do
     ffmpeg -i "$f" -vn "${f%.mp4}.mp3"
 done
+```
+
+## Laptop Battery
+```sh
+awk '{print $1*10^-6 " W"}' /sys/class/power_supply/BAT0/power_now
+```
+
+!! To be verified
+```sh
+sudo cpufreq-set -u 2.0GHz
+sudo cpufreq-set -g powersave
+
+sudo apt install tlp
+sudo systemctl enable tlp
 ```

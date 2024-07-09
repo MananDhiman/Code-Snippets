@@ -382,3 +382,17 @@ val viewModel = viewModel { MViewModel() }
 
 //  For CompPrev(viewModel())
 ```
+
+# WebView
+```kotlin
+AndroidView(factory = { context ->
+    WebView(context).apply {
+        settings.javascriptEnabled = true
+        webViewClient = WebViewClient()
+        loadUrl(url)
+    }, update = {
+        webView?.loadUrl(url)
+    }
+})
+
+```

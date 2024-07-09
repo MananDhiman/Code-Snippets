@@ -90,6 +90,10 @@ Not Found:
 gtk2 noto-fonts
 github-desktop grive ms-fonts albert*
 
+### Ubuntu fonts audio codecs
+apt install ubuntu-restricted-extras
+
+
 ## Flatpak
 ```
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
