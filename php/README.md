@@ -16,6 +16,9 @@ $i++
 --$i
 
 unset($float);  // Delete variable
+
+// string template
+echo "I drank some juice made of {$juice}s";
 ```
 
 # Strings

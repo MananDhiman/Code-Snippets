@@ -101,6 +101,21 @@ object RetrofitInstance {
 
 }
 ```
+Below code probably violates some design pattern
+```kotlin
+object RetrofitInstance {
+    private const val BASE_URL = "http://192.168.1.4/shophere/"
+
+    val colourApiInterface = Retrofit.Builder()
+        .baseUrl(BASE_URL)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+        .create(ColourApiInterface::class.java)
+}
+
+// Activity
+val response = RetrofitInstance.colourApiInterface.getColours()
+```
 
 ## MainActivity
 

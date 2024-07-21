@@ -43,8 +43,8 @@ func main() {
   // scanf is number of values entered?
   // if variables input are incorrent
   if err != nil { 
-    fmt.Println("Input Number error, Please run program again")
-    return
+ fmt.Println("Input Number error, Please run program again")
+ return
   }
 
 }
@@ -52,7 +52,7 @@ func main() {
 
 Scoped If
 ```go
-// scope of if 
+// scope of if
 // if INIT_STATEMENT; CONDITION{}  
 if length := getLength(x); length <= 1 {
   // length variable available only inside if block
@@ -99,12 +99,12 @@ arr = append(arr, value) // can be single or multiple values
 ```go
 // basic function
 func z(x int) {
- fmt.Println("No returno")
+fmt.Println("No returno")
 }
 
 // multiple return
 func sub(x int, y int) (int, string) {
-   return y - x, "Howdy"
+return y - x, "Howdy"
 }
   
 // named return. x,y is automatically initialised and returned
@@ -113,10 +113,10 @@ func get() (x, y int) {
 }
 
 func main() {
-   a, b := get(5,10)
-   fmt.Printf("%d",a)
-   fmt.Printf("%s",q)
-   z(19)
+a, b := get(5,10)
+fmt.Printf("%d",a)
+fmt.Printf("%s",q)
+z(19)
 }
 ```
 

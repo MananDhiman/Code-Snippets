@@ -1,19 +1,20 @@
-# Software List Only
+# Software List
 
-## Partitions:
+**Partitions:** /data -> /code, /software, /google-drive
 
-- /data -> /code, /software
+## Web Downloads
+**AppImage / compiled binary:**
+joplin / notesnook, redshift gui, postman, beekeeper, thunderbird
 
-- /archive -> /google-drive
+**.tar.gz :**
+android studio, vscode, sublime text
 
-**EOS Mirror Locations**
+**xampp / lampp**
+Install .run from website. /opt/lampp/etc/httpd.conf -> modify DocumentRoot
 
-india, china, taiwan, thailand, us, worldwide
 
-**No Install Apps**
-
-- GithubDesktop - flatpak / aur
-- android studio, vscode, redshift, joplin, postman, intellij, freetube, beekeeper, thunderbird (tar-sh, appimage)
+**Sublime LSP Setup:**
+Tools -> Package Control -> Install. After installed, install package lsp, and then lsp for langs
 
 ## Always Install (Pacman + yay (endeavour-os))
 
@@ -22,7 +23,7 @@ india, china, taiwan, thailand, us, worldwide
 Personal
 
 ```sh
-audacious calibre chromium firefox fish flatpak geoclue2 gimp gtk2 inkscape
+"audacious | strawberry " calibre chromium firefox flatpak geoclue2 gimp gtk2 inkscape
 kcharselect hunspell-en_gb libreoffice-fresh mpv noto-fonts noto-fonts-emoji
 obs-studio  qbittorrent qpdf syncthing torbrowser-launcher
 ```
@@ -44,8 +45,8 @@ grive ttf-ms-fonts github-desktop-bin libxcrypt-compat
 ## Pacman Optional
 
 ```
-bluez bluez-utils "gnome-disk-utility | partitionmananger" filelight
-flameshot gpaste gnome-keyring  jdk-openjdk nodejs noto-fonts-cjk
+bluez bluez-utils blueman "gnome-disk-utility | partitionmananger" "filelight | baobab"
+flameshot gpaste gnome-keyring noto-fonts-cjk
 nfs-utils noto-fonts-extra qutebrowser midori scrcpy signal-desktop
 ```
 XFCE clipboard
@@ -55,7 +56,7 @@ XFCE clipboard
 ### AUR Optional
 
 ```sh
-otpclient albert github-desktop-bin
+otpclient albert
 tk # built in python gui
 ```
 
@@ -93,6 +94,16 @@ github-desktop grive ms-fonts albert*
 ### Ubuntu fonts audio codecs
 apt install ubuntu-restricted-extras
 
+### i3 wm
+#### Clipboard
+https://github.com/erebe/greenclip (4mb exec)
+
+** config **
+`exec /data/software/linux/greenclip/greenclip daemon`
+
+`bindsym $mod+x exec rofi -modi "clipboard:/data/software/linux/greenclip/greenclip print" -show clipboard -run-command '{cmd}'`
+
+
 
 ## Flatpak
 ```
@@ -117,41 +128,6 @@ pacman -S  xdg-desktop-portal
 
 Extensions:
 ArcMenu, Clipboard Indicator, CHC-E Hot corner, Dash to Panel, No overview at startup
-
-## Install XFCE from Fedora dnf
-
-dnf config
-
-```sh
-sudo vi /etc/dnf/dnf.conf
-	max_parallel_downloads=20
-	defaultyes=True
-	fastestmirror=True
-	keepcache=True
-
-sudo hostnamectl set-hostname manan-pc
-```
-
-```sh
-sudo dnf update
-sudo dnf install xorg-x11-server-Xorg xorg-x11-xinit network-manager-applet xorg-x11-drv-libinput mesa-dri-drivers xfce4-panel xfce4-datetime-plugin xfce4-session xfce4-settings xfce4-terminal xfconf xfdesktop xfce4-appfinder xfce4-power-manager xfce4-pulseaudio-plugin pulseaudio gvfs lightdm-gtk xfwm4 NetworkManager-wifi
-
-systemctlset-default graphical.target
-systemctl enable lightdm
-```
-
-## DNF Package manager
-
-```sh
-dnf android-tools audacious calibre chromium flameshot firefox geoclue2 grive2 java-17-openjdk hunspell-en-GB gtk2 libreoffice mpv nodejs nodejs-npm qpdf syncthing torbrowser-launcher
-
-gnome-keyring
-
-gnome-disk-utility | kde-partitionmanager
-```
-
-Not found compared to pacman:
-noto-fonts ttf-ms-fonts otpclient albert
 
 # Windows
 helix editor shortcut

@@ -7,6 +7,11 @@ Comment why and not what
 **User input handling:**
 Ltrim, r trim, length limit, special chars limit
 
+
+** All string from user unsafe **
+replacing " with &quot;, replacing > with &gt;
+
+
 ## Project structure
 - Package by layer: Domain, controller, service, repository, configuration
 - by feature: product, customer, order, cart
