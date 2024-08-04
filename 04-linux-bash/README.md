@@ -12,15 +12,15 @@ useradd user
 su user # switch user # exit?
 sudo passwd user # set password
 
-man # full
-whatis # small
+man # full description
+whatis # small description
 
 which finger # path to executable
 whereis finder # all executables
 
 wget https:// # downloads
 
-less file.txt # displayes file in pages unlike cat
+less file.txt # displays file in pages unlike cat
 find <path> -name “filenamt.txt”
 
 w # logged in users
