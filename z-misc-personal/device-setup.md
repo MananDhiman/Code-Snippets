@@ -2,12 +2,14 @@
 
 **Partitions:** /data -> /code, /software, /google-drive
 
+May also mount to ~/code, ~/software, ~/google-drive
+
 ## Web Downloads
 **AppImage / compiled binary:**
-joplin / notesnook, redshift gui, postman, beekeeper, thunderbird
+joplin / notesnook, redshift gui, postman, beekeeper, thunderbird, gimp
 
 **.tar.gz :**
-android studio, vscode, sublime text
+android studio, intellij, vscode, sublime text
 
 **xampp / lampp**
 Install .run from website. /opt/lampp/etc/httpd.conf -> modify DocumentRoot
@@ -23,9 +25,9 @@ Tools -> Package Control -> Install. After installed, install package lsp, and t
 Personal
 
 ```sh
-"audacious | strawberry " calibre chromium firefox flatpak geoclue2 gimp gtk2 inkscape
+"audacious | strawberry" calibre chromium firefox flatpak geoclue2 gimp gtk2 inkscape
 kcharselect hunspell-en_gb libreoffice-fresh mpv noto-fonts noto-fonts-emoji
-obs-studio  qbittorrent qpdf syncthing torbrowser-launcher
+obs-studio  qbittorrent qpdf redshift syncthing torbrowser-launcher
 ```
 
 Dev Only
@@ -39,7 +41,7 @@ python python-pip
 ### AUR Main (yay -Syu)
 
 ```sh
-grive ttf-ms-fonts github-desktop-bin libxcrypt-compat
+dropbox grive ttf-ms-fonts github-desktop-bin libxcrypt-compat
 ```
 
 ## Pacman Optional
@@ -134,7 +136,7 @@ helix editor shortcut
 ```bat
 start "" ""D:\software\installed\helix\hx.exe"" "D:\code\Code-Snippets"
 ```
-## Mongo db do not install as service windows 
+## Mongo db do not install as service windows
 `mongod --port 27017 --dbpath C:\MongoDB\data\db`
 
 ## AVD Home if path changed for flutter or react native
