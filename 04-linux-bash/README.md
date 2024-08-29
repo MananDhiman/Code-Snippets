@@ -310,3 +310,7 @@ sudo cpufreq-set -g powersave
 sudo apt install tlp
 sudo systemctl enable tlp
 ```
+
+# System
+## Install Date
+`stat -c %w /`

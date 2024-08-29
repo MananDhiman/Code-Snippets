@@ -14,9 +14,9 @@ Live Preview
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-  JetpackComposeTheme {
-    Comp() // list fun that gen UI
-    Screen(rememberNavController(), viewModel()) // NavHostController, ViewModel
+    JetpackComposeTheme {
+        Comp() // list fun that gen UI
+        Screen(rememberNavController(), viewModel()) // NavHostController, ViewModel
   }
 }
 ```
@@ -25,92 +25,87 @@ Basics
 
 ```kotlin
 // state variable
-val count = remember {
-  mutableStateOf(0) // 0 is default value
-}
+val count = remember { mutableStateOf(0) } // 0 is default value
 
-val favourites = remember { 
-  mutableStateListOf<Track>() // list is not initialised
-}
+val favourites = remember { mutableStateListOf<Track>() } // list is not initialised
 
 var revenue by rememberSaveable { mutableStateOf(0) } // survives config changes
 
 // text
 Text(
-  text = count.value.toString(), // value // stringResource(id = R.string.s).repeat(30)
-  fontSize = 30.sp,
-  color = Color.Blue,
-  lineHeight = 50.sp,
-  modifier = Modifier
-    .background(Color.Red)
-    .padding(16.dp)
-    .background(Color.Green)
-    .align(Alignment.CenterHorizontally),
-  fontWeight = FontWeight.Bold,
-  maxLines = 2, 
-  overflow = TextOverflow.Ellipsis // Clip, Ellipsis, Visible
-  style = TextStyle(textDecoration = TextDecoration.Underline),
-  fontFamily = FontFamily.Monospace
-  
+    text = count.value.toString(), // value // stringResource(id = R.string.s).repeat(30)
+    fontSize = 30.sp,
+    color = Color.Blue,
+    lineHeight = 50.sp,
+    modifier = Modifier
+        .background(Color.Red)
+        .padding(16.dp)
+        .background(Color.Green)
+        .align(Alignment.CenterHorizontally),
+    fontWeight = FontWeight.Bold,
+    maxLines = 2, 
+    overflow = TextOverflow.Ellipsis // Clip, Ellipsis, Visible
+    style = TextStyle(textDecoration = TextDecoration.Underline),
+    fontFamily = FontFamily.Monospace
 )
 
 Text(stringResource(R.string.bill_amount))
 
 // button
 Button(
-  onClick = {
-    count.value++
-    if(name.isNotBlank()) {
-      names = names + name
-      name = ""
-    }
-  },
-  shape = RoundedCornerShape(10.dp), // CutCornerShape, CircleShape
-  colors = ButtonDefaults.buttonColors(
-	  containerColor = Color.Green,
-	  contentColor = Color.Black),
-  elevation = ButtonDefaults.buttonElevation(
-	  defaultElevation = 10.dp,
-	  pressedElevation = 6.dp
-  ),
-  border = BorderStroke(1.dp, Color.Gray)
+    onClick = {
+        count.value++
+        if(name.isNotBlank()) {
+          names = names + name
+          name = ""
+        }
+    },
+    shape = RoundedCornerShape(10.dp), // CutCornerShape, CircleShape
+    colors = ButtonDefaults.buttonColors(
+        containerColor = Color.Green,
+        contentColor = Color.Black),
+    elevation = ButtonDefaults.buttonElevation(
+        defaultElevation = 10.dp,
+        pressedElevation = 6.dp
+    ),
+    border = BorderStroke(1.dp, Color.Gray)
 ) {
-  Text(text = "SSS") // text inside button
+    Text(text = "SSS") // text inside button
 }
 
 // edit text
 OutlinedTextField( // TextField
-  value = name,
-  onValueChange = { text -> // text comes from edit text
-    name = text
-  },
-  modifier = Modifier.weight(1f), // how muc space to occupy, like linear layout
-  label = { Text(text="Lable") },
-  singleLine = true, //  condenses textbox to a single, horizontally scrollable line from multiple lines
-  maxLines = 2, // max lines display at once
-  visualTransformation = PasswordVisualTransformation()
-  leadingIcon = { Icon(painter = painterResource(id = leadingIcon), null) },
-  keyboardOptions = KeyboardOptions(
-	  keyboardType = KeyboardType.Number, // Phone
-	  imeAction = ImeAction.Next
-  ),
-  keyboardActions = KeyboardActions( onNext = { doStuff() /*focusRequester.requestFocus()*/ } ),
-  // imeAction = ImeAction.Next // Search, Send, Go (didn't work)
+    value = name,
+    onValueChange = { text -> // text comes from edit text
+        name = text
+    },
+    modifier = Modifier.weight(1f), // how muc space to occupy, like linear layout
+    label = { Text(text="Lable") },
+    singleLine = true, //  condenses textbox to a single, horizontally scrollable line from multiple lines
+    maxLines = 2, // max lines display at once
+    visualTransformation = PasswordVisualTransformation()
+        leadingIcon = { Icon(painter = painterResource(id = leadingIcon), null) },
+        keyboardOptions = KeyboardOptions(
+            keyboardType = KeyboardType.Number, // Phone
+            imeAction = ImeAction.Next
+        ),
+    keyboardActions = KeyboardActions( onNext = { doStuff() /*focusRequester.requestFocus()*/ } ),
+    // imeAction = ImeAction.Next // Search, Send, Go (didn't work)
 )
 
 // image
 Image(
-  painter = painterResource(id = R.drawable.ic_launcher_foreground),
-  contentDescription = null,
-  modifier = Modifier.background(Color.Blue).size(40.dp)
-  alpha = 0.5F, // image opacity
-  contentscale = ContentScale.crop
+    painter = painterResource(id = R.drawable.ic_launcher_foreground),
+    contentDescription = null,
+    modifier = Modifier.background(Color.Blue).size(40.dp)
+    alpha = 0.5F, // image opacity
+    contentscale = ContentScale.crop
 )
 
 Icon(
-  imageVector = Icons.Default.Add,
-  contentDescription = "add",
-  modifier = Modifier.size(54.dp)
+    imageVector = Icons.Default.Add,
+    contentDescription = "add",
+    modifier = Modifier.size(54.dp)
 )
 
 // empty space
@@ -120,81 +115,79 @@ Box (contentAlignment = )  // box is simple container like Frame layout. Inner e
 
 // column (elements vertically place)
 Column(
-  modifier = Modifier
-    .fillMaxSize()
-    .fillMaxWidth()
-    .size(400.dp)
-	.clickable { /* do click stuff. mouse scroll exception */ },
-	.combinedClickable(  
-		onClick = {  }, // clicking item takes to note detail  
-		onLongClick = {  }
-	 ) // long click for delete  
-	 .pointerInput(Unit) {
-		 detectTapGestures(
-	        onPress = { },
-	        onDoubleTap = { },
-	        onLongPress = { },
-	        onTap = { }
-	      )
-	 }
-    .verticalScroll(rememberScrollState()) // add scroll bar
-  verticalArrangement = Arrangement.SpaceBetween // Evenly,Around
-  horizontalAlignment = Alignment.CenterHorizontally
+    modifier = Modifier
+        .fillMaxSize()
+        .fillMaxWidth()
+        .size(400.dp)
+        .clickable { /* do click stuff. mouse scroll exception */},
+        .combinedClickable(  
+        	onClick = {  },
+        	onLongClick = {  }
+        ) 
+        .pointerInput(Unit) {
+            detectTapGestures(
+                onPress = { },
+                onDoubleTap = { },
+                onLongPress = { },
+                onTap = { }
+            )
+        }
+        .verticalScroll(rememberScrollState()), // add scroll bar
+    verticalArrangement = Arrangement.SpaceBetween // Evenly,Around
+    horizontalAlignment = Alignment.CenterHorizontally
 ) {
-  // fun here. all elements to display in column
+    // fun here. all elements to display in column
 }
 
 // recyclable
 LazyRow{
-  items(20) { // how many times to render items
-    // fun here. all elements to display in column
-    Icon(
-      imageVector = Icons.Default.Add,
-      contentDescription = "add",
-      modifier = Modifier.size(54.dp)
-    )
+    items(20) { // how many times to render items
+        // fun here. all elements to display in column
+        Icon(
+          imageVector = Icons.Default.Add,
+          contentDescription = "add",
+          modifier = Modifier.size(54.dp)
+        )
 
-    Divider() // partition horizontal rule
-  }
+        Divider() // partition horizontal rule
+    }
 }
 
 // iterate over items passed as list
 // import androidx.compose.foundation.lazy.items
 LazyColumn(modifier) {
-  items(names) { currentName -> // names: List<String>
-    Text(
-      text = currentName,
-      modifier = Modifier
-        .fillMaxWidth()
-        .padding(16.dp)
-    )
-    Divider()
-  }
+    items(names) { currentName -> // names: List<String>
+        Text(
+            text = currentName,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp)
+        )
+        Divider()
+    }
 
-  // single item in end
-  item { 
-    // multiple items displayed only once
-  }
+    // single item in end
+    item { 
+        // multiple items displayed only once
+    }
 }
 
 // switch or checkbox
 var roundUp by remember { mutableStateOf(false) }
 Switch(
-    checked = roundUp, // boolean
-    onCheckedChange = onRoundUpChanged, // callback (bool) -> unit
+    checked = roundUp, // boolean
+    onCheckedChange = onRoundUpChanged, // callback (bool) -> unit
 )
 
 // pass composable as function parameter
 @Composable
-fun CompFun(
- anotherComposableFunction: @Composable () -> Unit
-) {
-  anotherComposableFunction()
+fun CompFun(anotherComposableFunction: @Composable () -> Unit) {
+    anotherComposableFunction()
 }
 
 // selectable text
 SelectionContainer {
-  Text("This is text")
+    Text("This is text")
 }
 
 // context
@@ -205,16 +198,16 @@ MainActivity
 
 ```kotlin
 setContent {
-  JetpackComposeTheme {
-    Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-      Column {
-        Greeting("Android")
-        IMG("msg")
-        RV()
-        State()
-      }
+    JetpackComposeTheme {
+        Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
+            Column {
+                Greeting("Android")
+                IMG("msg")
+                RV()
+                State()
+            }
+        }
     }
-  }
 }
 ```
 
@@ -231,9 +224,7 @@ import androidx.compose.ui.graphics.Color
 Basic building block
 
 ```kotlin
-Surface(color = Color.Cyan, bottomBar = { BottomAppBar() }) {
-
-}
+Surface(color = Color.Cyan, bottomBar = { BottomAppBar() }) { }
 ```
 
 ## Modifier
@@ -258,33 +249,37 @@ NavHost(navController, startDestination = "main") {
 }
 
 fun DetailScreen(i: String?) {
-  if(i != null) {
-    val index = i.toInt()
-  }
+    if(i != null) {
+        val index = i.toInt()
+    }
 }
-```
+
+navController.navigateUp() // go back
+// instead of popBackStack(), use navigateUp()
+// if back clicked many times, then may reach empty screen which doesn’t exist. navigateUp is screen aware
 
 ```
-```
+
+
 ```kotlin
 @Composable
 fun CuteDogPicturesApp() {
-  val navController = rememberNavController()
-  NavHost(navController, startDestination = "feed", modifier = Modifier) {
-    composable(route = "feed") {
-      FeedScreen(navController)
+    val navController = rememberNavController()
+    NavHost(navController, startDestination = "feed", modifier = Modifier) {
+        composable(route = "feed") {
+            FeedScreen(navController)
+        }
+        composable(route = "adopt") {
+            AdoptionScreen()
+        }
     }
-    composable(route = "adopt") {
-      AdoptionScreen()
-    }
-  }
 }
 
 @Composable
 fun FeedScreen(navController: NavController) {
-  Button(onClick = { navController.navigate("adopt") }) {
-    Text("Click me to adopt!")
-  }
+    Button(onClick = { navController.navigate("adopt") }) {
+        Text("Click me to adopt!")
+    }
 }
 
 @Composable
@@ -294,8 +289,8 @@ fun AdoptionScreen(...) { ... }
 
 // paramters
 sealed class Screen(val route: String) {
-  object Feed: Screen("feed")
-  object Adopt: Screen("dog/{dogId}/adopt")
+    object Feed: Screen("feed")
+    object Adopt: Screen("dog/{dogId}/adopt")
 }
 
 @Composable
@@ -305,19 +300,15 @@ fun AdoptionScreen(navController: NavController, dogId: String) { ... }
 # Confirm / Alert Dialog
 ```kotlin
 AlertDialog(
-  onDismissRequest = { openDialog.value = false },
-  title = { Text(text = "Dialog Title Will Show Here") },
-  text = { Text("Here is a description text of the dialog") },
-  confirmButton = { 
-    Button( 
-      onClick = { openDialog.value = false }
-    ) { Text("Confirm Button") }
-  },
-  dismissButton = {
-    Button(
-      onClick = { openDialog.value = false }
-    ) { Text("Dismiss Button") }
-  }
+    onDismissRequest = { openDialog.value = false },
+    title = { Text(text = "Dialog Title Will Show Here") },
+    text = { Text("Here is a description text of the dialog") },
+    confirmButton = { 
+        Button( onClick = { openDialog.value = false } ) { Text("Confirm Button") }
+    },
+    dismissButton = {
+        Button( onClick = { openDialog.value = false } ) { Text("Dismiss Button") }
+    }
 )
 ```
 
@@ -346,31 +337,31 @@ fun MinimalDialog(onDismissRequest: () -> Unit) {
 ```
 # DropDown on click
 ```kotlin
-val dropDownExpanded = remember {
-  mutableStateOf(false)
-}
+val dropDownExpanded = remember { mutableStateOf(false) }
 
-Column (
- Modifier.clickable { dropDownExpanded.value = !dropDownExpanded.value }
-) {
-    DropdownMenu(
-    expanded = dropDownExpanded.value,
-    onDismissRequest = { dropDownExpanded.value = false }
- ) {
-   DropdownMenuItem(
-     text = {  Text("Refresh") },
-     onClick = { /* Handle refresh! */ }
-   )
-   DropdownMenuItem(
-     text = { Text("Settings") },
-     onClick = { /* Handle settings! */ }
-   )
-   Divider()
-   DropdownMenuItem(
-     text = { Text("Send Feedback") },
-     onClick = { /* Handle send feedback! */ }
-   )
- }
+Column ( Modifier.clickable { dropDownExpanded.value = !dropDownExpanded.value } ) {
+    DropdownMenu(
+        expanded = dropDownExpanded.value,
+        onDismissRequest = { dropDownExpanded.value = false }
+    ) {
+
+        DropdownMenuItem(
+            text = { Text("Refresh") },
+            onClick = { /* Handle refresh! */ }
+        )
+
+        DropdownMenuItem(
+            text = { Text("Settings") },
+            onClick = { /* Handle settings! */ }
+        )
+
+        Divider()
+
+        DropdownMenuItem(
+            text = { Text("Send Feedback") },
+            onClick = { /* Handle send feedback! */ }
+        )
+    }   
 }
 ```
 # ViewModel

@@ -88,3 +88,16 @@ setcookie("name", $value, time() + (3600), "/");
 setcookie("name", "", time() - 3600, "/");
   
 ``` 
+
+# htaccess
+```
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-d # not a directory
+
+RewriteCond %{REQUEST_FILENAME}\.php -f # file ends with .php
+
+RewriteRule ^article/([0-9]+)/([0-9a-zA-Z_-]+) article.php?id=$1&name=$2 [NC, L]
+# ^ = anything, first final string, space separated source url
+# NC = case insensitive, l = next line condition does not depend on previous condition
+```
