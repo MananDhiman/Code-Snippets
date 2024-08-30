@@ -311,6 +311,23 @@ sudo apt install tlp
 sudo systemctl enable tlp
 ```
 
+### show battery stats
+`sudo tlp-stat -b`
+
+## config tlp
+```
+cat /sys/class/power_supply/BAT0/
+
+sudo nano /etc/tlp.conf
+```
+
+## brightntess
+```
+brightnessctl set 5%-
+brightnessctl set 5%+
+```
+
+
 # System
 ## Install Date
 `stat -c %w /`

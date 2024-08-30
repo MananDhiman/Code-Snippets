@@ -23,3 +23,28 @@ do
 	sleep 25
 done
 ```
+
+# Laptop Battery Stats
+```sh
+i=1
+sum=0
+time_interval=3			# can modify as need
+
+while true
+do
+
+curr=$(cat /sys/class/power_supply/BAT0/power_now) # output example (mW): 3290000
+
+# to get output in Wh
+curr=$(($curr/10000)) 		# remove least significant places (redundant 0)
+curr_decimal="${curr:0-2}"	# get decimal part
+sum=$(($sum+$curr))		# get sum to calculate running average
+curr=$(($curr/100))		# remove decimal part
+
+avg=$(($sum/$i))
+echo "Current Usage = $curr.$curr_decimal        i = $i ($(($i*$time_interval))s)     Avg = $(($sum/$i))"
+i=$(($i+1))
+
+sleep $time_interval
+done
+```

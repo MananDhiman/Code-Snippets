@@ -141,3 +141,6 @@ start "" ""D:\software\installed\helix\hx.exe"" "D:\code\Code-Snippets"
 
 ## AVD Home if path changed for flutter or react native
 <img src="../_images/avd_home.png" />
+
+## Laptop Sys sound disable
+`rmmod pcspkr ; echo "blacklist pcspkr" >>/etc/modprobe.d/blacklist.conf`
