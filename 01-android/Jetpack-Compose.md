@@ -7,17 +7,19 @@
 - function can be outside class
 - the only way to update it is by calling the same composable with new arguments.
 - Best practice to have modifier param in composable
+- Don't pass viewmodel to composable. Create State Class, and pass state obj, with data and functions
 
 Live Preview
 
 ```kotlin
-@Preview(showBackground = true)
+@Preview(showBackground = true, device = Devices.PIXEL, showSystemUi = true)
+@Preview(device = "spec:width=320dp,height=570dp,dpi=240,isRound=false,chinSize=0dp,orientation=portrait"))
 @Composable
 fun GreetingPreview() {
     JetpackComposeTheme {
         Comp() // list fun that gen UI
         Screen(rememberNavController(), viewModel()) // NavHostController, ViewModel
-  }
+    }
 }
 ```
 
@@ -189,6 +191,21 @@ fun CompFun(anotherComposableFunction: @Composable () -> Unit) {
 SelectionContainer {
     Text("This is text")
 }
+
+// radio button group
+// just have a state variable
+val s = remember { mutableIntStateOf(-1) }
+Button ( onClick = { s.intValue = 0 }, enabled = s.intValue == 0 )
+Button ( onClick = { s.intValue = 1 }, enabled = s.intValue == 1 )
+
+// slider
+Slider(
+    value = numberOfQuestions.toFloat(), // init value
+    onValueChange = { numberOfQuestions = it.toInt() },
+    steps = 3, // excluding extremes (5, x, y, z, 50)
+    valueRange = 5f..50f, // inclusive
+    modifier = Modifier.padding(16.dp),
+)
 
 // context
 val context = LocalContext.current
@@ -372,6 +389,15 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 val viewModel = viewModel { MViewModel() }  
 
 //  For CompPrev(viewModel())
+```
+
+# Focus on Element
+```kotlin
+val focusRequester = remember { FocusRequester() }
+LaunchedEffect(Unit) {
+    focusRequester.requestFocus()
+}
+TextField(Modifier.focusRequester(focusRequester))
 ```
 
 # WebView

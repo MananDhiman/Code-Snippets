@@ -297,6 +297,9 @@ for f in *.mp4; do
 done
 ```
 
+## Extract frames from gif
+`ffmpeg -i inp.gif frame_%d.png`
+
 ## Laptop Battery
 ```sh
 awk '{print $1*10^-6 " W"}' /sys/class/power_supply/BAT0/power_now

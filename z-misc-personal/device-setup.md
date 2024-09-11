@@ -6,10 +6,10 @@ May also mount to ~/code, ~/software, ~/google-drive
 
 ## Web Downloads
 **AppImage / compiled binary:**
-joplin / notesnook, redshift gui, postman, beekeeper, thunderbird, gimp
+joplin / notesnook, redshift gui, postman, beekeeper, thunderbird, gimp, nextcloud
 
 **.tar.gz :**
-android studio, intellij, vscode, sublime text
+android studio, intellij, vscode / vs-codium, sublime text
 
 **xampp / lampp**
 Install .run from website. /opt/lampp/etc/httpd.conf -> modify DocumentRoot
@@ -41,7 +41,8 @@ python python-pip
 ### AUR Main (yay -Syu)
 
 ```sh
-dropbox grive ttf-ms-fonts github-desktop-bin libxcrypt-compat
+brave-bin dropbox grive ttf-ms-fonts github-desktop-bin libxcrypt-compat
+wine wine-mono wine-gecko
 ```
 
 ## Pacman Optional

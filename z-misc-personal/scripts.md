@@ -48,3 +48,6 @@ i=$(($i+1))
 sleep $time_interval
 done
 ```
+
+# Feh Slideshow
+`feh --hide-pointer -qrzZFD 6.0 /media/USB/images`
