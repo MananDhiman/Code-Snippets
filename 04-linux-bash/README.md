@@ -271,6 +271,16 @@ sudo systemctl start bluetooth.service
 ```
 
 # Applications
+
+## Zip compress extract
+```sh
+7za x {source.zip} -o{target-dir} // x - extract
+7za a -tzip -p{PASSWORD} -mem=AES256 {target.zip} {source-dir} // a - add
+```
+
+## Linux input output
+`nano <(man ls)`
+
 ## Remove password from pdf
 
 ```sh

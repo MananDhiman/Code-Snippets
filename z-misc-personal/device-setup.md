@@ -54,6 +54,8 @@ nfs-utils noto-fonts-extra qutebrowser midori scrcpy signal-desktop
 ```
 XFCE clipboard
 `sudo pacman -S xfce4-clipman-plugin; xfce4-popup-clipman; xfce4-clipman-history`
+Extra nvidia drivers
+`sudo pacman -S --needed nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader`
 
 
 ### AUR Optional

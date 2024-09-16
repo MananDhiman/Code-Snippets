@@ -51,3 +51,21 @@ done
 
 # Feh Slideshow
 `feh --hide-pointer -qrzZFD 6.0 /media/USB/images`
+
+# .bashrc
+```sh
+alias cs='cd /data/code/Code-Snippets/; nvim'
+
+alias rd1='redshift -t 4200:4200 -b 0.85'
+alias rd2='redshift -t 3200:3200 -b 0.725'
+alias rd3='redshift -t 2600:2600 -b 0.625'
+
+alias lamps='sudo /opt/lampp/lampp start'
+alias lampst='sudo /opt/lampp/lampp stop'
+alias lampr='sudo /opt/lampp/lampp restart'
+
+alias ns='feh --hide-pointer -qrzZFD 12.0 /home/.hidden/wall'
+
+alias nd='cp {src/n.zip} {dest/n.zip}; 7za x {dest/n.zip} -o{dest/}'
+alias nu='cd {src};  7za a -tzip -p{4ch4n simple} -mem=AES256 n.zip ; cp n.zip {dest/n.zip}'
+```
