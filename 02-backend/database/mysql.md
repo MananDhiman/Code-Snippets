@@ -31,7 +31,14 @@ CREATE TABLE bands (
   id INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(255) NOT NULL,
   PRIMARY KEY (id),
-  FOREIGN KEY (band_id) REFERENCES band(id)
+);
+
+CREATE TABLE albums (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  band_id INT,
+  PRIMARY KEY(id),
+  FOREIGN KEY (band_id) REFERENCES bands(id)
 );
 
 DROP TABLE test;
@@ -108,7 +115,7 @@ SELECT id AS 'ID', name AS 'Band Name' FROM bands;
 
 -- order by
 FROM bands ORDER BY name;
-customers ORDER By country, city; -- alphabetically, first by country, then city;
+customers ORDER By country, city DESC; -- alphabetically, first by country, then city desc;
 
 -- distinct values of column
 DISTINCT name FROM albums;
@@ -146,6 +153,10 @@ WHERE CITY LIKE ‘![acf]’
 JOIN
 
 INNER / LEFT / RIGHT
+```sql
+-- basic syntax
+SELECT tbl1.col1, tbl2.col1, tbl2.col2 FROM tbl1 INNER JOIN tbl2 ON tbl1.id = tbl2.fkid;
+```
 
 ```sql
 SELECT * FROM bands JOIN albums ON bands.id = albums.band_id;
@@ -164,6 +175,10 @@ Where runs before group by
 
 ```sql
 SELECT albums FROM albums GROUP BY band_id;
+
+SELECT COUNT(id) AS 'Customer Count', country FROM customers GROUP BY country;
+SELECT category, SUM(units) AS 'total units' FROM products GROUP BY category HAVING SUM(units) > 300    ;
+
 ```
 
 MISC

@@ -67,7 +67,7 @@ Serial
 
 ### Date
 
-<img src="../_images/postgres-date-time.png">
+<img src="../../_images/postgres-date-time.png">
 
 ```sql
 CREATE TABLE customer(

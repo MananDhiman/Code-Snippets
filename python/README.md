@@ -40,6 +40,14 @@ dict = {}
 dict['key'] = value
 if i (key) in dict
 
+# get list of keys sorted by their values
+s_keys = sorted(sales, key=sales.get, reverse=True)
+
+# ordered dict
+from collections import OrderedDict
+od = OrderedDict()
+od['a'] = 1
+
 # Tuple -> elements immutable
 thistuple = ("apple", "banana", "cherry")
 ```

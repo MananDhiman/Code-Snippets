@@ -163,6 +163,21 @@ String substring()
 
 If string previously exists, string will point to same object
 
+## String Tokenizer
+```java
+StringTokenizer st = new StringTokenizer("Elephant", "AEIOUaeiou");
+while(st.hasMoreTokens()) 
+	System.out.println(st.nextToken());
+// "l ph nt" whenever finds any char match in input string, splits string
+```
+
+## String split
+```java
+for(String s1: "Elephant".split("[aeiouAEIOU]")) 
+	System.out.println(s1);
+// "l ph nt" always returns array, need to input regex
+```
+
 
 # Generics
 
