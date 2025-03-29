@@ -33,9 +33,19 @@ obs-studio  qbittorrent qpdf redshift syncthing torbrowser-launcher
 Dev Only
 
 ```sh
-android-tools composer go intellij-idea-community-edition jdk21-openjdk
+android-tools composer docker go intellij-idea-community-edition jdk21-openjdk
 kotlin mariadb maven neovim nodejs-lts-iron npm php php-gd postgresql
 python python-pip
+```
+
+Install Databases
+```sh
+sudo systemctl enable docker
+
+sudo docker run -d --name mongo-demo -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=admin -p 27017:27017 -v mongodemo:/data/db  mongo
+
+sudo docker run --name some-postgres -e POSTGRES_PASSWORD=admin -e POSTGRES_USER=admin -p 5432:5432 -d postgres
+
 ```
 
 ### AUR Main (yay -Syu)

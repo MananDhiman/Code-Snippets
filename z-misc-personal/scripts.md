@@ -69,3 +69,11 @@ alias ns='feh --hide-pointer -qrzZFD 12.0 /home/.hidden/wall'
 alias nd='cp {src/n.zip} {dest/n.zip}; 7za x {dest/n.zip} -o{dest/}'
 alias nu='cd {src};  7za a -tzip -p{4ch4n simple} -mem=AES256 n.zip ; cp n.zip {dest/n.zip}'
 ```
+
+# Timer
+https://github.com/rlue/timer
+In script 
+`lame --decode /home/manan/software/timer-0.1.7/happy.mp3 - | play -v 0.25 -`
+
+`alias tm='AUDIODRIVER=alsa /home/manan/software/timer-0.1.7/timer'`
+
