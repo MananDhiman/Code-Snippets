@@ -1,41 +1,88 @@
 # Java Spring Basics
 
-Spring init: jpa, mysql driver, web
+Spring init: jpa, mysql driver, postgresql, web
+lombok, devtools - needs configuration
 
 **application.properties**
-
+d
 ```application.properties
-spring.application.name=mysql_crud
-spring.jpa.hibernate.ddl-auto=update
+spring.jpa.hibernate.ddl-auto=update # update - creates table, none - does not
+
 spring.datasource.url=jdbc:mysql://localhost:3306/test
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver # maybe not needed
+
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+spring.datasource.url=jdbc:postgresql://localhost:5432/test
+spring.datasource.driver-class-name=org.postgresql.Driver
+
 spring.datasource.username=root
 spring.datasource.password=
-spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+
 spring.jpa.show-sql=true
 ```
 
 **Entity POJO Class**
-
+Can automatically create tables
 ```java
-@Entity
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.Data;
+
+@Data
+@Entity (name = "todo") // name is table name
 public class Todo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-
+    @Column(name = "todo_title")
     private String title;
-
-    // create constructor, empty constructor, getters, setters
+    // create empty, all args constructor, getters, setters
 }
 ```
 
 **Repository Interface (unsure what it does / just java stuff)**
 
 ```java
+import org.springframework.data.jpa.repository.JpaRepository;
+
 public interface TodoRepository extends JpaRepository<Todo, Integer> { }
 ```
 
-**Service interface**
+**Rest Controller**
+```java
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@RestController
+public class Controller {
+
+    @Autowired
+    private PersonRepository personRepository;
+
+    @GetMapping("/")
+    String hello() { return "Hello There";  }
+
+    @GetMapping("/all")
+    List<Person> getPeople() {
+        return personRepository.findAll();
+    }
+
+    public String getFoos(@RequestParam(name = "id") String id) {
+       return "ID: " + id;
+    }
+
+    @PutMapping("/todo/{id}")
+    public Todo updateTodo(@PathVariable("id") int id, @RequestBody Todo todo) {
+        return todoService.updateTodoById(id, todo);
+    }
+}
+```
+
+**Service interface (not necessary, directly inject repo into controller)**
 
 ```java
 public interface TodoService {
@@ -101,41 +148,4 @@ public class TodoServiceImpl implements TodoService{
     }
 }
 
-```
-
-**Rest Controller**
-
-```java
-@RestController
-public class TodoController {
-
-    @Autowired
-    private TodoService todoService;
-
-    @PostMapping("/todo")
-    public Todo saveTodo(@RequestBody Todo todo) {
-        return todoService.saveTodo(todo);
-    }
-
-    @GetMapping("/todo")
-    public List<Todo> getAllTodos() {
-        return todoService.fetchAllTodo();
-    }
-
-    @GetMapping("/todo/{id}")
-    public Todo getTodoById(@PathVariable("id") int id) {
-        return todoService.getTodoById(id);
-    }
-
-    @PutMapping("/todo/{id}")
-    public Todo updateTodo(@PathVariable("id") int id, @RequestBody Todo todo) {
-        return todoService.updateTodoById(id, todo);
-    }
-
-    @DeleteMapping("/todo/{id}")
-    public String deleteTodo(@PathVariable("id") int id) {
-        return todoService.deleteTodoById(id);
-    }
-
-}
 ```

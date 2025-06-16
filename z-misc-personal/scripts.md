@@ -77,3 +77,9 @@ In script
 
 `alias tm='AUDIODRIVER=alsa /home/manan/software/timer-0.1.7/timer'`
 
+# Loud beeping laptop
+`echo 'blacklist pcspkr' | sudo tee --append /etc/modprobe.d/nobeep.conf`
+OR
+`rmmod pcspkr ; echo "blacklist pcspkr" >>/etc/modprobe.d/blacklist.conf`
+OR
+delete `rm /usr/share/sounds/ubuntu/stereo/bell.ogg`

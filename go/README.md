@@ -43,8 +43,8 @@ func main() {
   // scanf is number of values entered?
   // if variables input are incorrent
   if err != nil { 
- fmt.Println("Input Number error, Please run program again")
- return
+    fmt.Println("Input Number error, Please run program again")
+    return
   }
 
 }

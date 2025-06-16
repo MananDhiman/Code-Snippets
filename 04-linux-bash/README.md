@@ -344,3 +344,7 @@ brightnessctl set 5%+
 # System
 ## Install Date
 `stat -c %w /`
+
+## Get File Number of Lines
+
+`find . -name '*.php' | xargs wc -l`

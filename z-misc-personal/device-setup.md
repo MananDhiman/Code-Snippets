@@ -34,7 +34,7 @@ Dev Only
 
 ```sh
 android-tools composer docker go intellij-idea-community-edition jdk21-openjdk
-kotlin mariadb maven neovim nodejs-lts-iron npm php php-gd postgresql
+kotlin mariadb maven neovim nodejs-lts-jod npm php php-gd postgresql
 python python-pip
 ```
 
@@ -44,13 +44,13 @@ sudo systemctl enable docker
 
 sudo docker run -d --name mongo-demo -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=admin -p 27017:27017 -v mongodemo:/data/db  mongo
 
-sudo docker run --name some-postgres -e POSTGRES_PASSWORD=admin -e POSTGRES_USER=admin -p 5432:5432 -d postgres
-
+sudo docker run --name some-postgres -e POSTGRES_PASSWORD=admin -e POSTGRES_USER=admin -p 5432:5432 -v postgres_data:/var/lib/postgresql/data -d postgres
 ```
 
 ### AUR Main (yay -Syu)
 
 ```sh
+jdtls gopls rofi-greenclip
 brave-bin dropbox grive ttf-ms-fonts github-desktop-bin libxcrypt-compat
 wine wine-mono wine-gecko
 ```
@@ -61,6 +61,7 @@ wine wine-mono wine-gecko
 bluez bluez-utils blueman "gnome-disk-utility | partitionmananger" "filelight | baobab"
 flameshot gpaste gnome-keyring noto-fonts-cjk
 nfs-utils noto-fonts-extra qutebrowser midori scrcpy signal-desktop
+yazi | kitty
 ```
 XFCE clipboard
 `sudo pacman -S xfce4-clipman-plugin; xfce4-popup-clipman; xfce4-clipman-history`
@@ -85,6 +86,11 @@ mongodb-bin mongodb-compass mongodb-tools-bin mongosh-bin
 
 - TOTP Authenticator -> com.belmoussaoui.Authenticator
 - GitHub Desktop -> io.github.shiftey.Desktop
+
+## DNF
+```sh
+sudo dnf install strawberry chromium qbittorrent docker-cli neovim java-21-openjdk neovim nodejs nodejs-npm
+```
 
 ## APT package manager
 
@@ -114,11 +120,23 @@ apt install ubuntu-restricted-extras
 https://github.com/erebe/greenclip (4mb exec)
 
 ** config **
+
+Sometimes better to use default config script, and install from pacman
+
 `exec /data/software/linux/greenclip/greenclip daemon`
 
 `bindsym $mod+x exec rofi -modi "clipboard:/data/software/linux/greenclip/greenclip print" -show clipboard -run-command '{cmd}'`
 
 
+** neovim clipboard **
+
+`sudo pacman -S xclip`
+
+Line 1 in init.lua
+vim.api.nvim_set_option("clipboard", "unnamedplus")
+
+Line 119 in init.lua
+vim.opt.clipboard = 'unnamedplus'
 
 ## Flatpak
 ```
