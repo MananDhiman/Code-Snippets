@@ -11,6 +11,15 @@ echo "$i"
 # arithmetic expression
 sum=$(($i+1))
 ```
+## Condition
+```sh
+# = and == are for string comparisons
+# -eq -lt, -le, -gt, -ge, and -ne s for numeric comparisons
+
+$a=foo
+[ "$a" = foo ]; echo "$?"       # POSIX sh
+[ "$a" == foo ]; echo "$?"      # bash-specific
+```
 
 ## Loop
 ```sh

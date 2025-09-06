@@ -64,7 +64,7 @@ plugins{
 	id("kotlin-kapt")
 }
 dependencies{
-	val roomVersion = "2.6.1"
+	val roomVersion = "2.7.2"
   implementation("androidx.room:room-runtime:$roomVersion")
   kapt("androidx.room:room-compiler:$roomVersion")
 }

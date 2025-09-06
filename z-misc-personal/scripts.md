@@ -76,6 +76,19 @@ In script
 `lame --decode /home/manan/software/timer-0.1.7/happy.mp3 - | play -v 0.25 -`
 
 `alias tm='AUDIODRIVER=alsa /home/manan/software/timer-0.1.7/timer'`
+## Timer v2
+```sh
+min=60
+time_secs=$(($1*$min))
+while [ $time_secs -ne 0 ]
+do
+    sleep $min
+    time_secs=$(($time_secs-$min))
+    echo "$(($time_secs/$min)) mins"
+done
+# sleep $time_secs
+flameshot gui
+```
 
 # Loud beeping laptop
 `echo 'blacklist pcspkr' | sudo tee --append /etc/modprobe.d/nobeep.conf`
