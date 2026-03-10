@@ -93,6 +93,9 @@ SELECT * FROM sub_categories LIMIT 2 OFFSET 1;
 -- choose columns to display
 SELECT name FROM bands;
 
+-- create new table as backup (make sure table not created)
+SELECT * INTO bands_backup FROM bands; 
+
 -- where
 WHERE release_year < 2000;
 WHERE id % 2 = 0;

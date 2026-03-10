@@ -63,6 +63,16 @@ bool(foo)
 my_set = {s for s in list}
 
 ascii_int = ord(i) # i = string of length 1
+
+# Check Type
+i = 123
+type(i)
+
+i = 123
+isinstance(i, int)
+
+isinstance(i, (float, str, set, dict))
+False
 ```
 
 # Loop
@@ -100,3 +110,43 @@ myFun(first='Geeks', mid='for', last='Geeks')
 One important thing to note is, in Python every variable name is a reference. When we pass a variable to a function, a new reference to the object is created.
 # Multiple inputs
 first,second=map(int, input().split())
+
+# Sorting
+```python
+# a.sort() modifies in place
+a = [5, 2, 3, 1, 4]
+a.sort()
+
+# returns new # desc order  
+new_l = sorted([5, 2, 3, 1, 4], reverse = True)
+
+# using key # ['a', 'Andrew', 'from', 'is', 'string', 'test', 'This']
+sorted("This is a test string from Andrew".split(), key=str.casefold)
+
+# sort by age # [('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]
+student_tuples = [
+    ('john', 'A', 15),
+    ('jane', 'B', 12),
+    ('dave', 'B', 10),
+]
+sorted(student_tuples, key=lambda student: student[2])
+```
+
+# File Handling
+```python
+filename = "txt.txt"
+with open(n, "r") as file:
+    for line in file:
+
+with open(n, "w") as file:
+    for line in ls:
+        file.write(line+'\n')
+```
+
+# Try except
+```python
+try:
+    print(x)
+except NameError:
+    print("Variable x is not defined")
+```

@@ -49,18 +49,18 @@ class Student(
 ```kotlin
 //secondary constructor
 class Student(
-  var age: Int,
-  var name: String,
-  var r_no: Int
+    var age: Int,
+    var name: String,
+    var r_no: Int
 ){
-  init{
-    //logic for primary const here
-  }
+    init{
+        //logic for primary const here
+    }
 
-  constructor(uni_r: Int): this(0,"",0){ //needs to go through primary cons anyways
-    printl("$uni_r is uni roll")
-    //full on cons here, does everything runs after primary cons
-  }
+    constructor(uni_r: Int): this(0,"",0){ //needs to go through primary cons anyways
+        printl("$uni_r is uni roll")
+        //full on cons here, does everything runs after primary cons
+    }
   //class body
 }
 ```
@@ -69,9 +69,9 @@ class Student(
 
 ```kotlin
 var speakerVolume = 2
-	get() = field  
+	get() = field
 	set(value) {
-		field = value    
+		field = value
 	}
 
 var speakerVolume = 2

@@ -1,3 +1,22 @@
+# Date Time
+```py
+import datetime
+
+# Get current date and time
+now = datetime.datetime.now()
+
+# %Y: Year (2015)
+# %m: (09)
+# %d: (17)
+# %H: 24-hour (09)
+# %M: (34)
+# %S: (35)
+formatted_time = now.strftime("Today is %Y-%m-%d and it is %H:%M:%S.")
+
+# Print the result
+print(formatted_time)
+```
+
 # GUI using tkinter
 # Basic custom
 ```python
