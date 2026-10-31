@@ -251,3 +251,8 @@ CREATE IDNEX f_l_idx ON custoemrs(last_name, f_name);
 
 ALTER TABLE customers DROP INDEX last_name_idx;
 ```
+
+## CASE WHEN If Condition
+```sql
+CASE WHEN column_name = value THEN result WHEN column_name = value2 THEN result2 ELSE other_result END
+```
