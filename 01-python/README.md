@@ -1,3 +1,10 @@
+# Create VENV
+In dir
+```
+python -m venv venvname
+source /venvname/bin/active
+```
+
 # == vs is
 The Equality operator (\=\=) is a comparison operator in Python that compare values of both the operands and checks for value equality. Whereas the '**is'** operator is the identity operator that checks whether both the operands refer to the same object or not (present in the same memory location).
 
@@ -14,12 +21,11 @@ length = len(list)
 ```
 
 # Bult in DS
-* Tuple
 ```python
 # List -> Modifiable elements, variable length
 list = []
-list.append(i)
-list.count(i)
+list.append(i) # add to last
+list.count(i) # count i in list
 
 list.pop() # removes last element
 list.pop(index) # removes element at given index
@@ -38,7 +44,7 @@ if n in set
 # Dictionary -> Key Value Pair
 dict = {}
 dict['key'] = value
-if i (key) in dict
+if i in dict: # i is key
 
 # get list of keys sorted by their values
 s_keys = sorted(sales, key=sales.get, reverse=True)
@@ -50,6 +56,40 @@ od['a'] = 1
 
 # Tuple -> elements immutable
 thistuple = ("apple", "banana", "cherry")
+```
+
+# String
+
+## Slicing
+```python
+my_str = "Hello world"
+
+print(my_str[0])  # H # string[start:stop:step]
+print(my_str[6])  # w
+print(my_str[-1]) # d
+print(my_str[1:4]) # ell
+print(my_str[:7])  # Hello w
+print(my_str[::-1]) # dlrow olleH # reverse
+```
+
+## Methods
+```python
+my_str = 'hello world'
+uppercase_my_str = my_str.upper() # my_str.lower() my_str.strip()
+my_str.isupper() my_str.islower() my_str.title()
+
+replaced_my_str = my_str.replace('hello', 'hi') # hi world
+my_str.split() # ['hello', 'world']
+
+my_list = ['hello', 'world']
+joined_my_str = ' '.join(my_list) # hello world
+
+my_str.startswith("hello") my_str.startswith("world") 
+
+world_index = my_str.find('world')
+print(world_index)  # 6
+
+my_str.count('o') # 2
 ```
 
 # Type Casting
