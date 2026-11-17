@@ -5,8 +5,11 @@ python -m venv venvname
 source /venvname/bin/active
 ```
 
-# == vs is
+# Notes 
+## == vs is
 The Equality operator (\=\=) is a comparison operator in Python that compare values of both the operands and checks for value equality. Whereas the '**is'** operator is the identity operator that checks whether both the operands refer to the same object or not (present in the same memory location).
+
+## DIR(obj)
 
 # Function
 ## default value of args

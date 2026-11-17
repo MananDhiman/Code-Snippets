@@ -90,5 +90,6 @@ df = df.fillna({"Col_name":"Value"})
 # modify
 df = df['col_name'].replace({"old_val": "new_val"})
 df['col_name'] = df['col_name'].upper()
-
+df['col_name'] = df['col_name'].astype(bool) # change data type
+df  = df.drop_duplicates()
 ```
