@@ -1,44 +1,34 @@
 # Software List
 
-**Partitions:** /data -> /code, /software, /google-drive
-
-May also mount to ~/code, ~/software, ~/google-drive
-
 ## Web Downloads
-**AppImage / compiled binary:**
-joplin / notesnook, redshift gui, postman, beekeeper, thunderbird, gimp, nextcloud
+**Appimage or zip**
 
-**.tar.gz :**
-android studio, intellij, vscode / vs-codium, sublime text
-
-**xampp / lampp**
-Install .run from website. /opt/lampp/etc/httpd.conf -> modify DocumentRoot
-
+joplin, gimp, libreoffice, vlc, sublime text, gitkraken, redshift gui, PCSX2, PPSSPP
 
 **Sublime LSP Setup:**
+
 Tools -> Package Control -> Install. After installed, install package lsp, and then lsp for langs
 
-## Always Install (Pacman + yay (endeavour-os))
+## EOS Sway (Pacman + yay)
+EOS install, get sway config from [Community Edition Github](https://github.com/EndeavourOS-Community-Editions/sway), install without desktop environment (be wary of password issue) 
 
-### Pacman Main (sudo pacman -Syu)
-
-Personal
-
+### sudo pacman -Syu
+Essential
 ```sh
-"audacious | strawberry" calibre chromium firefox flatpak geoclue2 gimp gtk2 inkscape
-kcharselect hunspell-en_gb libreoffice-fresh mpv noto-fonts noto-fonts-emoji
-obs-studio  qbittorrent qpdf redshift syncthing torbrowser-launcher
+sudo pacman -Syu strawberry qbittorrent jdk25-openjdk python-pip python-lsp-server
+
+yay -S brave-bin github-desktop-bin
+```
+Optional
+```sh
+sudo pacman -Syu gnome-disk-utility baobab calibre chromium firefox hunspell-en_gb libreoffice-fresh mpv noto-fonts noto-fonts-emoji
+
+sudo pacman -Syu android-tools docker go kotlin mariadb maven neovim nodejs-lts-krypton npm php php-gd
+
+yay -S jdtls gopls rofi-greenclip ttf-ms-fonts libxcrypt-compat
 ```
 
-Dev Only
-
-```sh
-android-tools composer docker go intellij-idea-community-edition jdk21-openjdk
-kotlin mariadb maven neovim nodejs-lts-jod npm php php-gd postgresql
-python python-pip
-```
-
-Install Databases
+**Install Databases**
 ```sh
 sudo systemctl enable docker
 
@@ -46,88 +36,6 @@ sudo docker run -d --name mongo-demo -e MONGO_INITDB_ROOT_USERNAME=admin -e MONG
 
 sudo docker run --name some-postgres -e POSTGRES_PASSWORD=admin -e POSTGRES_USER=admin -p 5432:5432 -v postgres_data:/var/lib/postgresql/data -d postgres
 ```
-
-### AUR Main (yay -Syu)
-
-```sh
-jdtls gopls rofi-greenclip
-brave-bin dropbox grive ttf-ms-fonts github-desktop-bin libxcrypt-compat
-wine wine-mono wine-gecko
-```
-
-## Pacman Optional
-
-```
-bluez bluez-utils blueman "gnome-disk-utility | partitionmananger" "filelight | baobab"
-flameshot gpaste gnome-keyring noto-fonts-cjk
-nfs-utils noto-fonts-extra qutebrowser midori scrcpy signal-desktop
-yazi | kitty
-```
-XFCE clipboard
-`sudo pacman -S xfce4-clipman-plugin; xfce4-popup-clipman; xfce4-clipman-history`
-Extra nvidia drivers
-`sudo pacman -S --needed nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader`
-
-
-### AUR Optional
-
-```sh
-otpclient albert
-tk # built in python gui
-```
-
-Dev Only
-
-```sh
-mongodb-bin mongodb-compass mongodb-tools-bin mongosh-bin
-```
-
-### Flatpak
-
-- TOTP Authenticator -> com.belmoussaoui.Authenticator
-- GitHub Desktop -> io.github.shiftey.Desktop
-
-## DNF
-```sh
-sudo dnf install strawberry chromium qbittorrent docker-cli neovim java-21-openjdk neovim nodejs nodejs-npm
-```
-
-## APT package manager
-
-```sh
-sudo apt update
-sudo apt install android-tools-adb android-tools-fastboot audacious calibre
-chromium firefox flameshot geoclue-2.0 (default-jdk) openjdk-17-jdk otpclient
-hunspell-dictionary-en-gb hunspell-en-gb libreoffice mpv python3 nodejs npm
-qbittorrent qpdf syncthing torbrowser-launcher
-
-gnome-disk-utility | partitionmanager filelight gnome-keyring qutebrowser
-```
-* sudo apt install nvidia-driver
-* sudo apt install linux-image-6.5
-Not Found:
-- grive download from github and build from source
-- noto-fonts are 'fonts-noto'
-- github-desktop use flatpak
-gtk2 noto-fonts
-github-desktop grive ms-fonts albert*
-
-### Ubuntu fonts audio codecs
-apt install ubuntu-restricted-extras
-
-### i3 wm
-#### Clipboard
-https://github.com/erebe/greenclip (4mb exec)
-
-** config **
-
-Sometimes better to use default config script, and install from pacman
-
-`exec /data/software/linux/greenclip/greenclip daemon`
-
-`bindsym $mod+x exec rofi -modi "clipboard:/data/software/linux/greenclip/greenclip print" -show clipboard -run-command '{cmd}'`
-
-
 ** neovim clipboard **
 
 `sudo pacman -S xclip`
@@ -138,40 +46,6 @@ vim.api.nvim_set_option("clipboard", "unnamedplus")
 Line 119 in init.lua
 vim.opt.clipboard = 'unnamedplus'
 
-## Flatpak
-```
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak search shiftkey
-flatpak install io.github.shiftey.Desktop
-```
-Authenticator may not have access to filesystem
-`sudo flatpak override com.belmoussaoui.Authenticator --filesystem=host`
-## Install Gnome DE From Arch CLI
-
-```sh
-sudo pacman -S gnome-shell gnome-terminal gdm (lightdm) xorg-xwayland xorg-xlsclients
-
-sudo systemctl enable gdm
-
-sudo pacman -S gnome-calculator gnome-control-center gnome-disk-utility gnome-keyring gnome-menus gnome-tweaks mutter gnome-shell-extensions
-
-yay -S gnome-browser-connector
-pacman -S  xdg-desktop-portal
-```
-
-Extensions:
-ArcMenu, Clipboard Indicator, CHC-E Hot corner, Dash to Panel, No overview at startup
-
-# Windows
-helix editor shortcut
-```bat
-start "" ""D:\software\installed\helix\hx.exe"" "D:\code\Code-Snippets"
-```
-## Mongo db do not install as service windows
-`mongod --port 27017 --dbpath C:\MongoDB\data\db`
-
-## AVD Home if path changed for flutter or react native
-<img src="../_images/avd_home.png" />
 
 ## Laptop Sys sound disable
 `rmmod pcspkr ; echo "blacklist pcspkr" >>/etc/modprobe.d/blacklist.conf`
